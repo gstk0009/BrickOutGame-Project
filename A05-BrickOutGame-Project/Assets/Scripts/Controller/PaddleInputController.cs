@@ -25,6 +25,6 @@ public class PaddleInputController : GameController
         Vector2 worldPos = camera.ScreenToWorldPoint(newAim);
         newAim = (worldPos - (Vector2)transform.position).normalized;
 
-        CallLookEvent(newAim);
+        CallAimEvent(newAim);
     }
 }
