@@ -2,7 +2,7 @@
     "name": "PaddleInputSystem",
     "maps": [
         {
-            "name": "KeyBoard",
+            "name": "KeyBoardMouse",
             "id": "75ac288a-8d36-49d0-86c3-45498618eb78",
             "actions": [
                 {
@@ -101,6 +101,11 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }
