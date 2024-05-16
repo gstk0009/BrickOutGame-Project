@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 3ff591b3de2073a41b83fdb266e1a7b0
+  productGUID: 1f9ec703c8a1220498609b9cb51d87f9
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -137,8 +137,6 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  visionOSBundleVersion: 1.0
-  tvOSBundleVersion: 1.0
   bundleVersion: 1.0
   preloadedAssets: []
   metroInputSource: 0
@@ -839,7 +837,6 @@ PlayerSettings:
   metroTileBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628, a: 0}
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628, a: 1}
   metroSplashScreenUseBackgroundColor: 0
-  syncCapabilities: 0
   platformCapabilities: {}
   metroTargetDeviceFamilies: {}
   metroFTAName: 
@@ -894,10 +891,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 9e869915-8f2d-4fbd-8792-fc39fab52f6c
+  cloudProjectId: 5bb9c4fd-22fb-4db7-8093-a8f29fe93046
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: A05-BrickOutGame-Project
+  projectName: A05-BrickOutGame-Project 2024-05-16_16-46-09
   organizationId: jeongeunji1127
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
