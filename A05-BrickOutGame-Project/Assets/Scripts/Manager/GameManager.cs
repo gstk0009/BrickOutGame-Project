@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-   public static GameManager Instance;
-
+    public static GameManager Instance;
+    public int stageNum = 1;
     private void Awake()
     {
         if (Instance == null)
@@ -15,5 +15,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(Instance);
         }
+        stageNum = 1;
     }
 }
