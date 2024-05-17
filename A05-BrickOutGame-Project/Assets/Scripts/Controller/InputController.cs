@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PaddleInputController : GameController
+public class InputController : GameController
 {
     private Camera camera;
 
@@ -19,7 +19,7 @@ public class PaddleInputController : GameController
         CallMoveEvent(moveInput);
     }
 
-    public void OnLook(InputValue value)
+    public void OnAim(InputValue value)
     {
         Vector2 newAim = value.Get<Vector2>();
         Vector2 worldPos = camera.ScreenToWorldPoint(newAim);
