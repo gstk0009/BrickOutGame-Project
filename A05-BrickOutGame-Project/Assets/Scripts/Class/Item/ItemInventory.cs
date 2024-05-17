@@ -12,12 +12,6 @@ public class ItemInventory : MonoBehaviour
     private List<float> itemInventorySpeed = new List<float>();
     private List<float> itemInventorySize = new List<float>();
 
-    //private void Start()
-    //{
-    //    // 아이템 생성 조건 - 일정 점수, 일정 시간 이후에 생성
-    //    //Instantiate(items).CreateItem(itemInventoryName[items.item], itemInventoryId[num], itemInventorySize[num], itemInventorySpeed[num]);
-    //}
-
     //private void Update()
     //{
     //    Debug.Log(itemInventoryName[0]);
