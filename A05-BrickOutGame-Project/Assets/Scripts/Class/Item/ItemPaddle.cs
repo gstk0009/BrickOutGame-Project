@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class ItemPaddle : Item
 {
+    private ItemPaddle itemPaddle;
+
     protected override void Awake()
     {
         base.Awake();
-        AddItemPaddle();
+        SetItemPaddle();
     }
 
-    // Id : 1001 ~ 2000
-    public ItemPaddle(string name, int id, float speedUp, float sizeUp) : base(name, id, speedUp, sizeUp)
+    private void Start()
     {
-
     }
 
-    // Paddle 관련 아이템 ItemInventory에 추가
-    private void AddItemPaddle()
+    private void SetItemPaddle()
     {
-        inventory.GetItems(new ItemPaddle("PaddleSizeUp", 1001, 0f, 2f));
-        inventory.GetItems(new ItemPaddle("PaddleSpeedUp", 1002, 2f, 0f));
-        inventory.GetItems(new ItemPaddle("PaddleSizeDown", 1003, 0f, 0.5f));
-        inventory.GetItems(new ItemPaddle("PaddleSpeedDown", 1004, 0.5f, 0f));
+        // Instantiate(itemPaddle).
+        SetItem("PaddleSizeUp", 1001, 0f, 2f);
+        SetItem("PaddleSpeedUp", 1002, 2f, 0f);
+        SetItem("PaddlelSizeDown", 1003, 0f, 0.5f);
+        SetItem("PaddlelSpeedDown", 1004, 0.5f, 0f);
     }
 }
