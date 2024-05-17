@@ -26,7 +26,7 @@ public class LevelManager : ObjectPoolManager
         }
     }
 
-    protected void Level1()
+    private void Level1()
     {
         float posX = -2.8f;
         float posY = 3f;

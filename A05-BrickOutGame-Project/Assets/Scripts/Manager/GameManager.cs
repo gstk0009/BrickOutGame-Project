@@ -15,5 +15,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(Instance);
         }
+        stageNum = 1;
     }
 }
