@@ -4,10 +4,12 @@ public class Brick :MonoBehaviour
 {
     [SerializeField] private int HP;
     [SerializeField] private int Score;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private BrickUI brickUI;
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         brickUI = GetComponent<BrickUI>();
         brickUI.UpdateBrickHPTxt(HP);
     }
@@ -18,7 +20,7 @@ public class Brick :MonoBehaviour
         if (HP <= 0 )
         {
             HP = 0;
-            // TODO ::  AddScore(Score) & 오브젝트풀 끄기
+            gameObject.SetActive(false);
         }
         brickUI.UpdateBrickHPTxt( HP );
     }
@@ -27,5 +29,21 @@ public class Brick :MonoBehaviour
     {
         // TODO :: 아이템 등을 사용하여 공의 데미지가 늘어났을 때 수정
         GetAttack(1);
+    }
+
+    public void SetScore(int score)
+    {
+        Score = score;
+    }
+
+    public void SetHP(int hp)
+    {
+        HP = hp;
+        brickUI.UpdateBrickHPTxt(HP);
+    }
+
+    public void SetSpriteRenderer(SpriteRenderer renderer)
+    {
+        spriteRenderer = renderer;
     }
 }
