@@ -1,0 +1,184 @@
+{
+  "bricks": [
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 100,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": true
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    },
+    {
+      "HP": 10,
+      "Score": 10,
+      "IsActive": false
+    }
+  ]
+}
