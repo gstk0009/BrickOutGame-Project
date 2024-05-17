@@ -27,6 +27,7 @@ public class BallImpactMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponent<Rigidbody2D>().velocity = BallMovementDirection;
+        if (collision.gameObject.layer == 6)
+            collision.GetComponent<Rigidbody2D>().velocity = BallMovementDirection;
     }
 }
