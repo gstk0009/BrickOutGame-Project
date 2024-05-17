@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5089370293791453814}
   - component: {fileID: 9165847662521860678}
   - component: {fileID: 3134644094055147510}
+  - component: {fileID: 4461609128557623822}
   - component: {fileID: 6763110966846513718}
   m_Layer: 0
   m_Name: Player
@@ -90,7 +91,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: KeyBoard&Mouse
   m_DefaultActionMap: KeyBoardMouse
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -116,6 +117,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcc287cd042607f4aadcf88e613506e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4461609128557623822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2561691592120336839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b0c014ce7777940a1643115e3551e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &6763110966846513718
