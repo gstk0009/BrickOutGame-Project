@@ -18,13 +18,13 @@ public class ItemInventory : MonoBehaviour
     //    //Instantiate(items).CreateItem(itemInventoryName[items.item], itemInventoryId[num], itemInventorySize[num], itemInventorySpeed[num]);
     //}
 
-    private void Update()
-    {
-        Debug.Log(itemInventoryName[0]);
-        Debug.Log(itemInventoryId[0]);
-        Debug.Log(itemInventorySpeed[0]);
-        Debug.Log(itemInventorySize[0]);
-    }
+    //private void Update()
+    //{
+    //    Debug.Log(itemInventoryName[0]);
+    //    Debug.Log(itemInventoryId[0]);
+    //    Debug.Log(itemInventorySpeed[0]);
+    //    Debug.Log(itemInventorySize[0]);
+    //}
 
     public void GetItemName(string name)
     {

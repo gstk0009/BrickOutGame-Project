@@ -7,6 +7,7 @@ using UnityEngine;
 public class ItemApplyManager : MonoBehaviour
 {
     // TODO : Ball Class와 Paddle Class 에 ItemApplyManager Class 받아오게 하기
+    // TODO : 충돌
     private ItemInventory inventory;
     private ItemCreate itemCreate;
 

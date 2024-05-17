@@ -19,7 +19,7 @@ public class ItemCreate : MonoBehaviour
     private void Start()
     {
         itemIndex = random.Next(0, inventory.ApplyItems());
-        items.GetComponent<SpriteRenderer>().sprite = itemImages[itemIndex].sprite;
+        items.GetComponent<SpriteRenderer>().color = itemImages[itemIndex].color;
 
         // 아이템 생성 조건 - 일정 점수, 일정 시간 이후에 생성
         Instantiate(items).CreateItem(
