@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 
 public class InputController : GameController
 {
-    private Camera camera;
+    private Camera cameras;
 
     public void Awake()
     {
-        camera = Camera.main;
+        cameras = Camera.main;
     }
 
     public void OnMove(InputValue value)
@@ -22,7 +22,7 @@ public class InputController : GameController
     public void OnAim(InputValue value)
     {
         Vector2 newAim = value.Get<Vector2>();
-        Vector2 worldPos = camera.ScreenToWorldPoint(newAim);
+        Vector2 worldPos = cameras.ScreenToWorldPoint(newAim);
         newAim = (worldPos - (Vector2)transform.position).normalized;
 
         CallAimEvent(newAim);

@@ -6,44 +6,88 @@ using UnityEngine;
 
 public class ItemApplyManager : MonoBehaviour
 {
+    public ItemBallApply ballApply;
+    public ItemPaddleApply paddleApply;
     // TODO : Ball Class와 Paddle Class 에 ItemApplyManager Class 받아오게 하기
     // TODO : 충돌
-    private ItemInventory inventory;
-    private ItemCreate itemCreate;
+    private Item item;
+    private Transform ballTransform;
+    private Transform paddleTransform;
 
-    private int itemIndex;
+    private float itemId;
     private float itemSpeed;
     private float itemSize;
+    
+    private float ballInitSpeed;
+    private float ballInitSizex;
+    private float ballInitSizey;
+    private float paddleInitSpeed;
+    private float paddleInitSizex;
+    private float paddleInitSizey;
 
-    private float initSpeed;
-    private float initSize;
+    private bool ballSpeed;
+    private bool ballSize;
+    private bool paddleSpeed;
+    private bool paddleSize;
 
     private void Awake()
     {
-        inventory = GetComponent<ItemInventory>();
-        itemCreate = GetComponent<ItemCreate>();
+        ballApply = ballApply.GetComponent<ItemBallApply>();
+        paddleApply = paddleApply.GetComponent<ItemPaddleApply>();
+        ballTransform = ballApply.GetComponent <Transform>();
+        paddleTransform = paddleApply.GetComponent<Transform>();
     }
 
-    private void Start()
+    // 충돌된 Item Speed 값 Ball에 적용하기
+    public float ApplyBallItemSpeed(float speed)
     {
-        itemIndex = itemCreate.GetIndexNum();
+        ballInitSpeed = speed;
+
+        itemSpeed = ballApply.SetItemSpeed();
+
+        ballSpeed = true;
+
+        return ballInitSpeed * itemSpeed;
     }
 
-    public float ApplyItemSpeed(float speed)
+    // 충돌된 Item Size 값 Ball에 적용하기
+    public void ApplyBallItemSize()
     {
-        initSpeed = speed;
+        Transform size = ballTransform;
 
-        itemSpeed = inventory.GetItemStatsSpeed(itemIndex);
+        ballInitSizex = size.localScale.x;
+        ballInitSizey = size.localScale.y;
 
-        return speed * itemSpeed;
+        itemSize = ballApply.SetItemSize();
+
+        size.localScale = new Vector2(ballInitSizex * itemSize, ballInitSizey * itemSize);
+
+        ballSize = true;
     }
 
-    public float ApplyItemSize(float size)
+    // 충돌된 Item Size 값 Paddle에 적용하기
+    public void ApplyPaddleItemSpeed()
     {
-        initSize = size;
+        paddleInitSpeed = paddleApply.SetSpeed();
 
-        itemSize = inventory.GetItemStatsSize(itemIndex);
+        itemSpeed = ballApply.SetItemSpeed();
 
-        return size * itemSize;
+        paddleSpeed = true;
+
+        paddleApply.GetSpeed(paddleInitSpeed * itemSpeed);
+    }
+
+    // 충돌된 Item Size 값 Paddle에 적용하기
+    public void ApplyPaddleItemSize()
+    {
+        Transform size = paddleTransform;
+        paddleInitSizex = size.localScale.x;
+        paddleInitSizey = size.localScale.y;
+
+        itemSize = ballApply.SetItemSize();
+
+        size.localScale = new Vector2(paddleInitSizex * itemSize, paddleInitSizey);
+
+        paddleSize = true;
     }
 }

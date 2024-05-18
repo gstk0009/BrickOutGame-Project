@@ -19,9 +19,9 @@ public class ItemBall : Item
 
     private void SetItemBall()
     {
-        SetItem("BallSizeUp", 1, 0f, 2f);
-        SetItem("BallSpeedUp", 2, 2f, 0f);
-        SetItem("BallSizeDown", 3, 0f, 0.5f);
-        SetItem("BallSpeedDown", 4, 0.5f, 0f);
+        SetItem("BallSizeUp", 1, 0f, 1.5f);
+        SetItem("BallSizeDown", 2, 0f, 0.8f);
+        SetItem("BallSpeedUp", 3, 1.5f, 0f);
+        SetItem("BallSpeedDown", 4, 0.8f, 0f);
     }
 }

@@ -1,11 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Brick :MonoBehaviour
 {
     [SerializeField] private int HP;
     [SerializeField] private int Score;
     [SerializeField] private SpriteRenderer spriteRenderer;
-
     private BrickUI brickUI;
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class Brick :MonoBehaviour
         if (HP <= 0 )
         {
             HP = 0;
+            GameManager.Instance.BreakBrick.Add(gameObject);
             gameObject.SetActive(false);
         }
         brickUI.UpdateBrickHPTxt( HP );
