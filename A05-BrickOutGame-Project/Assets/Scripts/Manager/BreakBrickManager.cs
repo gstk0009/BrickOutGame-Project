@@ -8,7 +8,7 @@ public class BreakBrickManager : MonoBehaviour
     private int num;
 
 
-    public void GetList(GameObject brick)
+    public void AddList(GameObject brick)
     {
         breakBrick.Add(brick);
     }
@@ -16,5 +16,15 @@ public class BreakBrickManager : MonoBehaviour
     public void RemoveList(int index)
     {
         breakBrick.RemoveAt(index);
+    }
+
+    public void SetActive(int index)
+    {
+        breakBrick[index].gameObject.SetActive(true);
+    }
+
+    public int SetIndex()
+    {
+        return breakBrick.Count;
     }
 }

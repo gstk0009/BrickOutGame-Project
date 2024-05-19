@@ -12,7 +12,7 @@ public class ItemPaddleApply : MonoBehaviour
 
     private void Awake()
     {
-        applyManager = applyManager.GetComponent<ItemApplyManager>();
+        //applyManager = applyManager.GetComponent<ItemApplyManager>();
         paddleMovement = GetComponent<PaddleMovement>();
     }
 

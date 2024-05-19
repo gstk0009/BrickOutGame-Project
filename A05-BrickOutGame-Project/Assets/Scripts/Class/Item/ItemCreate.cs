@@ -11,6 +11,7 @@ public class ItemCreate : MonoBehaviour
     private ItemInventory inventory;
     // Prefabs에 있는 Item에 Script 받아옴
     public Item items;
+    public BreakBrickManager breakBrickManager;
 
     private int itemIndex;
     private int breakBrickNum;
@@ -21,6 +22,7 @@ public class ItemCreate : MonoBehaviour
     {
         random = new System.Random();
         inventory = GetComponent<ItemInventory>();
+        breakBrickManager = breakBrickManager.GetComponent<BreakBrickManager>();
     }
     private void Start()
     {
@@ -35,7 +37,7 @@ public class ItemCreate : MonoBehaviour
             gameStartTime += Time.deltaTime;
             if (gameStartTime >= itemCreateTime)
             {
-                breakBrickNum = GameManager.Instance.BreakBrick.Count;
+                breakBrickNum = breakBrickManager.SetIndex();
                 if (breakBrickNum != 0)
                 {
                     CreateItems();
@@ -47,8 +49,8 @@ public class ItemCreate : MonoBehaviour
 
     private void CreateItems()
     {
-        //GameManager.Instance.BreakBrick[0].gameObject.SetActive(true);
-        //GameManager.Instance.BreakBrick[0].GetComponent<Transform>().localPosition = Vector2.zero;
+
+        breakBrickManager.SetActive(0);
 
         ////ItemInventory에 있는 Item 중 랜덤으로 생성
         //itemIndex = random.Next(0, inventory.ApplyItems());
@@ -62,25 +64,25 @@ public class ItemCreate : MonoBehaviour
         //// Test Ball Size
         // itemIndex = random.Next(4, 6);
 
-        // Test Ball Speed
-        itemIndex = random.Next(6, 8);
+        //// Test Ball Speed
+        //itemIndex = random.Next(6, 8);
 
-        // TODO : 지금은 편의상 Color로 지정, 추후 Sprite or Image로 변경 필요
-        items.GetComponent<SpriteRenderer>().color = itemImages[itemIndex].color;
-        // 파괴된 벽돌 위치 중 랜덤으로 생성
-        int createItemIndex = random.Next(0, breakBrickNum);
-        // 랜덤된 위치에 좌표값 가져오기
-        Vector2 createItemPosition = GameManager.Instance.BreakBrick[createItemIndex].GetComponent<Transform>().position;
+        //// TODO : 지금은 편의상 Color로 지정, 추후 Sprite or Image로 변경 필요
+        //items.GetComponent<SpriteRenderer>().color = itemImages[itemIndex].color;
+        //// 파괴된 벽돌 위치 중 랜덤으로 생성
+        //int createItemIndex = random.Next(0, breakBrickNum);
+        //// 랜덤된 위치에 좌표값 가져오기
+        //Vector2 createItemPosition = GameManager.Instance.BreakBrick[createItemIndex].GetComponent<Transform>().position;
 
-        // 아이템 생성될 때 해당 랜덤 위치로 좌표값 수정
-        items.GetComponent<Transform>().position = new Vector2(createItemPosition.x, createItemPosition.y);
+        //// 아이템 생성될 때 해당 랜덤 위치로 좌표값 수정
+        //items.GetComponent<Transform>().position = new Vector2(createItemPosition.x, createItemPosition.y);
 
-        // 아이템 생성
-        Instantiate(items).CreateItem(
-        inventory.SetItemStatsName(itemIndex), inventory.SetItemStatsId(itemIndex), inventory.SetItemStatsSpeed(itemIndex),
-        inventory.SetItemStatsSize(itemIndex));
+        //// 아이템 생성
+        //Instantiate(items).CreateItem(
+        //inventory.SetItemStatsName(itemIndex), inventory.SetItemStatsId(itemIndex), inventory.SetItemStatsSpeed(itemIndex),
+        //inventory.SetItemStatsSize(itemIndex));
 
-        // 생성 후 List에서 랜덤 선택된 Object 제거
-        GameManager.Instance.BreakBrick.RemoveAt(createItemIndex);
+        //// 생성 후 List에서 랜덤 선택된 Object 제거
+        //GameManager.Instance.BreakBrick.RemoveAt(createItemIndex);
     }
 }
