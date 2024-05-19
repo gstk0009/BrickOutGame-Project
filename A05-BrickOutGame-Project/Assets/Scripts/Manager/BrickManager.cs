@@ -34,7 +34,6 @@ public class BrickManager : MonoBehaviour
 
     public void AddList(GameObject brick)
     {
-        Debug.Log(brick);
         breakBrick.Add(brick);
     }
 
