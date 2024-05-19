@@ -6,9 +6,11 @@ public class LevelDataManager : MonoBehaviour
 {
     private ObjectPoolManager poolManager;
     private BrickDataList brickDataList;
+    [SerializeField] private BreakBrickManager brickManager;
 
     private void Awake()
     {
+        brickManager = brickManager.GetComponent<BreakBrickManager>();
         poolManager = GetComponent<ObjectPoolManager>();    
     }
     private void Start()
@@ -32,7 +34,7 @@ public class LevelDataManager : MonoBehaviour
         int idx = 0;
         for (int i = 0; i < 6; i++)
         {
-            for(int j = 0;j < 6; j++)
+            for(int j = 0; j < 6; j++)
             {
                 if (!brickDataList.bricks[idx].IsActive)
                 {
@@ -45,6 +47,7 @@ public class LevelDataManager : MonoBehaviour
                     {
                         brick.SetHP(brickDataList.bricks[idx].HP);
                         brick.SetScore(brickDataList.bricks[idx].Score);
+                        brick.GetBreakBrickManager(brickManager);
                     }
                 }
                 idx += 1;

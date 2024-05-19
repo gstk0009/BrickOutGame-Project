@@ -8,7 +8,7 @@ public class PaddleMovement : MonoBehaviour
     private GameController controller;
     private Rigidbody2D movementRigidbody;
     private Vector2 movementDirection = Vector2.zero;
-    private float speed = 10f;
+    [SerializeField]private float speed = 10f;
 
     private void Awake()
     {
@@ -35,6 +35,16 @@ public class PaddleMovement : MonoBehaviour
     {
         direction *= speed;
         movementRigidbody.velocity = direction;
+    }
+
+    public float SetPaddleSpeed()
+    {
+        return speed;
+    }
+
+    public void GetPaddleSpeed(float applySpeed)
+    {
+        speed = applySpeed;
     }
 }
 

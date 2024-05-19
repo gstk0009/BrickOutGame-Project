@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4722985403542050731}
   - component: {fileID: 5975377653733621006}
   - component: {fileID: 3159648955486392035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3005308597827372988}
   - component: {fileID: 5457148499178404684}
   - component: {fileID: 1558497301312913510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BrickHPTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 6003194991023338440}
   - component: {fileID: 768421939195541581}
   - component: {fileID: 2102156031728254043}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Brick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 0
   Score: 0
+  spriteRenderer: {fileID: 0}
 --- !u!114 &2102156031728254043
 MonoBehaviour:
   m_ObjectHideFlags: 0

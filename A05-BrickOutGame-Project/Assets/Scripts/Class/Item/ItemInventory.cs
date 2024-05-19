@@ -12,14 +12,8 @@ public class ItemInventory : MonoBehaviour
     private List<float> itemInventorySpeed = new List<float>();
     private List<float> itemInventorySize = new List<float>();
 
-    //private void Update()
-    //{
-    //    Debug.Log(itemInventoryName[0]);
-    //    Debug.Log(itemInventoryId[0]);
-    //    Debug.Log(itemInventorySpeed[0]);
-    //    Debug.Log(itemInventorySize[0]);
-    //}
-
+    // 함수명 앞에 Get : Inventory List에 추가
+    // 함수명 앞에 Set : Inventory List에서 해당 index 값 보내기
     public void GetItemName(string name)
     {
         itemInventoryName.Add(name);
@@ -45,22 +39,22 @@ public class ItemInventory : MonoBehaviour
         return itemInventoryId.Count;
     }
 
-    public string GetItemStatsName(int index)
+    public string SetItemStatsName(int index)
     {
         return itemInventoryName[index];
     }
 
-    public int GetItemStatsId(int index)
+    public int SetItemStatsId(int index)
     {
         return itemInventoryId[index];
     }
 
-    public float GetItemStatsSpeed(int index)
+    public float SetItemStatsSpeed(int index)
     {
         return itemInventorySpeed[index];
     }
 
-    public float GetItemStatsSize(int index)
+    public float SetItemStatsSize(int index)
     {
         return itemInventorySize[index];
     }

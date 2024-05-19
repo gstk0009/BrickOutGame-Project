@@ -2,22 +2,13 @@
     "name": "PaddleInputSystem",
     "maps": [
         {
-            "name": "KeyBoardMouse",
+            "name": "KeyBoard",
             "id": "75ac288a-8d36-49d0-86c3-45498618eb78",
             "actions": [
                 {
                     "name": "Move",
                     "type": "Value",
                     "id": "a2519f1b-8ddd-4cd0-ad2c-0ac1306341d2",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Aim",
-                    "type": "Value",
-                    "id": "796eefdc-f3a8-49cb-9baf-03b418ba72dc",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -90,39 +81,6 @@
                     "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "left",
-                    "id": "d2810194-4ec5-4df5-b1d0-f3118754c092",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "62789dbf-f314-4241-b128-d58fead09ca8",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "ac90d5d3-3bda-4324-a203-651f6ab20262",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard&Mouse",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
@@ -134,27 +92,6 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Mouse>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "KeyBoard&Mouse",
-            "bindingGroup": "KeyBoard&Mouse",
-            "devices": [
-                {
-                    "devicePath": "<Keyboard>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }

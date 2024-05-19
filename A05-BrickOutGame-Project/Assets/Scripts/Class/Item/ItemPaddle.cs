@@ -19,9 +19,9 @@ public class ItemPaddle : Item
     private void SetItemPaddle()
     {
         // Instantiate(itemPaddle).
-        SetItem("PaddleSizeUp", 1001, 0f, 2f);
-        SetItem("PaddleSpeedUp", 1002, 2f, 0f);
-        SetItem("PaddlelSizeDown", 1003, 0f, 0.5f);
-        SetItem("PaddlelSpeedDown", 1004, 0.5f, 0f);
+        SetItem("PaddleSizeUp", 1001, 0f, 1.5f);
+        SetItem("PaddlelSizeDown", 1002, 0f, 0.8f);
+        SetItem("PaddleSpeedUp", 1003, 1.5f, 0f);
+        SetItem("PaddlelSpeedDown", 1004, 0.8f, 0f);
     }
 }
