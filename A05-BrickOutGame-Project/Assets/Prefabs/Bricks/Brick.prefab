@@ -176,8 +176,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -317,8 +317,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 1
+  m_Size: {x: 1, y: 1.05}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -361,9 +361,9 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1.05}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
@@ -397,3 +397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brickHP: {fileID: 1558497301312913510}
+  sprites:
+  - {fileID: 21300000, guid: aee1012698e371f4cbc7cfb43d100e9c, type: 3}
+  - {fileID: 21300000, guid: 91412610d48eecb4b8c70f9baf5ff7c8, type: 3}
+  - {fileID: 21300000, guid: 9a1000f94c2352e40b77cbfdc3f310c8, type: 3}
+  - {fileID: 21300000, guid: d18a49e40304ff64f8332d11bd6b7fdf, type: 3}

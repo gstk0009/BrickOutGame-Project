@@ -1,184 +1,112 @@
 {
-  "bricks": [
+  "brickTypes": [
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 1
     },
     {
-      "HP": 100,
-      "Score": 10,
-      "IsActive": true
+      "Type": 3
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 3
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 5
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 5
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 7
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 7
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 7
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": true
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 1
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     },
     {
-      "HP": 10,
-      "Score": 10,
-      "IsActive": false
+      "Type": 2
     }
   ]
 }

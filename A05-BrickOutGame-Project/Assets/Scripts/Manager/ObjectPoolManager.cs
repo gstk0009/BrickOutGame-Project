@@ -13,7 +13,7 @@ public class ObjectPoolManager : MonoBehaviour
 
     private void SpawnPool()
     {
-        float posX = -2.75f;
+        float posX = -2.35f;
         float posY = 3f;
 
         for (int i = 0; i<6; i++)
@@ -24,10 +24,10 @@ public class ObjectPoolManager : MonoBehaviour
                 brick.transform.SetParent(gameObject.transform, false);
                 brick.transform.position = new Vector2(posX, posY);
                 pool[i, j] = brick;
-                posX += 1.1f;
+                posX += 1f;
             }
-            posX = -2.75f;
-            posY -= 0.5f;
+            posX = -2.35f;
+            posY -= 0.4f;
         }
     }
 

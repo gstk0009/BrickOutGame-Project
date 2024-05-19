@@ -5,12 +5,12 @@ using UnityEngine;
 public class LevelDataManager : MonoBehaviour
 {
     private ObjectPoolManager poolManager;
-    private BrickDataList brickDataList;
-    [SerializeField] private BreakBrickManager brickManager;
+    private BrickTypeList brickTypeList;
+    [SerializeField] private BrickManager brickManager;
 
     private void Awake()
     {
-        brickManager = brickManager.GetComponent<BreakBrickManager>();
+        brickManager = brickManager.GetComponent<BrickManager>();
         poolManager = GetComponent<ObjectPoolManager>();    
     }
     private void Start()
@@ -25,7 +25,7 @@ public class LevelDataManager : MonoBehaviour
         if (File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);
-            brickDataList = JsonUtility.FromJson<BrickDataList>(dataAsJson);
+            brickTypeList = JsonUtility.FromJson<BrickTypeList>(dataAsJson);
         }
     }
 
@@ -36,7 +36,11 @@ public class LevelDataManager : MonoBehaviour
         {
             for(int j = 0; j < 6; j++)
             {
-                if (!brickDataList.bricks[idx].IsActive)
+                // brickTypeList에서 벽돌 정보 불러오기
+                int brickType = brickTypeList.brickTypes[idx].Type;
+                var brickInfo = brickManager.BrickTypes(brickType);
+                // brickInfo 값을 통해 벽돌에 값 넣어주기
+                if (!brickManager.BrickTypes(brickType).IsActive)
                 {
                     poolManager.DisableObj(poolManager.pool[i, j]);
                 }
@@ -45,8 +49,11 @@ public class LevelDataManager : MonoBehaviour
                     Brick brick = poolManager.pool[i, j].GetComponent<Brick>();
                     if (brick != null)
                     {
-                        brick.SetHP(brickDataList.bricks[idx].HP);
-                        brick.SetScore(brickDataList.bricks[idx].Score);
+                        brick.SetHP(brickInfo.HP);
+                        brick.SetScore(brickInfo.Score);
+                        brick.SetSpriteRenderer(brickInfo.SpriteIdx);
+
+                        // 각 벽돌에 동일한 brickManager값 넣어주기
                         brick.GetBreakBrickManager(brickManager);
                     }
                 }

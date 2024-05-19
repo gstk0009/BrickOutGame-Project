@@ -11,7 +11,7 @@ public class ItemCreate : MonoBehaviour
     private ItemInventory inventory;
     // Prefabs에 있는 Item에 Script 받아옴
     public Item items;
-    public BreakBrickManager breakBrickManager;
+    public BrickManager brickManager;
 
     private int itemIndex;
     private int breakBrickNum;
@@ -22,7 +22,7 @@ public class ItemCreate : MonoBehaviour
     {
         random = new System.Random();
         inventory = GetComponent<ItemInventory>();
-        breakBrickManager = breakBrickManager.GetComponent<BreakBrickManager>();
+        brickManager = brickManager.GetComponent<BrickManager>();
     }
     private void Start()
     {
@@ -37,7 +37,7 @@ public class ItemCreate : MonoBehaviour
             gameStartTime += Time.deltaTime;
             if (gameStartTime >= itemCreateTime)
             {
-                breakBrickNum = breakBrickManager.SetIndex();
+                breakBrickNum = brickManager.SetIndex();
                 if (breakBrickNum != 0)
                 {
                     CreateItems();
@@ -50,7 +50,7 @@ public class ItemCreate : MonoBehaviour
     private void CreateItems()
     {
 
-        breakBrickManager.SetActive(0);
+        brickManager.SetActive(0);
 
         ////ItemInventory에 있는 Item 중 랜덤으로 생성
         //itemIndex = random.Next(0, inventory.ApplyItems());
