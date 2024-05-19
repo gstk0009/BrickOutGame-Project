@@ -35,7 +35,6 @@ public class BallMovement : MonoBehaviour
         // gameObject의 Layer가 Paddle인지 확인
         if (collision.gameObject.layer == 6)
         {
-            rb2d.velocity = Vector2.zero;
             rb2d.velocity = BallMovementDirection * speed;
         }
     }
