@@ -27,7 +27,7 @@ public class BallMovement : MonoBehaviour
 
     private void Move(Vector2 direction)
     {
-        BallMovementDirection = direction * speed;
+        BallMovementDirection = direction;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,7 +35,8 @@ public class BallMovement : MonoBehaviour
         // gameObject의 Layer가 Paddle인지 확인
         if (collision.gameObject.layer == 6)
         {
-            rb2d.velocity = BallMovementDirection;
+            rb2d.velocity = Vector2.zero;
+            rb2d.velocity = BallMovementDirection * speed;
         }
     }
 
@@ -44,9 +45,13 @@ public class BallMovement : MonoBehaviour
         return speed;
     }
 
+    // applySpeed = 기존 speed * itemspeed
     public void GetBallSpeed(float applySpeed)
     {
+        // 기존의 velocity 값 정규화를 시켜준 뒤 apply speed를 곱해줌
+        Vector2 nwVelocity = rb2d.velocity.normalized;
         speed = applySpeed;
+        rb2d.velocity = nwVelocity * speed;
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)

@@ -9,6 +9,7 @@ public class ItemCreate : MonoBehaviour
     [SerializeField] private SpriteRenderer[] itemImages;
     private System.Random random;
     private ItemInventory inventory;
+    // Prefabs에 있는 Item에 Script 받아옴
     public Item items;
 
     private int itemIndex;
@@ -49,20 +50,20 @@ public class ItemCreate : MonoBehaviour
         //GameManager.Instance.BreakBrick[0].gameObject.SetActive(true);
         //GameManager.Instance.BreakBrick[0].GetComponent<Transform>().localPosition = Vector2.zero;
 
-        // ItemInventory에 있는 Item 중 랜덤으로 생성
+        ////ItemInventory에 있는 Item 중 랜덤으로 생성
         //itemIndex = random.Next(0, inventory.ApplyItems());
 
-        // Test Paddle Size
+        //// Test Paddle Size
         // itemIndex = random.Next(0, 2);
 
-        // Test Paddle Speed
+        //// Test Paddle Speed
         // itemIndex = random.Next(2, 4);
 
-        // Test Ball Size
+        //// Test Ball Size
         // itemIndex = random.Next(4, 6);
 
         // Test Ball Speed
-        // itemIndex = random.Next(6, 8);
+        itemIndex = random.Next(6, 8);
 
         // TODO : 지금은 편의상 Color로 지정, 추후 Sprite or Image로 변경 필요
         items.GetComponent<SpriteRenderer>().color = itemImages[itemIndex].color;

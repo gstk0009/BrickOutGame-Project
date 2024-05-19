@@ -7,6 +7,7 @@ public class Brick :MonoBehaviour
     [SerializeField] private int HP;
     [SerializeField] private int Score;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    private BreakBrickManager breakBrickManager;
     private BrickUI brickUI;
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class Brick :MonoBehaviour
         {
             HP = 0;
             GameManager.Instance.BreakBrick.Add(gameObject);
+            breakBrickManager.GetList(gameObject);
             gameObject.SetActive(false);
         }
         brickUI.UpdateBrickHPTxt( HP );
@@ -47,5 +49,10 @@ public class Brick :MonoBehaviour
     public void SetSpriteRenderer(SpriteRenderer renderer)
     {
         spriteRenderer = renderer;
+    }
+
+    public void GetBreakBrickManager(BreakBrickManager breakBrick)
+    {
+        breakBrickManager = breakBrick;
     }
 }
