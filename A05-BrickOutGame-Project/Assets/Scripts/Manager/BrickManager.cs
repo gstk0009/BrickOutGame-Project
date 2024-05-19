@@ -11,21 +11,21 @@ public class BrickManager : MonoBehaviour
         switch(type)
         {
             case 1:
-                return (10,1,0, true);
+                return (3,10,0, true);
             case 2:
-                return (10,1,0,false);
+                return (3,10,0, false);
             case 3:
-                return (20,2,1,true);
+                return (5,20,1,true);
             case 4:
-                return (20,2,1,false);
+                return (5,20,1,false);
             case 5:
-                return (30,3,2,true);
+                return (10,30,2,true);
             case 6:
-                return (30,3,2,false);
+                return (10,30,2,false);
             case 7:
-                return (40,4,3,true);
+                return (15,40,3,true);
             case 8:
-                return (40,4,3,false);
+                return (15,40,3,false);
             default:
                 return (0, 0,0, false);
 
