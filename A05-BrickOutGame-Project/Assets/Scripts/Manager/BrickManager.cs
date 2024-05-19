@@ -48,6 +48,11 @@ public class BrickManager : MonoBehaviour
         breakBrick[index].gameObject.SetActive(true);
     }
 
+    public Vector2 SetPosition(int index)
+    {
+        return breakBrick[index].GetComponent<Transform>().position;
+    }
+
     public int SetIndex()
     {
         return breakBrick.Count;

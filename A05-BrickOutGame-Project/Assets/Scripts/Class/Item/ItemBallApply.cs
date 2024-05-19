@@ -14,7 +14,7 @@ public class ItemBallApply : MonoBehaviour
     private void Awake()
     {
         ballMovement = GetComponent<BallMovement>();
-        //applyManager = applyManager.GetComponent<ItemApplyManager>();
+        applyManager = applyManager.GetComponent<ItemApplyManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
