@@ -10,5 +10,8 @@ public class SceneChangeManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
-
+    public void GotoLobbyScene()
+    {
+        SceneManager.LoadScene("LobbyScene");
+    }
 }
