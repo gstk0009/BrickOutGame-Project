@@ -8,11 +8,11 @@ public class BallMovement : MonoBehaviour
 {
     private GameController controller;
     private Vector2 BallMovementDirection = Vector2.zero;
-    [SerializeField]private float speed = 10f;
+    [SerializeField]private float speed = 5f;
     private Rigidbody2D rb2d;
 
     private void Awake()
-    {
+    {        
         controller = GetComponent<GameController>();
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -38,14 +38,17 @@ public class BallMovement : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             rb2d.velocity = BallMovementDirection * speed;
-        }
+        }        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Invoke("ResetBall", 2f);
+        if (collision.gameObject.layer != 8)
+        {
+            Invoke("ResetBall", 2f);
+        }                
     }
-
+    
     private void ResetBall()
     {
         this.transform.position = Vector2.zero;
