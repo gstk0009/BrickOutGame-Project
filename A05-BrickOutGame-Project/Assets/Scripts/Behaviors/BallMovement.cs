@@ -33,10 +33,9 @@ public class BallMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioManager.Instance.BallCollisionAudio();
-        // gameObject의 Layer가 Paddle인지 확인
-        Debug.Log(collision.gameObject.layer);
         if (collision.gameObject.layer == 6)
         {
+            rb2d.velocity = Vector2.zero;
             rb2d.velocity = BallMovementDirection * speed;
         }
     }
@@ -55,11 +54,4 @@ public class BallMovement : MonoBehaviour
         rb2d.velocity = nwVelocity * speed;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.layer == 6)
-    //    {
-    //        rb2d.velocity = BallMovementDirection;
-    //    }
-    //}
 }
