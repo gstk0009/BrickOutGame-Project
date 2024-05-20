@@ -33,6 +33,7 @@ public class BallMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // gameObject의 Layer가 Paddle인지 확인
+        Debug.Log(collision.gameObject.layer);
         if (collision.gameObject.layer == 6)
         {
             rb2d.velocity = BallMovementDirection * speed;

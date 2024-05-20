@@ -13,7 +13,7 @@ public class PaddleMovement : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<GameController>();
-        movementRigidbody = GetComponent<Rigidbody2D>();
+        movementRigidbody = GetComponentInChildren<Rigidbody2D>();
     }
 
     private void Start()
