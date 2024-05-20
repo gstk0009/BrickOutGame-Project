@@ -3860,6 +3860,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 361687032}
+        m_TargetAssemblyTypeName: PauseBtnUI, Assembly-CSharp
+        m_MethodName: DisablePopUp
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 361687027}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1774732951
 MonoBehaviour:
   m_ObjectHideFlags: 0
