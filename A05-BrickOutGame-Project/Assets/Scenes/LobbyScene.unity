@@ -645,21 +645,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1549947125}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1173683982}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: BtnClickAudio
+      - m_Target: {fileID: 2035743813}
+        m_TargetAssemblyTypeName: PauseBtnUI, Assembly-CSharp
+        m_MethodName: PlayOnclickAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1068,9 +1056,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1173683982}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: BtnClickAudio
+      - m_Target: {fileID: 2035743813}
+        m_TargetAssemblyTypeName: PauseBtnUI, Assembly-CSharp
+        m_MethodName: PlayOnclickAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1358,9 +1346,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1173683982}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: BtnClickAudio
+      - m_Target: {fileID: 2035743813}
+        m_TargetAssemblyTypeName: PauseBtnUI, Assembly-CSharp
+        m_MethodName: PlayOnclickAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3352,9 +3340,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1173683982}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: BtnClickAudio
+      - m_Target: {fileID: 2035743813}
+        m_TargetAssemblyTypeName: PauseBtnUI, Assembly-CSharp
+        m_MethodName: PlayOnclickAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4237,9 +4225,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1173683982}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: BtnClickAudio
+      - m_Target: {fileID: 2035743813}
+        m_TargetAssemblyTypeName: PauseBtnUI, Assembly-CSharp
+        m_MethodName: PlayOnclickAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5665,9 +5653,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1173683982}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: BtnClickAudio
+      - m_Target: {fileID: 2035743813}
+        m_TargetAssemblyTypeName: PauseBtnUI, Assembly-CSharp
+        m_MethodName: PlayOnclickAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7332,6 +7320,7 @@ GameObject:
   - component: {fileID: 2035743810}
   - component: {fileID: 2035743809}
   - component: {fileID: 2035743812}
+  - component: {fileID: 2035743813}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -7434,6 +7423,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fede447ee7be4347be44b5d6eda569f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2035743813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035743807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c0c405c2918ec45b9a52c62fcb4c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2049202831
