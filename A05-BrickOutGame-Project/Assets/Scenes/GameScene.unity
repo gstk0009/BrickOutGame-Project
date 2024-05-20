@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 361687030}
   - component: {fileID: 361687029}
   - component: {fileID: 361687032}
+  - component: {fileID: 361687033}
   m_Layer: 0
   m_Name: PauseCanvas
   m_TagString: Untagged
@@ -881,6 +882,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30c0c405c2918ec45b9a52c62fcb4c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &361687033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361687027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fede447ee7be4347be44b5d6eda569f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &362403370
@@ -1355,13 +1368,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 361687027}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 361687032}
+        m_TargetAssemblyTypeName: PauseBtnUI, Assembly-CSharp
+        m_MethodName: DisablePopUp
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 361687027}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3835,13 +3848,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 361687033}
+        m_TargetAssemblyTypeName: SceneChangeManager, Assembly-CSharp
+        m_MethodName: GotoGameScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4746,7 +4759,6 @@ GameObject:
   - component: {fileID: 1947496806}
   - component: {fileID: 1947496805}
   - component: {fileID: 1947496804}
-  - component: {fileID: 1947496807}
   m_Layer: 0
   m_Name: GoToLoobyBtn
   m_TagString: Untagged
@@ -4818,13 +4830,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1947496807}
+      - m_Target: {fileID: 361687033}
         m_TargetAssemblyTypeName: SceneChangeManager, Assembly-CSharp
         m_MethodName: GotoLobbyScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 361687032}
+        m_TargetAssemblyTypeName: PauseBtnUI, Assembly-CSharp
+        m_MethodName: DisablePopUp
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 361687027}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4868,18 +4892,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947496802}
   m_CullTransparentMesh: 1
---- !u!114 &1947496807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947496802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fede447ee7be4347be44b5d6eda569f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1948230282
 GameObject:
   m_ObjectHideFlags: 0
