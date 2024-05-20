@@ -8,7 +8,7 @@ public class SceneChangeManager : MonoBehaviour
 {
    public void GotoGameScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("GameScene");
     }
 
 }
