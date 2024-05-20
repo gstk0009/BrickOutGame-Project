@@ -15,4 +15,10 @@ public class PauseBtnUI : MonoBehaviour
         Time.timeScale = 1;
         obj.SetActive(false);
     }
+
+    public void PlayOnclickAudio()
+    {
+        AudioManager.Instance.BtnClickAudio();
+    }
+
 }

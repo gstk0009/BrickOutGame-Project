@@ -7,11 +7,15 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     AudioSource audioSource;
-    public AudioClip clip;
+    [SerializeField] private AudioClip backGroundAudio;
+    [SerializeField] private AudioClip btnClickAudio;
+    [SerializeField] private AudioClip brickAudio;
+    [SerializeField] private AudioClip GameClearAudio;
+    [SerializeField] private AudioClip GameOverAudio;
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -25,7 +29,22 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = this.clip;
+        PlayBackGroundAudio();
+    }
+
+    private void PlayBackGroundAudio()
+    {
+        audioSource.clip = this.backGroundAudio;
         audioSource.Play();
+    }
+
+    public void BtnClickAudio()
+    {
+        audioSource.PlayOneShot(this.btnClickAudio);
+    }
+
+    public void BallCollisionAudio()
+    {
+        audioSource.PlayOneShot(brickAudio);
     }
 }
