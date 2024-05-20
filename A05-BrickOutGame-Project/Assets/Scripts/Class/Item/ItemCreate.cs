@@ -25,24 +25,24 @@ public class ItemCreate : MonoBehaviour
         brickManager = brickManager.GetComponent<BrickManager>();
     }
 
-    private void Update()
-    {
-        // 일정 시간마다 Item 생성 (단, 벽돌이 한 개 이상 파괴된 경우에만 생성됨)
-        // 추후 파괴된 벽돌 개수 기준, 점수 기준으로 변경 될 수도 있다.
-        if (gameStartTime < itemCreateTime)
-        {
-            gameStartTime += Time.deltaTime;
-            if (gameStartTime >= itemCreateTime)
-            {
-                breakBrickNum = brickManager.SetIndex();
-                if (breakBrickNum != 0)
-                {
-                    CreateItems();
-                }
-                gameStartTime = 0f;
-            }
-        }
-    }
+    //private void Update()
+    //{
+    //    // 일정 시간마다 Item 생성 (단, 벽돌이 한 개 이상 파괴된 경우에만 생성됨)
+    //    // 추후 파괴된 벽돌 개수 기준, 점수 기준으로 변경 될 수도 있다.
+    //    if (gameStartTime < itemCreateTime)
+    //    {
+    //        gameStartTime += Time.deltaTime;
+    //        if (gameStartTime >= itemCreateTime)
+    //        {
+    //            breakBrickNum = brickManager.SetIndex();
+    //            if (breakBrickNum != 0)
+    //            {
+    //                CreateItems();
+    //            }
+    //            gameStartTime = 0f;
+    //        }
+    //    }
+    //}
 
     private void CreateItems()
     {

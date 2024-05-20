@@ -9,7 +9,7 @@ public class BallMovement : MonoBehaviour
     private GameController controller;
     private Vector2 BallMovementDirection = Vector2.zero;
     private Vector2 worldPos = Vector2.zero;
-    [SerializeField]private float speed = 10f;
+    [SerializeField] private float speed = 10f;
     private Rigidbody2D rb2d;
 
     private void Awake()
@@ -29,6 +29,14 @@ public class BallMovement : MonoBehaviour
     private void Move(Vector2 direction)
     {
         worldPos = direction;
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 ballVelocity = rb2d.velocity;
+        if (ballVelocity.magnitude != 10f)
+            rb2d.velocity = ballVelocity.normalized * speed;
+        Debug.Log(ballVelocity.magnitude);
     }
 
     private Vector2 ApplyMovement(Vector2 worldPos)
