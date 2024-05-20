@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class BrickManager : MonoBehaviour
 {
-    private List<GameObject> breakBrick = new List<GameObject>();
+    private List<GameObject> breakBrick;
+    [SerializeField] private ScoreBoardUI scoreBoard;
+
+    private void Awake()
+    {
+        breakBrick = new List<GameObject>();
+        scoreBoard = scoreBoard.GetComponent<ScoreBoardUI>();
+    }
 
     public (int HP, int Score, int SpriteIdx, bool IsActive) BrickTypes(int type)
     {
@@ -55,5 +62,10 @@ public class BrickManager : MonoBehaviour
     public int SetIndex()
     {
         return breakBrick.Count;
+    }
+
+    public void GetBrickScore(int score)
+    {
+        scoreBoard.GetBrickScore(score);
     }
 }
