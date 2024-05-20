@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 156208050}
   - component: {fileID: 156208052}
   - component: {fileID: 156208051}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameOverTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2840556416c59f4e9f1b5a9cb2bfab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageNum: 1
+  stageNum: 3
   NowScore: 0
   BestScore: 0
 --- !u!4 &310072009
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 332878165}
   - component: {fileID: 332878164}
   - component: {fileID: 332878163}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RestartBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 352016244}
   - component: {fileID: 352016246}
   - component: {fileID: 352016245}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 361687029}
   - component: {fileID: 361687032}
   - component: {fileID: 361687033}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PauseCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1405,7 +1405,7 @@ GameObject:
   - component: {fileID: 427585766}
   - component: {fileID: 427585768}
   - component: {fileID: 427585767}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PauseTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1539,7 +1539,7 @@ GameObject:
   - component: {fileID: 436731099}
   - component: {fileID: 436731101}
   - component: {fileID: 436731100}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1734,7 +1734,7 @@ GameObject:
   - component: {fileID: 490244611}
   - component: {fileID: 490244610}
   - component: {fileID: 490244609}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ContinueBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2193,7 +2193,7 @@ GameObject:
   - component: {fileID: 540741137}
   - component: {fileID: 540741139}
   - component: {fileID: 540741138}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2268,7 +2268,7 @@ GameObject:
   - component: {fileID: 561938380}
   - component: {fileID: 561938382}
   - component: {fileID: 561938381}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2927,7 +2927,7 @@ GameObject:
   - component: {fileID: 1002898884}
   - component: {fileID: 1002898883}
   - component: {fileID: 1002898882}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GoToLoobyBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3325,7 +3325,7 @@ GameObject:
   - component: {fileID: 1107839339}
   - component: {fileID: 1107839341}
   - component: {fileID: 1107839340}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3462,7 +3462,7 @@ GameObject:
   - component: {fileID: 1144941748}
   - component: {fileID: 1144941746}
   - component: {fileID: 1144941747}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameOverCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3854,7 +3854,7 @@ GameObject:
   - component: {fileID: 1257270947}
   - component: {fileID: 1257270949}
   - component: {fileID: 1257270948}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3988,7 +3988,7 @@ GameObject:
   - component: {fileID: 1287643252}
   - component: {fileID: 1287643254}
   - component: {fileID: 1287643253}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4123,7 +4123,7 @@ GameObject:
   - component: {fileID: 1298720546}
   - component: {fileID: 1298720545}
   - component: {fileID: 1298720544}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RestartBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4578,10 +4578,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.3294876}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4592,7 +4592,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.6589746}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0.05
 --- !u!212 &1497805289
 SpriteRenderer:
@@ -4658,7 +4658,7 @@ GameObject:
   - component: {fileID: 1558442978}
   - component: {fileID: 1558442977}
   - component: {fileID: 1558442976}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LifeBoardCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5108,7 +5108,7 @@ GameObject:
   - component: {fileID: 1747727174}
   - component: {fileID: 1747727176}
   - component: {fileID: 1747727175}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5318,7 +5318,7 @@ GameObject:
   - component: {fileID: 1774732952}
   - component: {fileID: 1774732951}
   - component: {fileID: 1774732950}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RestartBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5562,7 +5562,7 @@ GameObject:
   - component: {fileID: 1857003189}
   - component: {fileID: 1857003188}
   - component: {fileID: 1857003187}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GoToLoobyBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5814,7 +5814,7 @@ GameObject:
   - component: {fileID: 1894471583}
   - component: {fileID: 1894471585}
   - component: {fileID: 1894471584}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6093,7 +6093,7 @@ GameObject:
   - component: {fileID: 1895657366}
   - component: {fileID: 1895657368}
   - component: {fileID: 1895657367}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6167,11 +6167,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1908777948}
   - component: {fileID: 1908777949}
-  - component: {fileID: 1908777947}
   - component: {fileID: 1908777945}
   - component: {fileID: 1908777944}
   - component: {fileID: 1908777943}
   - component: {fileID: 1908777942}
+  - component: {fileID: 1908777950}
   m_Layer: 6
   m_Name: Paddle
   m_TagString: Untagged
@@ -6247,33 +6247,6 @@ MonoBehaviour:
   m_DefaultActionMap: KeyBoard
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!50 &1908777947
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908777934}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!4 &1908777948
 Transform:
   m_ObjectHideFlags: 0
@@ -6325,6 +6298,33 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000006794479, y: -3.996214}
   m_Size: {x: 1.9642944, y: 0.6523829}
   m_Direction: 1
+--- !u!50 &1908777950
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908777934}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &1915364897
 GameObject:
   m_ObjectHideFlags: 0
@@ -6336,7 +6336,7 @@ GameObject:
   - component: {fileID: 1915364898}
   - component: {fileID: 1915364900}
   - component: {fileID: 1915364899}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6726,7 +6726,7 @@ GameObject:
   - component: {fileID: 1947496806}
   - component: {fileID: 1947496805}
   - component: {fileID: 1947496804}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GoToLoobyBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7028,7 +7028,7 @@ GameObject:
   - component: {fileID: 1976856981}
   - component: {fileID: 1976856983}
   - component: {fileID: 1976856982}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7161,7 +7161,7 @@ GameObject:
   - component: {fileID: 2034425048}
   - component: {fileID: 2034425046}
   - component: {fileID: 2034425047}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameClearCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7290,7 +7290,7 @@ GameObject:
   - component: {fileID: 2049386457}
   - component: {fileID: 2049386459}
   - component: {fileID: 2049386458}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameClearTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7462,7 +7462,7 @@ GameObject:
   - component: {fileID: 2053403371}
   - component: {fileID: 2053403370}
   - component: {fileID: 2053403369}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: NextStageBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7616,7 +7616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061755573}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
