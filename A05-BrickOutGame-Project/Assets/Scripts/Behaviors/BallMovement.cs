@@ -42,7 +42,11 @@ public class BallMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        ResetBall();
+        if (collision.gameObject.layer != 8)
+        {
+            Invoke("ResetBall", 2f);
+            rb2d.velocity = Vector2.down * speed;
+        }
     }
 
     private void ResetBall()
