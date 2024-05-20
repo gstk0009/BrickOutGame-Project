@@ -28,6 +28,7 @@ public class ItemCreate : MonoBehaviour
     private void Update()
     {
         // 일정 시간마다 Item 생성 (단, 벽돌이 한 개 이상 파괴된 경우에만 생성됨)
+        // 추후 파괴된 벽돌 개수 기준, 점수 기준으로 변경 될 수도 있다.
         if (gameStartTime < itemCreateTime)
         {
             gameStartTime += Time.deltaTime;
@@ -76,6 +77,8 @@ public class ItemCreate : MonoBehaviour
         inventory.SetItemStatsSize(itemIndex));
 
         // 생성 후 List에서 랜덤 선택된 Object 제거
+        // List를 1개로 벽돌을 관리할 때, 여기서 Item의 bool 값을 True로 변경
+        // 아이템이 사용되면 아이템은 Destroy로 파괴시킨다.
         brickManager.RemoveList(createItemIndex);
     }
 }

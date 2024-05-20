@@ -25,10 +25,10 @@ public class Item : MonoBehaviour
         Speed = speed;
         Size = size;
 
-        inventory.GetItemName(Name);
-        inventory.GetItemsId(Id);
-        inventory.GetItemsSpeed(Speed);
-        inventory.GetItemsSize(Size);
+        inventory.AddItemName(Name);
+        inventory.AddItemsId(Id);
+        inventory.AddItemsSpeed(Speed);
+        inventory.AddItemsSize(Size);
     }
 
     // 아이템 생성

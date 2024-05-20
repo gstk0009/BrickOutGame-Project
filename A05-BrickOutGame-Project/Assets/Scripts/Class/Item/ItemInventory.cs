@@ -14,22 +14,22 @@ public class ItemInventory : MonoBehaviour
 
     // 함수명 앞에 Get : Inventory List에 추가
     // 함수명 앞에 Set : Inventory List에서 해당 index 값 보내기
-    public void GetItemName(string name)
+    public void AddItemName(string name)
     {
         itemInventoryName.Add(name);
     }
 
-    public void GetItemsId(int id)
+    public void AddItemsId(int id)
     {
         itemInventoryId.Add(id);
     }
 
-    public void GetItemsSpeed(float speed)
+    public void AddItemsSpeed(float speed)
     {
         itemInventorySpeed.Add(speed);
     }
 
-    public void GetItemsSize(float size)
+    public void AddItemsSize(float size)
     {
         itemInventorySize.Add(size);
     }

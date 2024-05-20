@@ -8,8 +8,6 @@ public class ItemApplyManager : MonoBehaviour
 {
     public ItemBallApply ballApply;
     public ItemPaddleApply paddleApply;
-    // TODO : Ball Class와 Paddle Class 에 ItemApplyManager Class 받아오게 하기
-    // TODO : 충돌
     private Item item;
     private Transform ballTransform;
     private Transform paddleTransform;

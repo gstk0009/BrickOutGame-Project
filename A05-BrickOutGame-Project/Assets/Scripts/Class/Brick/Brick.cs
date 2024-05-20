@@ -25,6 +25,7 @@ public class Brick :MonoBehaviour
         {
             HP = 0;
             brickManager.AddList(gameObject);
+            brickManager.GetBrickScore(Score);
             gameObject.SetActive(false);
         }
         brickUI.UpdateBrickHPTxt( HP );
