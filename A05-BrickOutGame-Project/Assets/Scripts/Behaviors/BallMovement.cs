@@ -34,7 +34,7 @@ public class BallMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 ballVelocity = rb2d.velocity;
-        if (ballVelocity.magnitude != 10f)
+        if (ballVelocity.magnitude != speed)
             rb2d.velocity = ballVelocity.normalized * speed;
         Debug.Log(ballVelocity.magnitude);
     }
