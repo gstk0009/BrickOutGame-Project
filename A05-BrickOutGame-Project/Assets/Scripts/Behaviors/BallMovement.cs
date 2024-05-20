@@ -8,6 +8,7 @@ public class BallMovement : MonoBehaviour
 {
     private GameController controller;
     private Vector2 BallMovementDirection = Vector2.zero;
+    private Vector2 worldPos = Vector2.zero;
     [SerializeField]private float speed = 10f;
     private Rigidbody2D rb2d;
 
@@ -27,7 +28,13 @@ public class BallMovement : MonoBehaviour
 
     private void Move(Vector2 direction)
     {
-        BallMovementDirection = direction;
+        worldPos = direction;
+    }
+
+    private Vector2 ApplyMovement(Vector2 worldPos)
+    {
+        BallMovementDirection = (worldPos - (Vector2)transform.localPosition).normalized;
+        return BallMovementDirection;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,7 +43,7 @@ public class BallMovement : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             rb2d.velocity = Vector2.zero;
-            rb2d.velocity = BallMovementDirection * speed;
+            rb2d.velocity = ApplyMovement(worldPos) * speed;
         }
     }
 

@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 143553374}
   - component: {fileID: 143553373}
   - component: {fileID: 143553372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4578,7 +4578,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5729,7 +5729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1873173153}
   - component: {fileID: 1873173154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BallSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
