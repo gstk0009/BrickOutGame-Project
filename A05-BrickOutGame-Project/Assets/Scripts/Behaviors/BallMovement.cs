@@ -36,7 +36,6 @@ public class BallMovement : MonoBehaviour
         Vector2 ballVelocity = rb2d.velocity;
         if (ballVelocity.magnitude != speed)
             rb2d.velocity = ballVelocity.normalized * speed;
-        Debug.Log(rb2d.velocity);
     }
 
     private Vector2 ApplyMovement(Vector2 worldPos)
