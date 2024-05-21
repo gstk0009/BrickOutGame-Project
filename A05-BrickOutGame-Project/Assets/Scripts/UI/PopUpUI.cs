@@ -21,4 +21,9 @@ public class PopUpUI : MonoBehaviour
         AudioManager.Instance.BtnClickAudio();
     }
 
+    public void PlayBackAudio()
+    {
+        AudioManager.Instance.PlayBackGroundAudio();
+    }
+
 }

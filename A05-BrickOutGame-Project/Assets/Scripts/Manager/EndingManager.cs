@@ -44,18 +44,21 @@ public class EndingManager : MonoBehaviour
     public void GameClear()
     {
         BossGameClearCanvas.SetActive(true);
+        AudioManager.Instance.ClearAudio();
         Time.timeScale = 0f;
     }
 
     public void StageClear()
     {
         GameClearCanvas.SetActive(true);
+        //AudioManager.Instance.ClearAudio();
         Time.timeScale = 0f;
     }
 
     public void GameOver()
     {
         GameOverCanvas.SetActive(true);
+        AudioManager.Instance.OverAudio();
         Time.timeScale = 0f;
     }
 }

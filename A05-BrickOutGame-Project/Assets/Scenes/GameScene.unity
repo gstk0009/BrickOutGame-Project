@@ -867,6 +867,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 485360422}
+        m_TargetAssemblyTypeName: PopUpUI, Assembly-CSharp
+        m_MethodName: PlayBackAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &332878164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,8 +2127,8 @@ MonoBehaviour:
   backGroundAudio: {fileID: 8300000, guid: 5a762576c7d7c5c4a80ef73c7c5f72fa, type: 3}
   btnClickAudio: {fileID: 8300000, guid: 2eea7a0bb8c3c5e4fa9bb29893983e35, type: 3}
   brickAudio: {fileID: 8300000, guid: 6de05d5a5d834344fbcdb3ac8fa143ee, type: 3}
-  GameClearAudio: {fileID: 8300000, guid: 71330e65a81bf224a88a76fb991a0e86, type: 3}
-  GameOverAudio: {fileID: 8300000, guid: 4833d3add5b473f4fbededa62c208e33, type: 3}
+  GameClearAudio: {fileID: 8300000, guid: 29f31fb803cd09d47bbc49427f7bfb0b, type: 3}
+  GameOverAudio: {fileID: 8300000, guid: d9295bda9f76ef143b29007d42ee94d5, type: 3}
 --- !u!4 &533009517
 Transform:
   m_ObjectHideFlags: 0
@@ -2889,6 +2901,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 485360422}
+        m_TargetAssemblyTypeName: PopUpUI, Assembly-CSharp
+        m_MethodName: PlayBackAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &950504764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3341,6 +3365,18 @@ MonoBehaviour:
       - m_Target: {fileID: 485360421}
         m_TargetAssemblyTypeName: SceneChangeManager, Assembly-CSharp
         m_MethodName: GotoLobbyScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 485360422}
+        m_TargetAssemblyTypeName: PopUpUI, Assembly-CSharp
+        m_MethodName: PlayBackAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4545,6 +4581,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 485360422}
+        m_TargetAssemblyTypeName: PopUpUI, Assembly-CSharp
+        m_MethodName: PlayBackAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1298720545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5402,6 +5450,18 @@ MonoBehaviour:
       - m_Target: {fileID: 485360421}
         m_TargetAssemblyTypeName: SceneChangeManager, Assembly-CSharp
         m_MethodName: GotoGameScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 485360422}
+        m_TargetAssemblyTypeName: PopUpUI, Assembly-CSharp
+        m_MethodName: PlayBackAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6302,6 +6362,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 485360422}
+        m_TargetAssemblyTypeName: PopUpUI, Assembly-CSharp
+        m_MethodName: PlayBackAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1857003188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6358,7 +6430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1863014139
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8372,6 +8444,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 2034425044}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 485360422}
+        m_TargetAssemblyTypeName: PopUpUI, Assembly-CSharp
+        m_MethodName: PlayBackAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

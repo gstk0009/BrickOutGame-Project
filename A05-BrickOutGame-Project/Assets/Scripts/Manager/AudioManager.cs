@@ -32,15 +32,29 @@ public class AudioManager : MonoBehaviour
         PlayBackGroundAudio();
     }
 
-    private void PlayBackGroundAudio()
+    public void PlayBackGroundAudio()
     {
-        audioSource.clip = this.backGroundAudio;
+        audioSource.clip = backGroundAudio;
         audioSource.Play();
     }
 
     public void BtnClickAudio()
     {
-        audioSource.PlayOneShot(this.btnClickAudio);
+        audioSource.PlayOneShot(btnClickAudio);
+    }
+
+    public void ClearAudio()
+    {
+        audioSource.ignoreListenerPause = true;
+        audioSource.clip = GameClearAudio;
+        audioSource.Play();
+    }
+
+    public void OverAudio()
+    {
+        audioSource.ignoreListenerPause = true;
+        audioSource.clip = GameOverAudio;
+        audioSource.Play();
     }
 
     public void BallCollisionAudio()
