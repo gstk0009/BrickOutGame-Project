@@ -64,8 +64,6 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    
-
     public float SetBallSpeed()
     {
         return speed;
@@ -80,17 +78,4 @@ public class BallMovement : MonoBehaviour
         rb2d.velocity = nwVelocity * speed;
     }
 
-    // 1안 : velocity 의 y가 0이되면 0.05 이상으로 임의로 설정하기
-    // 2안 : 법선벡터를 활용하여 반사되게 하기
-    public Vector2 ExchangeVector(Rigidbody2D rigidbody2D)
-    {
-        Vector2 beforeVector = rigidbody2D.velocity;
-
-        return beforeVector;
-    }
-
-    public void ExchangeVelocity(Vector2 vector2)
-    {
-        
-    }
 }

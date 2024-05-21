@@ -19,8 +19,6 @@ public class EndingManager : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.layer != 8)
@@ -28,12 +26,13 @@ public class EndingManager : MonoBehaviour
             speed = rb2d.velocity.magnitude;
             life -= 1;
             Invoke("ResetBall", 2f);
+            LifeUI[life].SetActive(false);
             rb2d.velocity = Vector2.down * speed;
 
             if(life == 0)
             {
                 GameOverCanvas.SetActive(true);
-                Time.timeScale = 0;
+                Time.timeScale = 0f;
             }
         }
     }
@@ -41,6 +40,11 @@ public class EndingManager : MonoBehaviour
     private void ResetBall()
     {
         this.transform.position = Vector2.zero;
-        LifeUI[life].SetActive(false);
-    }    
+    }
+
+    public void GameClear()
+    {
+        GameClearCanvas.SetActive(true);
+        Time.timeScale = 0f;
+    }
 }

@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangeManager : MonoBehaviour
 {
+    public void GotoNextGame()
+    {
+        GameManager.Instance.stageNum += 1;
+        SceneManager.LoadScene("GameScene");
+    }
    public void GotoGameScene()
     {
         SceneManager.LoadScene("GameScene");

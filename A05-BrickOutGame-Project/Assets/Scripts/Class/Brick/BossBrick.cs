@@ -3,10 +3,7 @@ using UnityEngine;
 
 public class BossBrick : Brick
 {
-    private int MaxHP;
-
     private BossAttack bossAttack;
-    private BrickManager bossBrickManager;
 
     protected override void Awake()
     {
@@ -14,8 +11,6 @@ public class BossBrick : Brick
 
         bossAttack = GetComponent<BossAttack>();
         BossInit();
-
-        MaxHP = HP;
     }
     private void Start()
     {
@@ -24,29 +19,31 @@ public class BossBrick : Brick
 
     private void BossInit()
     {
-        SetHP(10);
+        SetHP(100);
         SetScore(100);
     }
 
+    // 보스 HP에 따라 보스 Skill 실행
     private void CheckBossHP()
     {
-        // TODO :: 조건 수정
-        if (HP == (int)(MaxHP * 0.70f) || HP == (int)(MaxHP * 0.3f))
+        // HP 70, 30 일 때  -  Blind Skill
+        if (HP == 70 || HP == 30)
         {
             bossAttack.BlindSkill();
         }
-        if  (HP <= MaxHP * 0.5f)
+        // HP 50일 때 - Shield Skill
+        if  (HP == 50)
         {
-            bossAttack.CanCreateShield();
+            bossAttack.ShieldSkill();
         }
     }
 
     private void BossDie()
     {
-        
+        // TODO :: EndingManager 연동
     }
 
-    public void GetBreakBossBrickManager(BrickManager breakBrick)
+    public void SetBreakBossBrickManager(BrickManager breakBrick)
     {
         brickManager = breakBrick;
     }

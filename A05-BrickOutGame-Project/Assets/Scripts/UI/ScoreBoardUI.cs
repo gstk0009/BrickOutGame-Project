@@ -43,10 +43,11 @@ public class ScoreBoardUI : MonoBehaviour
 
         if (lvTime[lvNum-1] > 0f)
         {
-            min = (int)lvTime[lvNum - 1] / 60;
-            sec = lvTime[lvNum - 1] % 60;
+            int totalSeconds = Mathf.RoundToInt(lvTime[lvNum - 1]);
+            min = totalSeconds / 60;
+            sec = totalSeconds % 60;
 
-            scoreboard[playTimeTxt].text = min.ToString("D1") + "Ка " + sec.ToString("N1") + " УЪ";
+            scoreboard[playTimeTxt].text = min.ToString("00") + " : " + sec.ToString("00");
         }
         else if (lvTime[lvNum-1] <=0)
         {
@@ -72,8 +73,8 @@ public class ScoreBoardUI : MonoBehaviour
         }
     }
 
-    public int SetBrickScore()
+    public float SetLevelPlayTime(int index)
     {
-        return 1;
+        return lvTime[index - 1];
     }
 }

@@ -1,39 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemApplyManager : MonoBehaviour
 {
     public ItemBallApply ballApply;
-    //public ItemPaddleApply paddleApply;
-    //private Item item;
     private Transform ballTransform;
-    //private Transform paddleTransform;
 
-    //private float itemId;
+    private float ApplyItemTime = 5f;
     private float itemSpeed;
     private float itemSize;
     
     private float ballInitSpeed;
     private float ballInitSizex;
     private float ballInitSizey;
-    //private float paddleInitSpeed;
-    //private float paddleInitSizex;
-    //private float paddleInitSizey;
 
-    private bool ballSpeed;
-    private bool ballSize;
-    //private bool paddleSpeed;
-    //private bool paddleSize;
+    private bool isUseItemSize = false;
 
     private void Awake()
     {
         ballApply = ballApply.GetComponent<ItemBallApply>();
         ballTransform = ballApply.GetComponent <Transform>();
-        //paddleApply = paddleApply.GetComponent<ItemPaddleApply>();
-        //paddleTransform = paddleApply.GetComponent<Transform>();
     }
 
     // 충돌된 Item Speed 값 Ball에 적용하기
@@ -43,7 +33,7 @@ public class ItemApplyManager : MonoBehaviour
 
         itemSpeed = ballApply.SetItemSpeed();
 
-        ballSpeed = ballApply.SetIsUseItemSpeed();
+        StartCoroutine("isUsedItemSpeed", ApplyItemTime);
 
         return ballInitSpeed * itemSpeed;
     }
@@ -60,32 +50,23 @@ public class ItemApplyManager : MonoBehaviour
 
         size.localScale = new Vector2(ballInitSizex * itemSize, ballInitSizey * itemSize);
 
-        ballSize = ballApply.SetIsUseItemSize();
+        StartCoroutine("isUsedItemSize", ApplyItemTime);
     }
 
-    // 충돌된 Item Size 값 Paddle에 적용하기
-    //public void ApplyPaddleItemSpeed()
-    //{
-    //    paddleInitSpeed = paddleApply.SetSpeed();
+    // 코루틴 : Ball Speed 관련 Item 유지 시간
+    IEnumerator isUsedItemSpeed(float time)
+    {
+        yield return new WaitForSeconds(time);
+        ballApply.GetUseItemSpeed(false, ballInitSpeed);
+    }
+    // 코루틴 : Ball Size 관련 Item 유지 시간
+    IEnumerator isUsedItemSize(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Transform size = ballTransform;
 
-    //    itemSpeed = ballApply.SetItemSpeed();
+        size.localScale = new Vector2(ballInitSizex, ballInitSizey);
 
-    //    paddleSpeed = true;
-
-    //    paddleApply.GetSpeed(paddleInitSpeed * itemSpeed);
-    //}
-
-    // 충돌된 Item Size 값 Paddle에 적용하기
-    //public void ApplyPaddleItemSize()
-    //{
-    //    Transform size = paddleTransform;
-    //    paddleInitSizex = size.localScale.x;
-    //    paddleInitSizey = size.localScale.y;
-
-    //    itemSize = ballApply.SetItemSize();
-
-    //    size.localScale = new Vector2(paddleInitSizex * itemSize, paddleInitSizey);
-
-    //    paddleSize = true;
-    //}
+        ballApply.GetIsUseItemSize(isUseItemSize);
+    }
 }

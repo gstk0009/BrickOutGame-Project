@@ -6,15 +6,15 @@ public class LevelDataManager : MonoBehaviour
 {
     private ObjectPoolManager poolManager;
     private BrickTypeList brickTypeList;
+    private int maxBrick = 0;
 
     [SerializeField] private GameObject BossBrick;
-
     [SerializeField] private BrickManager brickManager;
 
     private void Awake()
     {
         brickManager = brickManager.GetComponent<BrickManager>();
-        poolManager = GetComponent<ObjectPoolManager>();    
+        poolManager = GetComponent<ObjectPoolManager>();
     }
     private void Start()
     {
@@ -35,18 +35,19 @@ public class LevelDataManager : MonoBehaviour
     private void LevelPoolSpawn()
     {
         int idx = 0;
+        maxBrick = 0;
 
         for (int i = 0; i < 6; i++)
         {
             for(int j = 0; j < 6; j++)
             {
-                // brickTypeList¿¡¼­ º®µ¹ Á¤º¸ ºÒ·¯¿À±â
+                // brickTypeListï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
                 int brickType = brickTypeList.brickTypes[idx].Type;
                 var brickInfo = brickManager.BrickTypes(brickType);
-                // brickInfo °ªÀ» ÅëÇØ º®µ¹¿¡ °ª ³Ö¾îÁÖ±â
+                // brickInfo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ö±ï¿½
                 if (!brickManager.BrickTypes(brickType).IsActive)
                 {
-                    poolManager.DisableObj(poolManager.pool[i, j]);
+                    poolManager.DisableObj(poolManager.pool[i, j]); 
                 }
                 else
                 {
@@ -57,16 +58,19 @@ public class LevelDataManager : MonoBehaviour
                         brick.SetScore(brickInfo.Score);
                         brick.SetSpriteRenderer(brickInfo.SpriteIdx);
 
-                        // °¢ º®µ¹¿¡ µ¿ÀÏÇÑ brickManager°ª ³Ö¾îÁÖ±â
+                        // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ brickManagerï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ö±ï¿½
                         brick.GetBreakBrickManager(brickManager);
+                        maxBrick += 1;
                     }
                 }
                 idx += 1;
             }
         }
+        GameManager.Instance.GameClear.Add(maxBrick);
         if (GameManager.Instance.stageNum == 3)
         {
             Level3();
+            GameManager.Instance.GameClear.Add(maxBrick);
         }
         if (GameManager.Instance.stageNum == 4)
         {
@@ -76,6 +80,7 @@ public class LevelDataManager : MonoBehaviour
 
     private void Level3()
     {
+        maxBrick = 0;
         for (int i = 1;i < 5;i++)
         {
             for (int j= 1; j < 5; j++)
@@ -91,8 +96,9 @@ public class LevelDataManager : MonoBehaviour
                     brick.SetScore(brickInfo.Score);
                     brick.SetSpriteRenderer(brickInfo.SpriteIdx);
 
-                    // °¢ º®µ¹¿¡ µ¿ÀÏÇÑ brickManager°ª ³Ö¾îÁÖ±â
+                    // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ brickManagerï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ö±ï¿½
                     brick.GetBreakBrickManager(brickManager);
+                    maxBrick += 1;
                 }
             }
         }
@@ -100,6 +106,6 @@ public class LevelDataManager : MonoBehaviour
     private void Level4()
     {
         BossBrick.SetActive(true);
-        BossBrick.GetComponent<BossBrick>().GetBreakBossBrickManager(brickManager);
+        BossBrick.GetComponent<BossBrick>().SetBreakBossBrickManager(brickManager);
     }
 }

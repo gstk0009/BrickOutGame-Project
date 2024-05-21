@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/EunjiScene.unity
     guid: 0afb81c4913e6e04e8e9f88e5f23fce0
   - enabled: 1
     path: Assets/Scenes/LobbyScene.unity
