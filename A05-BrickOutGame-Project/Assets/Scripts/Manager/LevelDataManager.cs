@@ -58,7 +58,6 @@ public class LevelDataManager : MonoBehaviour
                         brick.SetScore(brickInfo.Score);
                         brick.SetSpriteRenderer(brickInfo.SpriteIdx);
 
-                        // �� ������ ������ brickManager�� �־��ֱ�
                         brick.GetBreakBrickManager(brickManager);
                         maxBrick += 1;
                     }
