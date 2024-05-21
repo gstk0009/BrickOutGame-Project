@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class ItemCreate : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer[] itemImages;
+    [SerializeField] private GameObject[] ItemObjects;
     [SerializeField] private BrickManager brickManager;
     private System.Random random;
     private ItemInventory inventory;
@@ -63,23 +63,24 @@ public class ItemCreate : MonoBehaviour
         //// Test Ball Speed
         //itemIndex = random.Next(2, 4);
 
-        // TODO : 지금은 편의상 Color로 지정, 추후 Sprite or Image로 변경 필요
-        items.GetComponent<SpriteRenderer>().color = itemImages[itemIndex].color;
+        // GameObject에 저장해뒀던 아이템 생성
+        GameObject item = Instantiate(ItemObjects[itemIndex]);
+
         // 파괴된 벽돌 위치 중 랜덤으로 생성
         int createItemIndex = random.Next(0, breakBrickNum);
+
         // 랜덤된 위치에 좌표값 가져오기
         Vector2 createItemPosition = brickManager.SetPosition(createItemIndex);
 
-        // 아이템 생성될 때 해당 랜덤 위치로 좌표값 수정
-        items.GetComponent<Transform>().position = new Vector2(createItemPosition.x, createItemPosition.y);
+        // 아이템 생성하고 나서 위치값 선택된 랜덤 위치의 좌표값으로 설정
+        item.transform.position = new Vector2(createItemPosition.x, createItemPosition.y);
 
-        // 아이템 생성
-        Instantiate(items).CreateItem(
+        // 아이템 수치적용
+        item.GetComponent<Item>().CreateItem(
         inventory.SetItemStatsName(itemIndex), inventory.SetItemStatsId(itemIndex), inventory.SetItemStatsSpeed(itemIndex),
         inventory.SetItemStatsSize(itemIndex));
 
         // 생성 후 List에서 랜덤 선택된 Object 제거
-        // List를 1개로 벽돌을 관리할 때, 여기서 Item의 bool 값을 True로 변경
         // 아이템이 사용되면 아이템은 Destroy로 파괴시킨다.
         brickManager.RemoveList(createItemIndex);
     }

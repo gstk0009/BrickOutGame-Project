@@ -33,15 +33,15 @@ public class ItemBallApply : MonoBehaviour
             if ((itemId == 1 || itemId == 2) && !isUseItemSize)
             {
                 isUseItemSize = true;
-                Destroy(collision.gameObject);
                 applyManager.ApplyBallItemSize();
+                Destroy(collision.gameObject);
             }
             else if ((itemId == 3 || itemId == 4) && !isUseItemSpeed)
             {
                 isUseItemSpeed = true;
-                Destroy(collision.gameObject);
                 // 현재 ball Speed를 받아와서, 아이템 Speed를 곱해준 뒤, 그걸 다시 ballMovment에 적용
                 ballMovement.GetBallSpeed(applyManager.ApplyBallItemSpeed(ballMovement.SetBallSpeed()));
+                Destroy(collision.gameObject);
             }
         }
     }

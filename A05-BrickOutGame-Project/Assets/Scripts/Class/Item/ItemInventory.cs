@@ -11,8 +11,6 @@ public class ItemInventory : MonoBehaviour
     private List<int> itemInventoryId = new List<int>();
     private List<float> itemInventorySpeed = new List<float>();
     private List<float> itemInventorySize = new List<float>();
-    private List<bool> itemInventoryisUseSpeed = new List<bool>();
-    private List<bool> itemInventoryisUseSize = new List<bool>();
 
     // 함수명 앞에 Get : Inventory List에 추가
     // 함수명 앞에 Set : Inventory List에서 해당 index 값 보내기
@@ -34,14 +32,6 @@ public class ItemInventory : MonoBehaviour
     public void AddItemsSize(float size)
     {
         itemInventorySize.Add(size);
-    }
-    public void AddUseSpeed(bool isUse)
-    {
-        itemInventoryisUseSpeed.Add(isUse);
-    }
-    public void AddUseSize(bool isUse)
-    {
-        itemInventoryisUseSize.Add(isUse);
     }
 
     public int ApplyItems()
@@ -67,14 +57,5 @@ public class ItemInventory : MonoBehaviour
     public float SetItemStatsSize(int index)
     {
         return itemInventorySize[index];
-    }
-
-    public bool SetUseSpeed(int index)
-    {
-        return itemInventoryisUseSpeed[index];
-    }
-    public bool SetUseSize(int index)
-    {
-        return itemInventoryisUseSize[index];
     }
 }
