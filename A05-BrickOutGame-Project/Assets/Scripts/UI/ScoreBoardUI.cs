@@ -72,8 +72,8 @@ public class ScoreBoardUI : MonoBehaviour
         }
     }
 
-    public int SetBrickScore()
+    public float SetLevelPlayTime(int index)
     {
-        return 1;
+        return lvTime[index - 1];
     }
 }

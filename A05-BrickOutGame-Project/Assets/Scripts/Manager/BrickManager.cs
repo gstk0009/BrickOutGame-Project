@@ -68,4 +68,9 @@ public class BrickManager : MonoBehaviour
     {
         scoreBoard.GetBrickScore(score);
     }
+    
+    public ScoreBoardUI SetScoreBoardComponent()
+    {
+        return scoreBoard;
+    }
 }
