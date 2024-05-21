@@ -7,42 +7,50 @@ using UnityEngine.UIElements;
 public class ItemCreate : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer[] itemImages;
+    [SerializeField] private BrickManager brickManager;
     private System.Random random;
     private ItemInventory inventory;
     // Prefabs에 있는 Item에 Script 받아옴
     public Item items;
-    public BrickManager brickManager;
+    // BrickManager에서 ScoreBoardUI 받아옴
+    private ScoreBoardUI scoreBoard;
 
     private int itemIndex;
     private int breakBrickNum;
     private float gameStartTime = 0f;
-    private float itemCreateTime = 10.0f;
+    private float itemCreateTime;
 
     private void Awake()
     {
         random = new System.Random();
         inventory = GetComponent<ItemInventory>();
         brickManager = brickManager.GetComponent<BrickManager>();
+        scoreBoard = brickManager.SetScoreBoardComponent();
     }
 
-    //private void Update()
-    //{
-    //    // 일정 시간마다 Item 생성 (단, 벽돌이 한 개 이상 파괴된 경우에만 생성됨)
-    //    // 추후 파괴된 벽돌 개수 기준, 점수 기준으로 변경 될 수도 있다.
-    //    if (gameStartTime < itemCreateTime)
-    //    {
-    //        gameStartTime += Time.deltaTime;
-    //        if (gameStartTime >= itemCreateTime)
-    //        {
-    //            breakBrickNum = brickManager.SetIndex();
-    //            if (breakBrickNum != 0)
-    //            {
-    //                CreateItems();
-    //            }
-    //            gameStartTime = 0f;
-    //        }
-    //    }
-    //}
+    private void Start()
+    {
+        itemCreateTime = (scoreBoard.SetLevelPlayTime(GameManager.Instance.stageNum)/6);
+    }
+
+    private void Update()
+    {
+        // 일정 시간마다 Item 생성 (단, 벽돌이 한 개 이상 파괴된 경우에만 생성됨)
+        // 추후 파괴된 벽돌 개수 기준, 점수 기준으로 변경 될 수도 있다.
+        if (gameStartTime < itemCreateTime)
+        {
+            gameStartTime += Time.deltaTime;
+            if (gameStartTime >= itemCreateTime)
+            {
+                breakBrickNum = brickManager.SetIndex();
+                if (breakBrickNum != 0)
+                {
+                    CreateItems();
+                }
+                gameStartTime = 0f;
+            }
+        }
+    }
 
     private void CreateItems()
     {
@@ -50,7 +58,10 @@ public class ItemCreate : MonoBehaviour
         itemIndex = random.Next(0, inventory.ApplyItems());
 
         //// Test Ball Size
-        // itemIndex = random.Next(4, 6);
+        // itemIndex = random.Next(0, 2);
+
+        //// Test Ball Speed
+        //itemIndex = random.Next(2, 4);
 
         // TODO : 지금은 편의상 Color로 지정, 추후 Sprite or Image로 변경 필요
         items.GetComponent<SpriteRenderer>().color = itemImages[itemIndex].color;

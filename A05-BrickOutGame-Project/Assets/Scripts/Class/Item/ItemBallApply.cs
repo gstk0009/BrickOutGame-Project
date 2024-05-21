@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Progress;
 
@@ -24,7 +25,6 @@ public class ItemBallApply : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             item = collision.GetComponent<Item>();
-            collision.gameObject.SetActive(false);
             itemId = item.Id;
         }
 
@@ -33,22 +33,29 @@ public class ItemBallApply : MonoBehaviour
             if ((itemId == 1 || itemId == 2) && !isUseItemSize)
             {
                 isUseItemSize = true;
+                Destroy(collision.gameObject);
                 applyManager.ApplyBallItemSize();
             }
             else if ((itemId == 3 || itemId == 4) && !isUseItemSpeed)
             {
                 isUseItemSpeed = true;
+                Destroy(collision.gameObject);
                 // 현재 ball Speed를 받아와서, 아이템 Speed를 곱해준 뒤, 그걸 다시 ballMovment에 적용
                 ballMovement.GetBallSpeed(applyManager.ApplyBallItemSpeed(ballMovement.SetBallSpeed()));
             }
         }
-        //else if (itemId >= 1001 && itemId <= 2000)
-        //{
-        //    if (itemId == 1001 || itemId == 1002)
-        //        applyManager.ApplyPaddleItemSize();
-        //    else if (itemId == 1003 || itemId == 1004)
-        //        applyManager.ApplyPaddleItemSpeed();
-        //}
+    }
+
+    public void GetUseItemSpeed(bool isuseItem, float initSpeed)
+    {
+        isUseItemSpeed = isuseItem;
+
+        ballMovement.GetBallSpeed(initSpeed);
+    }
+
+    public void GetIsUseItemSize(bool isUseItem)
+    {
+        isUseItemSize = isUseItem;
     }
 
     public float SetItemSpeed()

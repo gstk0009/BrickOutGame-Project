@@ -54,7 +54,6 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-
     public float SetBallSpeed()
     {
         return speed;
