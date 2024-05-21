@@ -11,17 +11,19 @@ public class BallMovement : MonoBehaviour
     private Vector2 worldPos = Vector2.zero;
     [SerializeField] private float speed = 10f;
     private Rigidbody2D rb2d;
+    private Vector2 befordBallMovement;
 
     private void Awake()
     {
         controller = GetComponent<GameController>();
         rb2d = GetComponent<Rigidbody2D>();
+        
     }
 
     // Start is called before the first frame update
     private void Start()
     {
-        // ½ÃÀÛ ½Ã °ø ³»·Á¿À°Ô ÇÏ±â
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½
         rb2d.velocity = Vector2.down * speed;
         controller.OnAimEvent += Move;
     }
@@ -36,6 +38,14 @@ public class BallMovement : MonoBehaviour
         Vector2 ballVelocity = rb2d.velocity;
         if (ballVelocity.magnitude != speed)
             rb2d.velocity = ballVelocity.normalized * speed;
+
+        // êµ¬ì„(ëª¨ì„œë¦¬ ìª½ì— ê°€ë©´ ë¹ ì ¸ë‚˜ì˜¤ì§€ ëª»í•¨
+        if (ballVelocity.y == 0.00f)
+        {
+            Vector2 nowVector = new Vector2(befordBallMovement.x, befordBallMovement.y);
+            rb2d.velocity = nowVector.normalized * speed;
+        }
+        befordBallMovement = rb2d.velocity;
     }
 
     private Vector2 ApplyMovement(Vector2 worldPos)
@@ -59,12 +69,13 @@ public class BallMovement : MonoBehaviour
         return speed;
     }
 
-    // applySpeed = ±âÁ¸ speed * itemspeed
+    // applySpeed = ï¿½ï¿½ï¿½ï¿½ speed * itemspeed
     public void GetBallSpeed(float applySpeed)
     {
-        // ±âÁ¸ÀÇ velocity °ª Á¤±ÔÈ­¸¦ ½ÃÄÑÁØ µÚ apply speed¸¦ °öÇØÁÜ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ velocity ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ apply speedï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Vector2 nwVelocity = rb2d.velocity.normalized;
         speed = applySpeed;
         rb2d.velocity = nwVelocity * speed;
     }
+
 }
