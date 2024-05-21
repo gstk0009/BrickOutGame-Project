@@ -6,6 +6,9 @@ public class LevelDataManager : MonoBehaviour
 {
     private ObjectPoolManager poolManager;
     private BrickTypeList brickTypeList;
+
+    [SerializeField] private GameObject BossBrick;
+
     [SerializeField] private BrickManager brickManager;
 
     private void Awake()
@@ -65,6 +68,10 @@ public class LevelDataManager : MonoBehaviour
         {
             Level3();
         }
+        if (GameManager.Instance.stageNum == 4)
+        {
+            Level4();
+        }
     }
 
     private void Level3()
@@ -89,5 +96,9 @@ public class LevelDataManager : MonoBehaviour
                 }
             }
         }
+    }
+    private void Level4()
+    {
+        BossBrick.SetActive(true);
     }
 }

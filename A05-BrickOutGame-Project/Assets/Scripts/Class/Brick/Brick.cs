@@ -1,17 +1,15 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Brick :MonoBehaviour
 {
-    [SerializeField] private int HP;
-    [SerializeField] private int Score;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] protected int HP;
+    [SerializeField] protected int Score;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
 
-    private BrickManager brickManager;
-    private BrickUI brickUI;
+    protected BrickManager brickManager;
+    protected BrickUI brickUI;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         brickUI = GetComponent<BrickUI>();
@@ -31,7 +29,7 @@ public class Brick :MonoBehaviour
         brickUI.UpdateBrickHPTxt( HP );
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         GetAttack(1);
     }
