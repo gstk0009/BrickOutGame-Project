@@ -45,7 +45,7 @@ public class ScoreBoardUI : MonoBehaviour
         {
             min = (int)lvTime[lvNum - 1] / 60;
             sec = lvTime[lvNum - 1] % 60;
-
+            if(sec >= 60) { min += 1; sec -= 60; }
             scoreboard[playTimeTxt].text = min.ToString("D1") + "Ка " + sec.ToString("N1") + " УЪ";
         }
         else if (lvTime[lvNum-1] <=0)
