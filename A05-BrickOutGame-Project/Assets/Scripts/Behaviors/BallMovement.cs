@@ -16,12 +16,13 @@ public class BallMovement : MonoBehaviour
     {
         controller = GetComponent<GameController>();
         rb2d = GetComponent<Rigidbody2D>();
+        
     }
 
     // Start is called before the first frame update
     private void Start()
     {
-        // ½ÃÀÛ ½Ã °ø ³»·Á¿À°Ô ÇÏ±â
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½
         rb2d.velocity = Vector2.down * speed;
         controller.OnAimEvent += Move;
     }
@@ -36,6 +37,14 @@ public class BallMovement : MonoBehaviour
         Vector2 ballVelocity = rb2d.velocity;
         if (ballVelocity.magnitude != speed)
             rb2d.velocity = ballVelocity.normalized * speed;
+
+        if (ballVelocity.y == 0.00f)
+        {
+            ballVelocity.y = rb2d.velocity.y;
+            Vector2 nowVector = new Vector2(rb2d.velocity.x, ballVelocity.y);
+            rb2d.velocity = ballVelocity.normalized * speed;
+        }
+
     }
 
     private Vector2 ApplyMovement(Vector2 worldPos)
@@ -61,13 +70,26 @@ public class BallMovement : MonoBehaviour
         return speed;
     }
 
-    // applySpeed = ±âÁ¸ speed * itemspeed
+    // applySpeed = ï¿½ï¿½ï¿½ï¿½ speed * itemspeed
     public void GetBallSpeed(float applySpeed)
     {
-        // ±âÁ¸ÀÇ velocity °ª Á¤±ÔÈ­¸¦ ½ÃÄÑÁØ µÚ apply speed¸¦ °öÇØÁÜ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ velocity ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ apply speedï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Vector2 nwVelocity = rb2d.velocity.normalized;
         speed = applySpeed;
         rb2d.velocity = nwVelocity * speed;
     }
 
+    // 1ì•ˆ : velocity ì˜ yê°€ 0ì´ë˜ë©´ 0.05 ì´ìƒìœ¼ë¡œ ì„ì˜ë¡œ ì„¤ì •í•˜ê¸°
+    // 2ì•ˆ : ë²•ì„ ë²¡í„°ë¥¼ í™œìš©í•˜ì—¬ ë°˜ì‚¬ë˜ê²Œ í•˜ê¸°
+    public Vector2 ExchangeVector(Rigidbody2D rigidbody2D)
+    {
+        Vector2 beforeVector = rigidbody2D.velocity;
+
+        return beforeVector;
+    }
+
+    public void ExchangeVelocity(Vector2 vector2)
+    {
+        
+    }
 }
