@@ -635,8 +635,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNum: 3
-  NowScore: 0
-  BestScore: 0
 --- !u!4 &310072009
 Transform:
   m_ObjectHideFlags: 0
@@ -2808,7 +2806,6 @@ GameObject:
   m_Component:
   - component: {fileID: 996018126}
   - component: {fileID: 996018125}
-  - component: {fileID: 996018124}
   - component: {fileID: 996018123}
   - component: {fileID: 996018122}
   - component: {fileID: 996018121}
@@ -2832,7 +2829,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballApply: {fileID: 143553372}
-  paddleApply: {fileID: 1908777942}
 --- !u!114 &996018122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2868,22 +2864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ee72387bf74e940875290b481647d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &996018124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996018120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 744ec8cf9536ffa4cad74c39a6bc928e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: 
-  Id: 0
-  Speed: 0
-  Size: 0
 --- !u!114 &996018125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6171,7 +6151,6 @@ GameObject:
   - component: {fileID: 1908777945}
   - component: {fileID: 1908777944}
   - component: {fileID: 1908777943}
-  - component: {fileID: 1908777942}
   m_Layer: 6
   m_Name: Paddle
   m_TagString: Untagged
@@ -6179,19 +6158,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1908777942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908777934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4357fbd507317f447b0acd6fff1c4a7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  applyManager: {fileID: 996018121}
 --- !u!114 &1908777943
 MonoBehaviour:
   m_ObjectHideFlags: 0
