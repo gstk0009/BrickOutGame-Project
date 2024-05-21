@@ -23,6 +23,8 @@ public class ScoreBoardUI : MonoBehaviour
     private int min;
     private float sec;
 
+    private bool gameOverCalled = false;
+
     private void Awake()
     {
         endingManager = endingObj.GetComponent<EndingManager>();
@@ -53,9 +55,10 @@ public class ScoreBoardUI : MonoBehaviour
 
             scoreboard[playTimeTxt].text = min.ToString("00") + " : " + sec.ToString("00");
         }
-        else if (lvTime[lvNum-1] <=0)
+        else if (lvTime[lvNum-1] <=0 && !gameOverCalled)
         {
             endingManager.GameOver();
+            gameOverCalled = true;
         }
     }
 

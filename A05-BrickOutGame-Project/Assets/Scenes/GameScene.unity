@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc90ab3f6d954af46bb4fcfb55b2171c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossGameClearCanvas: {fileID: 0}
+  BossGameClearCanvas: {fileID: 1863014138}
   GameClearCanvas: {fileID: 2034425044}
   GameOverCanvas: {fileID: 1144941744}
   LifeUI:
