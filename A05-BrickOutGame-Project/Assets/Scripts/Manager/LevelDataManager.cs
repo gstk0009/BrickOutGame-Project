@@ -41,13 +41,13 @@ public class LevelDataManager : MonoBehaviour
         {
             for(int j = 0; j < 6; j++)
             {
-                // brickTypeList¿¡¼­ º®µ¹ Á¤º¸ ºÒ·¯¿À±â
+                // brickTypeListï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
                 int brickType = brickTypeList.brickTypes[idx].Type;
                 var brickInfo = brickManager.BrickTypes(brickType);
-                // brickInfo °ªÀ» ÅëÇØ º®µ¹¿¡ °ª ³Ö¾îÁÖ±â
+                // brickInfo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ö±ï¿½
                 if (!brickManager.BrickTypes(brickType).IsActive)
                 {
-                    poolManager.DisableObj(poolManager.pool[i, j]);
+                    poolManager.DisableObj(poolManager.pool[i, j]); 
                 }
                 else
                 {
@@ -58,7 +58,7 @@ public class LevelDataManager : MonoBehaviour
                         brick.SetScore(brickInfo.Score);
                         brick.SetSpriteRenderer(brickInfo.SpriteIdx);
 
-                        // °¢ º®µ¹¿¡ µ¿ÀÏÇÑ brickManager°ª ³Ö¾îÁÖ±â
+                        // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ brickManagerï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ö±ï¿½
                         brick.GetBreakBrickManager(brickManager);
                         maxBrick += 1;
                     }
@@ -96,7 +96,7 @@ public class LevelDataManager : MonoBehaviour
                     brick.SetScore(brickInfo.Score);
                     brick.SetSpriteRenderer(brickInfo.SpriteIdx);
 
-                    // °¢ º®µ¹¿¡ µ¿ÀÏÇÑ brickManager°ª ³Ö¾îÁÖ±â
+                    // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ brickManagerï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ö±ï¿½
                     brick.GetBreakBrickManager(brickManager);
                     maxBrick += 1;
                 }
@@ -106,6 +106,6 @@ public class LevelDataManager : MonoBehaviour
     private void Level4()
     {
         BossBrick.SetActive(true);
-        BossBrick.GetComponent<BossBrick>().GetBreakBossBrickManager(brickManager);
+        BossBrick.GetComponent<BossBrick>().SetBreakBossBrickManager(brickManager);
     }
 }

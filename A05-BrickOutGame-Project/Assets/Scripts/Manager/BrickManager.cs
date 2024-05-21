@@ -59,7 +59,6 @@ public class BrickManager : MonoBehaviour
             endingManager.GameClear();
         }
     }
-
     public void RemoveList(int index)
     {
         breakBrick.RemoveAt(index);
@@ -77,7 +76,7 @@ public class BrickManager : MonoBehaviour
 
     public int SetIndex()
     {
-        return breakBrick.Count;
+        return breakBrick.Count; 
     }
 
     public void GetBrickScore(int score)

@@ -67,5 +67,4 @@ public class BallMovement : MonoBehaviour
         speed = applySpeed;
         rb2d.velocity = nwVelocity * speed;
     }
-
 }
