@@ -46,5 +46,12 @@ public class PaddleMovement : MonoBehaviour
     {
         speed = applySpeed;
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            movementRigidbody.velocity = Vector3.zero;
+        }
+    }
 }
 

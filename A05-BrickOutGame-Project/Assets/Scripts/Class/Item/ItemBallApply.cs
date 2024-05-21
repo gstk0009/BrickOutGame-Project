@@ -10,6 +10,8 @@ public class ItemBallApply : MonoBehaviour
     private BallMovement ballMovement;
 
     private int itemId = 0;
+    private bool isUseItemSpeed = false;
+    private bool isUseItemSize = false;
 
     private void Awake()
     {
@@ -28,21 +30,25 @@ public class ItemBallApply : MonoBehaviour
 
         if (itemId >= 1 && itemId <= 1000)
         {
-            if (itemId == 1 || itemId == 2)
-                applyManager.ApplyBallItemSize();
-            else if (itemId == 3 || itemId == 4)
+            if ((itemId == 1 || itemId == 2) && !isUseItemSize)
             {
+                isUseItemSize = true;
+                applyManager.ApplyBallItemSize();
+            }
+            else if ((itemId == 3 || itemId == 4) && !isUseItemSpeed)
+            {
+                isUseItemSpeed = true;
                 // 현재 ball Speed를 받아와서, 아이템 Speed를 곱해준 뒤, 그걸 다시 ballMovment에 적용
                 ballMovement.GetBallSpeed(applyManager.ApplyBallItemSpeed(ballMovement.SetBallSpeed()));
             }
         }
-        else if (itemId >= 1001 && itemId <= 2000)
-        {
-            if (itemId == 1001 || itemId == 1002)
-                applyManager.ApplyPaddleItemSize();
-            else if (itemId == 1003 || itemId == 1004)
-                applyManager.ApplyPaddleItemSpeed();
-        }
+        //else if (itemId >= 1001 && itemId <= 2000)
+        //{
+        //    if (itemId == 1001 || itemId == 1002)
+        //        applyManager.ApplyPaddleItemSize();
+        //    else if (itemId == 1003 || itemId == 1004)
+        //        applyManager.ApplyPaddleItemSpeed();
+        //}
     }
 
     public float SetItemSpeed()
@@ -53,5 +59,15 @@ public class ItemBallApply : MonoBehaviour
     public float SetItemSize()
     {
         return item.Size;
+    }
+
+    public bool SetIsUseItemSpeed()
+    {
+        return isUseItemSpeed;
+    }
+
+    public bool SetIsUseItemSize()
+    {
+        return isUseItemSize;
     }
 }

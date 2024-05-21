@@ -8,7 +8,8 @@ public class BallMovement : MonoBehaviour
 {
     private GameController controller;
     private Vector2 BallMovementDirection = Vector2.zero;
-    [SerializeField]private float speed = 10f;
+    private Vector2 worldPos = Vector2.zero;
+    [SerializeField] private float speed = 10f;
     private Rigidbody2D rb2d;
 
     private void Awake()
@@ -27,19 +28,34 @@ public class BallMovement : MonoBehaviour
 
     private void Move(Vector2 direction)
     {
-        BallMovementDirection = direction;
+        worldPos = direction;
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 ballVelocity = rb2d.velocity;
+        if (ballVelocity.magnitude != speed)
+            rb2d.velocity = ballVelocity.normalized * speed;
+        Debug.Log(rb2d.velocity);
+    }
+
+    private Vector2 ApplyMovement(Vector2 worldPos)
+    {
+        BallMovementDirection = (worldPos - (Vector2)transform.localPosition).normalized;
+        return BallMovementDirection;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioManager.Instance.BallCollisionAudio();
-        // gameObject의 Layer가 Paddle인지 확인
-        Debug.Log(collision.gameObject.layer);
         if (collision.gameObject.layer == 6)
         {
-            rb2d.velocity = BallMovementDirection * speed;
+            rb2d.velocity = Vector2.zero;
+            rb2d.velocity = ApplyMovement(worldPos) * speed;
         }
     }
+
+    
 
     public float SetBallSpeed()
     {
@@ -55,11 +71,4 @@ public class BallMovement : MonoBehaviour
         rb2d.velocity = nwVelocity * speed;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.layer == 6)
-    //    {
-    //        rb2d.velocity = BallMovementDirection;
-    //    }
-    //}
 }

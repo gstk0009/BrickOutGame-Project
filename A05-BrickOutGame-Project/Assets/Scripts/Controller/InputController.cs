@@ -23,8 +23,7 @@ public class InputController : GameController
     {
         Vector2 newAim = value.Get<Vector2>();
         Vector2 worldPos = cameras.ScreenToWorldPoint(newAim);
-        newAim = (worldPos - (Vector2)transform.localPosition).normalized;
 
-        CallAimEvent(newAim);
+        CallAimEvent(worldPos);
     }
 }

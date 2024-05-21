@@ -25,41 +25,32 @@ public class ItemCreate : MonoBehaviour
         brickManager = brickManager.GetComponent<BrickManager>();
     }
 
-    private void Update()
-    {
-        // 일정 시간마다 Item 생성 (단, 벽돌이 한 개 이상 파괴된 경우에만 생성됨)
-        // 추후 파괴된 벽돌 개수 기준, 점수 기준으로 변경 될 수도 있다.
-        if (gameStartTime < itemCreateTime)
-        {
-            gameStartTime += Time.deltaTime;
-            if (gameStartTime >= itemCreateTime)
-            {
-                breakBrickNum = brickManager.SetIndex();
-                if (breakBrickNum != 0)
-                {
-                    CreateItems();
-                }
-                gameStartTime = 0f;
-            }
-        }
-    }
+    //private void Update()
+    //{
+    //    // 일정 시간마다 Item 생성 (단, 벽돌이 한 개 이상 파괴된 경우에만 생성됨)
+    //    // 추후 파괴된 벽돌 개수 기준, 점수 기준으로 변경 될 수도 있다.
+    //    if (gameStartTime < itemCreateTime)
+    //    {
+    //        gameStartTime += Time.deltaTime;
+    //        if (gameStartTime >= itemCreateTime)
+    //        {
+    //            breakBrickNum = brickManager.SetIndex();
+    //            if (breakBrickNum != 0)
+    //            {
+    //                CreateItems();
+    //            }
+    //            gameStartTime = 0f;
+    //        }
+    //    }
+    //}
 
     private void CreateItems()
     {
-        ////ItemInventory에 있는 Item 중 랜덤으로 생성
-        //itemIndex = random.Next(0, inventory.ApplyItems());
-
-        //// Test Paddle Size
-        // itemIndex = random.Next(0, 2);
-
-        //// Test Paddle Speed
-        // itemIndex = random.Next(2, 4);
+        //ItemInventory에 있는 Item 중 랜덤으로 생성
+        itemIndex = random.Next(0, inventory.ApplyItems());
 
         //// Test Ball Size
         // itemIndex = random.Next(4, 6);
-
-        // Test Ball Speed
-        itemIndex = random.Next(6, 8);
 
         // TODO : 지금은 편의상 Color로 지정, 추후 Sprite or Image로 변경 필요
         items.GetComponent<SpriteRenderer>().color = itemImages[itemIndex].color;

@@ -26,13 +26,13 @@ public class BrickManager : MonoBehaviour
             case 4:
                 return (5,20,1,false);
             case 5:
-                return (10,30,2,true);
+                return (7,30,2,true);
             case 6:
-                return (10,30,2,false);
+                return (7,30,2,false);
             case 7:
-                return (15,40,3,true);
+                return (9,40,3,true);
             case 8:
-                return (15,40,3,false);
+                return (9,40,3,false);
             default:
                 return (0, 0,0, false);
 
