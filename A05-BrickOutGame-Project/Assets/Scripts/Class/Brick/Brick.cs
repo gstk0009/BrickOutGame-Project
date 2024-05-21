@@ -33,7 +33,6 @@ public class Brick :MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // TODO :: 아이템 등을 사용하여 공의 데미지가 늘어났을 때 수정
         GetAttack(1);
     }
 
