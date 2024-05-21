@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseBtnUI : MonoBehaviour
+public class PopUpUI : MonoBehaviour
 {
     public void EnablePopUp(GameObject obj)
     {
