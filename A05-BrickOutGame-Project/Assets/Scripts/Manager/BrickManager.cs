@@ -56,7 +56,7 @@ public class BrickManager : MonoBehaviour
 
         if (MaxBrick == breakBrickNum)
         {
-            endingManager.GameClear();
+            endingManager.StageClear();
         }
     }
     public void RemoveList(int index)

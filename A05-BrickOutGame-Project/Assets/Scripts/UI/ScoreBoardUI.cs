@@ -7,6 +7,8 @@ using UnityEngine;
 public class ScoreBoardUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text[] scoreboard;
+    public GameObject endingObj;
+    private EndingManager endingManager;
 
     private int lvTxt = 0;
     private int nowScoreTxt = 1;
@@ -23,6 +25,8 @@ public class ScoreBoardUI : MonoBehaviour
 
     private void Awake()
     {
+        endingManager = endingObj.GetComponent<EndingManager>();
+
         scoreboard[lvTxt] = scoreboard[lvTxt].GetComponent<TMP_Text>();
         scoreboard[nowScoreTxt] = scoreboard[nowScoreTxt].GetComponent<TMP_Text>();
         scoreboard[playTimeTxt] = scoreboard[playTimeTxt].GetComponent<TMP_Text>();
@@ -51,7 +55,7 @@ public class ScoreBoardUI : MonoBehaviour
         }
         else if (lvTime[lvNum-1] <=0)
         {
-            Time.timeScale = 0f;
+            endingManager.GameOver();
         }
     }
 

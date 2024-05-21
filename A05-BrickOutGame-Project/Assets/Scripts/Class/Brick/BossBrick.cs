@@ -3,12 +3,16 @@ using UnityEngine;
 
 public class BossBrick : Brick
 {
+    [SerializeField] private GameObject endingObj;
+
     private BossAttack bossAttack;
+    private EndingManager endingManager;
 
     protected override void Awake()
     {
         base.Awake();
 
+        endingManager = endingObj.GetComponent<EndingManager>();
         bossAttack = GetComponent<BossAttack>();
         BossInit();
     }
@@ -40,7 +44,7 @@ public class BossBrick : Brick
 
     private void BossDie()
     {
-        // TODO :: EndingManager ¿¬µ¿
+        endingManager.GameClear();
     }
 
     public void SetBreakBossBrickManager(BrickManager breakBrick)
