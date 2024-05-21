@@ -1,31 +1,60 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BossAttack : MonoBehaviour
 {
     [SerializeField] private GameObject BlindSkillCanvas;
-    private bool canCreateShield = false;
+    [SerializeField] private GameObject ShieldSkillCanvas;
+    [SerializeField] private GameObject StealthSkillCanvas;
+    
+    [SerializeField] private BrickManager brickManager;
 
-    // 3초간 플레이어 화면 가리기
+    private void Awake()
+    {
+        brickManager = brickManager.GetComponent<BrickManager>();
+    }
+
+    public void StealthSkill()
+    {
+        StartCoroutine(WaitTime(2f, StealthSkillCanvas));
+    }
+
     public void BlindSkill()
     {
-        StartCoroutine("BlindTime", 5f);
+        StartCoroutine(WaitTime( 5f, BlindSkillCanvas));
     }
 
     public void ShieldSkill()
     {
+        StartCoroutine(WaitTime(2f, ShieldSkillCanvas));
 
+        int breakBrickIdx = brickManager.SetIndex();
+        // 부서진 벽돌 블럭 개수가 0이상일 때만 실행
+        if (breakBrickIdx !=0)
+        {
+            List<int> idxs = new List<int>();
+            for (int i=0; i < breakBrickIdx; i++)
+            {
+                idxs.Add(i);
+            }
+            // 현재 부서진 벽돌 중 절반 부활시키기
+            for (int i = 0; i < breakBrickIdx / 2 ; i++)
+            {
+                int randomIndex = Random.Range(0, idxs.Count);
+                int createBrickIdx = idxs[randomIndex];
+
+                // 선택된 인덱스를 리스트에서 제거
+                idxs.RemoveAt(randomIndex);
+                brickManager.SetActive(createBrickIdx);
+            }
+        } 
     }
 
-    public void CanCreateShield()
+    IEnumerator WaitTime(float time, GameObject obj) 
     {
-        canCreateShield = true;
-    }
-
-    IEnumerator BlindTime(float time)
-    {
-        BlindSkillCanvas.SetActive(true);
+        obj.SetActive(true);
         yield return new WaitForSeconds(time);
-        BlindSkillCanvas.SetActive(false);
+        obj.SetActive(false);
     }
 }

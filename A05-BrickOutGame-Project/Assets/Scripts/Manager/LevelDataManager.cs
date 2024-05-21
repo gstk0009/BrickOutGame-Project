@@ -58,7 +58,7 @@ public class LevelDataManager : MonoBehaviour
                         brick.SetSpriteRenderer(brickInfo.SpriteIdx);
 
                         // 각 벽돌에 동일한 brickManager값 넣어주기
-                        brick.GetBreakBrickManager(brickManager);
+                        brick.SetBreakBrickManager(brickManager);
                     }
                 }
                 idx += 1;
@@ -92,7 +92,7 @@ public class LevelDataManager : MonoBehaviour
                     brick.SetSpriteRenderer(brickInfo.SpriteIdx);
 
                     // 각 벽돌에 동일한 brickManager값 넣어주기
-                    brick.GetBreakBrickManager(brickManager);
+                    brick.SetBreakBrickManager(brickManager);
                 }
             }
         }
@@ -100,6 +100,6 @@ public class LevelDataManager : MonoBehaviour
     private void Level4()
     {
         BossBrick.SetActive(true);
-        BossBrick.GetComponent<BossBrick>().GetBreakBossBrickManager(brickManager);
+        BossBrick.GetComponent<BossBrick>().SetBreakBossBrickManager(brickManager);
     }
 }

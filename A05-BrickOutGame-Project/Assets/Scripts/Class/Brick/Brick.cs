@@ -48,7 +48,7 @@ public class Brick :MonoBehaviour
         spriteRenderer = brickUI.SetSprite(spriteRenderer, spriteIdx);
     }
 
-    public void GetBreakBrickManager(BrickManager breakBrick)
+    public void SetBreakBrickManager(BrickManager breakBrick)
     {
         brickManager = breakBrick;
     }

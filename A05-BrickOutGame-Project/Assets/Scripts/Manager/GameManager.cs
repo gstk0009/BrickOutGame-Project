@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public int stageNum = 2;
+    public int stageNum = 2; 
 
     private void Awake()
     {
