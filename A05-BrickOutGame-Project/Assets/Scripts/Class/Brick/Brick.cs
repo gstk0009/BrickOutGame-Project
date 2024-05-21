@@ -22,9 +22,7 @@ public class Brick :MonoBehaviour
         if (HP <= 0 )
         {
             HP = 0;
-            brickManager.AddList(gameObject);
-            brickManager.GetBrickScore(Score);
-            gameObject.SetActive(false);
+            BrickBreak();
         }
         brickUI.UpdateBrickHPTxt( HP );
     }
@@ -53,5 +51,13 @@ public class Brick :MonoBehaviour
     public void GetBreakBrickManager(BrickManager breakBrick)
     {
         brickManager = breakBrick;
+    }
+
+    protected virtual void BrickBreak()
+    {
+        brickManager.AddList(gameObject);
+        brickManager.GetBrickScore(Score);
+
+        gameObject.SetActive(false);
     }
 }

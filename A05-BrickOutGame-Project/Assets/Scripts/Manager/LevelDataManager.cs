@@ -100,5 +100,6 @@ public class LevelDataManager : MonoBehaviour
     private void Level4()
     {
         BossBrick.SetActive(true);
+        BossBrick.GetComponent<BossBrick>().GetBreakBossBrickManager(brickManager);
     }
 }
