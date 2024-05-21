@@ -46,20 +46,11 @@ public class ItemCreate : MonoBehaviour
 
     private void CreateItems()
     {
-        ////ItemInventory에 있는 Item 중 랜덤으로 생성
-        //itemIndex = random.Next(0, inventory.ApplyItems());
-
-        //// Test Paddle Size
-        // itemIndex = random.Next(0, 2);
-
-        //// Test Paddle Speed
-        // itemIndex = random.Next(2, 4);
+        //ItemInventory에 있는 Item 중 랜덤으로 생성
+        itemIndex = random.Next(0, inventory.ApplyItems());
 
         //// Test Ball Size
         // itemIndex = random.Next(4, 6);
-
-        // Test Ball Speed
-        itemIndex = random.Next(6, 8);
 
         // TODO : 지금은 편의상 Color로 지정, 추후 Sprite or Image로 변경 필요
         items.GetComponent<SpriteRenderer>().color = itemImages[itemIndex].color;

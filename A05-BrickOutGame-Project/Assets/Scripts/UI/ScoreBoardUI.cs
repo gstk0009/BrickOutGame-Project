@@ -27,12 +27,14 @@ public class ScoreBoardUI : MonoBehaviour
         scoreboard[nowScoreTxt] = scoreboard[nowScoreTxt].GetComponent<TMP_Text>();
         scoreboard[playTimeTxt] = scoreboard[playTimeTxt].GetComponent<TMP_Text>();
         scoreboard[bestScoreTxt] = scoreboard[bestScoreTxt].GetComponent<TMP_Text>();
+        bestScore = PlayerPrefs.GetInt("BestScore");
     }
 
     private void Start()
     {
         lvNum = GameManager.Instance.stageNum;
         scoreboard[lvTxt].text = lvNum.ToString();
+        scoreboard[bestScoreTxt].text = bestScore.ToString();
     }
 
     private void Update()
@@ -65,6 +67,7 @@ public class ScoreBoardUI : MonoBehaviour
         if (nowScore > bestScore)
         {
             bestScore = nowScore;
+            PlayerPrefs.SetInt("BestScore", bestScore);
             scoreboard[bestScoreTxt].text = bestScore.ToString();
         }
     }
