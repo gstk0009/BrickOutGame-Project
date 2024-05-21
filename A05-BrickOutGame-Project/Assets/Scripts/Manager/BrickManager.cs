@@ -20,7 +20,8 @@ public class BrickManager : MonoBehaviour
     private void Start()
     {
         if (GameManager.Instance.stageNum == 4) return;
-        MaxBrick = GameManager.Instance.GameClear[GameManager.Instance.stageNum - 1];
+        //MaxBrick = GameManager.Instance.GameClear[GameManager.Instance.stageNum - 1];
+        MaxBrick = GameManager.Instance.GameClear[0];
     }
 
     public (int HP, int Score, int SpriteIdx, bool IsActive) BrickTypes(int type)

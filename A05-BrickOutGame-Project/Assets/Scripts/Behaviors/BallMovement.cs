@@ -40,10 +40,13 @@ public class BallMovement : MonoBehaviour
             rb2d.velocity = ballVelocity.normalized * speed;
 
         // 구석(모서리 쪽에 가면 빠져나오지 못함
-        if (ballVelocity.y == 0.00f)
+        if (rb2d.velocity.y == 0f)
         {
-            Vector2 nowVector = new Vector2(befordBallMovement.x, befordBallMovement.y);
-            rb2d.velocity = nowVector.normalized * speed;
+            Debug.Log(befordBallMovement);
+            //Vector2 nowVector = new Vector2(-befordBallMovement.x, befordBallMovement.y).normalized;
+            //Vector2 nowVector = new Vector2(befordBallMovement.x, befordBallMovement.y);
+            Vector2 nowVector = new Vector2(-befordBallMovement.x + 0.5f, befordBallMovement.y + 0.5f).normalized * speed;
+            rb2d.velocity = nowVector;
         }
         befordBallMovement = rb2d.velocity;
     }
