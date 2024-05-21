@@ -36,7 +36,7 @@ public class BallMovement : MonoBehaviour
         Vector2 ballVelocity = rb2d.velocity;
         if (ballVelocity.magnitude != speed)
             rb2d.velocity = ballVelocity.normalized * speed;
-        Debug.Log(ballVelocity.magnitude);
+        Debug.Log(rb2d.velocity);
     }
 
     private Vector2 ApplyMovement(Vector2 worldPos)
@@ -55,19 +55,7 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer != 8)
-        {
-            Invoke("ResetBall", 2f);
-            rb2d.velocity = Vector2.down * speed;
-        }
-    }
-
-    private void ResetBall()
-    {
-        this.transform.position = Vector2.zero;
-    }
+    
 
     public float SetBallSpeed()
     {
