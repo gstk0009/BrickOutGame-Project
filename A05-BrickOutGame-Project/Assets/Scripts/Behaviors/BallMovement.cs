@@ -11,6 +11,7 @@ public class BallMovement : MonoBehaviour
     private Vector2 worldPos = Vector2.zero;
     [SerializeField] private float speed = 10f;
     private Rigidbody2D rb2d;
+    private Vector2 befordBallMovement;
 
     private void Awake()
     {
@@ -38,13 +39,13 @@ public class BallMovement : MonoBehaviour
         if (ballVelocity.magnitude != speed)
             rb2d.velocity = ballVelocity.normalized * speed;
 
+        // 구석(모서리 쪽에 가면 빠져나오지 못함
         if (ballVelocity.y == 0.00f)
         {
-            ballVelocity.y = rb2d.velocity.y;
-            Vector2 nowVector = new Vector2(rb2d.velocity.x, ballVelocity.y);
-            rb2d.velocity = ballVelocity.normalized * speed;
+            Vector2 nowVector = new Vector2(befordBallMovement.x, befordBallMovement.y);
+            rb2d.velocity = nowVector.normalized * speed;
         }
-
+        befordBallMovement = rb2d.velocity;
     }
 
     private Vector2 ApplyMovement(Vector2 worldPos)
