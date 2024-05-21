@@ -6,18 +6,12 @@ public class BossAttack : MonoBehaviour
 {
     [SerializeField] private GameObject BlindSkillCanvas;
     [SerializeField] private GameObject ShieldSkillCanvas;
-    [SerializeField] private GameObject StealthSkillCanvas;
     
     [SerializeField] private BrickManager brickManager;
 
     private void Awake()
     {
         brickManager = brickManager.GetComponent<BrickManager>();
-    }
-
-    public void StealthSkill()
-    {
-        StartCoroutine(WaitTime(2f, StealthSkillCanvas));
     }
 
     public void BlindSkill()
@@ -27,12 +21,11 @@ public class BossAttack : MonoBehaviour
 
     public void ShieldSkill()
     {
-        StartCoroutine(WaitTime(2f, ShieldSkillCanvas));
-
         int breakBrickIdx = brickManager.SetIndex();
         // 부서진 벽돌 블럭 개수가 0이상일 때만 실행
         if (breakBrickIdx !=0)
         {
+            StartCoroutine(WaitTime(2f, ShieldSkillCanvas));
             List<int> idxs = new List<int>();
             for (int i=0; i < breakBrickIdx; i++)
             {

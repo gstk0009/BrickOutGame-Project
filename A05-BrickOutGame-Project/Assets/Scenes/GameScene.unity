@@ -6133,6 +6133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlindSkillCanvas: {fileID: 5523767071876789586}
   ShieldSkillCanvas: {fileID: 1197846368}
+  StealthSkillCanvas: {fileID: 1925818114}
   brickManager: {fileID: 782542809}
 --- !u!1 &1857003185
 GameObject:

@@ -5,7 +5,6 @@ using UnityEngine;
 public class BrickManager : MonoBehaviour
 {
     private List<GameObject> breakBrick;
-    private List<GameObject> activeBrick;
     [SerializeField] private ScoreBoardUI scoreBoard;
 
     private void Awake()
@@ -44,18 +43,11 @@ public class BrickManager : MonoBehaviour
     {
         breakBrick.Add(brick);
     }
-    public void AddActiveBrickList(GameObject brick)
-    {
-        activeBrick.Add(brick);
-    }
     public void RemoveList(int index)
     {
         breakBrick.RemoveAt(index);
     }
-    public void RemoveActiveBrickList(int index)
-    {
-        activeBrick.RemoveAt(index);
-    }
+
     public void SetActive(int index)
     {
         breakBrick[index].gameObject.SetActive(true);

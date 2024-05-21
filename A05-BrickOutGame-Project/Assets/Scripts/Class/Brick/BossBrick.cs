@@ -26,11 +26,6 @@ public class BossBrick : Brick
     // 보스 HP에 따라 보스 Skill 실행
     private void CheckBossHP()
     {
-        // HP 80일 때 - Stealth Skill (은신스킬) 
-        if (HP == 80)
-        {
-            bossAttack.StealthSkill();
-        }
         // HP 70, 30 일 때  -  Blind Skill
         if (HP == 70 || HP == 30)
         {

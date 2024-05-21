@@ -46,7 +46,7 @@ public class LevelDataManager : MonoBehaviour
                 // brickInfo 값을 통해 벽돌에 값 넣어주기
                 if (!brickManager.BrickTypes(brickType).IsActive)
                 {
-                    poolManager.DisableObj(poolManager.pool[i, j]);
+                    poolManager.DisableObj(poolManager.pool[i, j]); 
                 }
                 else
                 {

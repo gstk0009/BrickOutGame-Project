@@ -54,7 +54,6 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    
 
     public float SetBallSpeed()
     {
@@ -69,5 +68,4 @@ public class BallMovement : MonoBehaviour
         speed = applySpeed;
         rb2d.velocity = nwVelocity * speed;
     }
-
 }
