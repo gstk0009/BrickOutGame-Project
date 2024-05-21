@@ -5,12 +5,22 @@ using UnityEngine;
 public class BrickManager : MonoBehaviour
 {
     private List<GameObject> breakBrick;
+    private int breakBrickNum;
+    private int MaxBrick;
     [SerializeField] private ScoreBoardUI scoreBoard;
+    [SerializeField] private EndingManager endingManager;
 
     private void Awake()
     {
         breakBrick = new List<GameObject>();
         scoreBoard = scoreBoard.GetComponent<ScoreBoardUI>();
+        endingManager = endingManager.GetComponent<EndingManager>();
+    }
+
+    private void Start()
+    {
+        if (GameManager.Instance.stageNum == 4) return;
+        MaxBrick = GameManager.Instance.GameClear[GameManager.Instance.stageNum - 1];
     }
 
     public (int HP, int Score, int SpriteIdx, bool IsActive) BrickTypes(int type)
@@ -42,6 +52,12 @@ public class BrickManager : MonoBehaviour
     public void AddList(GameObject brick)
     {
         breakBrick.Add(brick);
+        breakBrickNum += 1;
+
+        if (MaxBrick == breakBrickNum)
+        {
+            endingManager.GameClear();
+        }
     }
 
     public void RemoveList(int index)

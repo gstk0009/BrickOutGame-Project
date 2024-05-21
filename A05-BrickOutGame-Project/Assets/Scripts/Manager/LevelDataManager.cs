@@ -6,15 +6,15 @@ public class LevelDataManager : MonoBehaviour
 {
     private ObjectPoolManager poolManager;
     private BrickTypeList brickTypeList;
+    private int maxBrick = 0;
 
     [SerializeField] private GameObject BossBrick;
-
     [SerializeField] private BrickManager brickManager;
 
     private void Awake()
     {
         brickManager = brickManager.GetComponent<BrickManager>();
-        poolManager = GetComponent<ObjectPoolManager>();    
+        poolManager = GetComponent<ObjectPoolManager>();
     }
     private void Start()
     {
@@ -35,6 +35,7 @@ public class LevelDataManager : MonoBehaviour
     private void LevelPoolSpawn()
     {
         int idx = 0;
+        maxBrick = 0;
 
         for (int i = 0; i < 6; i++)
         {
@@ -59,14 +60,17 @@ public class LevelDataManager : MonoBehaviour
 
                         // 각 벽돌에 동일한 brickManager값 넣어주기
                         brick.GetBreakBrickManager(brickManager);
+                        maxBrick += 1;
                     }
                 }
                 idx += 1;
             }
         }
+        GameManager.Instance.GameClear.Add(maxBrick);
         if (GameManager.Instance.stageNum == 3)
         {
             Level3();
+            GameManager.Instance.GameClear.Add(maxBrick);
         }
         if (GameManager.Instance.stageNum == 4)
         {
@@ -76,6 +80,7 @@ public class LevelDataManager : MonoBehaviour
 
     private void Level3()
     {
+        maxBrick = 0;
         for (int i = 1;i < 5;i++)
         {
             for (int j= 1; j < 5; j++)
@@ -93,6 +98,7 @@ public class LevelDataManager : MonoBehaviour
 
                     // 각 벽돌에 동일한 brickManager값 넣어주기
                     brick.GetBreakBrickManager(brickManager);
+                    maxBrick += 1;
                 }
             }
         }
