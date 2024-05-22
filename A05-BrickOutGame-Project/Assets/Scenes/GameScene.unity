@@ -659,6 +659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameClear: 0
+  BrickBreakNum: 0
   nowStageNum: 4
   maxStageNum: 4
 --- !u!4 &310072009
@@ -4043,7 +4044,7 @@ GameObject:
   - component: {fileID: 1176944927}
   - component: {fileID: 1176944926}
   - component: {fileID: 1176944928}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5170,7 +5171,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0043830276, y: 0.004055321}
@@ -5771,7 +5772,7 @@ GameObject:
   - component: {fileID: 1699203175}
   - component: {fileID: 1699203176}
   - component: {fileID: 1699203177}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

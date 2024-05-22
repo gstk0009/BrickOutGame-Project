@@ -24,6 +24,7 @@ public class Brick :MonoBehaviour
         if (HP <= 0 )
         {
             HP = 0;
+            GameManager.Instance.BrickBreakNum += 1;
             BrickBreak();
         }
         brickUI.UpdateBrickHPTxt( HP );
