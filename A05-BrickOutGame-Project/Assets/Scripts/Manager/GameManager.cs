@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     
     public List<int> GameClear = new List<int>();
-    public int stageNum = 2;
+    public int stageNum = 1;
 
     private void Awake()
     {
@@ -19,5 +19,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        GameClear.Clear();
     }
 }
