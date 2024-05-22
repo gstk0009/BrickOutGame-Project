@@ -12,6 +12,7 @@ Break Brick!!!
 5. 주요 기능
 6. 조작방법
 7. 기술 스택
+8. 와이어프레임
 
 
 ------------------
@@ -85,6 +86,11 @@ Break Brick!!!
 > + **버전 관리**
 >    + GitHub
 
+
+-----
+
+### 8. 와이어프레임
+![5조가쵝5조 _ BrickOutGame](https://github.com/JeongEunJi1127/A05-BrickOutGame-Project/blob/master/A05-BrickOutGame-Project/5%EC%A1%B0%EA%B0%80%EC%B5%9D5%EC%A1%B0%20_%20BrickOutGame.png)
 
 
     
