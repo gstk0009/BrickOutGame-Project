@@ -42,6 +42,7 @@ public class BallMovement : MonoBehaviour
         if (ballVelocity.magnitude != speed)
             rb2d.velocity = ballVelocity.normalized * speed;
 
+        // RigidBody Material로 인해 y 값이 일정 이하가 되면 0이 되는데 이때 보정
         if (isHitTop)
         {
             if (rb2d.velocity.y == 0f && rb2d.velocity.x > 9f)
@@ -107,8 +108,9 @@ public class BallMovement : MonoBehaviour
     private Vector2 ApplyMovement(Vector2 worldPos)
     {
         BallMovementDirection = (worldPos - (Vector2)transform.localPosition).normalized;
+        Debug.Log(BallMovementDirection);
         if (BallMovementDirection.y <= 0.1f)
-            BallMovementDirection = new Vector2(BallMovementDirection.x - 0.1f, BallMovementDirection.y +0.1f).normalized;
+            BallMovementDirection = new Vector2(BallMovementDirection.x - 0.1f, 0.1f).normalized;
         return BallMovementDirection;
     }
 
