@@ -64,6 +64,10 @@ public class BallMovement : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             rb2d.velocity = ApplyMovement(worldPos) * speed;
         }
+        if (collision.gameObject.layer == 10)
+        {
+
+        }
     }
 
     public float SetBallSpeed()

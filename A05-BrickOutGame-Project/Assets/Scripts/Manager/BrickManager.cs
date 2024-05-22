@@ -27,8 +27,8 @@ public class BrickManager : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.Instance.nowStageNum == 4) return;
-        nowStageNum = GameManager.Instance.stageNum;
+//        if (GameManager.Instance.nowStageNum == 4) return;
+//        nowStageNum = GameManager.Instance.stageNum;
         if (nowStageNum == 4) return;
         //MaxBrick = GameManager.Instance.GameClear[nowStageNum - 1];
         MaxBrick = GameManager.Instance.GameClear[0];

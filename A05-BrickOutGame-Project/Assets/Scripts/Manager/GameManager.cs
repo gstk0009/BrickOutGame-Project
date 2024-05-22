@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         GameClear.Clear();
-        nowStageNum = 1;
-        maxStageNum = 1;
+        nowStageNum = 3;
+        maxStageNum = 3;
     }
 }
