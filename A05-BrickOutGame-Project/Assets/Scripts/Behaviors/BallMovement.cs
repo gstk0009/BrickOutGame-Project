@@ -112,7 +112,6 @@ public class BallMovement : MonoBehaviour
     private Vector2 ApplyMovement(Vector2 worldPos)
     {
         BallMovementDirection = (worldPos - (Vector2)transform.localPosition).normalized;
-        Debug.Log(BallMovementDirection);
         if (BallMovementDirection.y <= 0.1f)
             BallMovementDirection = new Vector2(BallMovementDirection.x - 0.1f, 0.1f).normalized;
         return BallMovementDirection;
@@ -128,8 +127,8 @@ public class BallMovement : MonoBehaviour
         }
         if (collision.gameObject.layer == 6)
         {
-            rb2d.velocity = Vector2.zero;
-            rb2d.velocity = ApplyMovement(worldPos) * speed;
+            if (transform.localPosition.y >= -3.5f)
+                rb2d.velocity = ApplyMovement(worldPos) * speed;
         }
         // Left
         if (collision.gameObject.layer == 12)
