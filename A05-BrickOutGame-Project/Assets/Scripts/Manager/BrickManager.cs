@@ -27,11 +27,11 @@ public class BrickManager : MonoBehaviour
 
     private void Start()
     {
-//        if (GameManager.Instance.nowStageNum == 4) return;
-//        nowStageNum = GameManager.Instance.stageNum;
+        nowStageNum = GameManager.Instance.nowStageNum;
         if (nowStageNum == 4) return;
-        //MaxBrick = GameManager.Instance.GameClear[nowStageNum - 1];
-        MaxBrick = GameManager.Instance.GameClear[0];
+        MaxBrick = GameManager.Instance.GameClear[nowStageNum - 1];
+        // Test 용
+        //MaxBrick = GameManager.Instance.GameClear[0];
         breakBrickNum = 0;
     }
 
@@ -66,10 +66,8 @@ public class BrickManager : MonoBehaviour
         breakBrickNum += 1;
         breakBrick.Add(brick);
 
-        // Stage 3�� �� Brick�� 5�� �ı��Ǹ� 1���� �߰��� ���� ����
         brickResponStage3();
 
-        // �ı��� Brick ������ ����ϴ� Brick ������ �´��� Ȯ��
         if (MaxBrick == breakBrick.Count)
         {
             endingManager.StageClear();
@@ -82,9 +80,9 @@ public class BrickManager : MonoBehaviour
         {
             while (true)
             {
-                int createIndex = rand.Next(0, breakBrickNum);
+                int createIndex = rand.Next(0, breakBrick.Count);
 
-                if (breakBrick[createIndex] && !isCreatedItem[createIndex] && !SetIsCreatedItem(createIndex))
+                if (!isCreatedItem[createIndex])
                 {
                     SetActive(createIndex);
                     MaxBrick += 1;

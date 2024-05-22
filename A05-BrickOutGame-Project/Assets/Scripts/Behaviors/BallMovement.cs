@@ -66,7 +66,9 @@ public class BallMovement : MonoBehaviour
         }
         if (collision.gameObject.layer == 10)
         {
-
+            Vector2 income = rb2d.velocity;
+            Vector2 normal = collision.contacts[0].normal;
+            rb2d.velocity = Vector2.Reflect(income, normal).normalized;
         }
     }
 
