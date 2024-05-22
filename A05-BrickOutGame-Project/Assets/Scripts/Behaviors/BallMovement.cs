@@ -55,9 +55,8 @@ public class BallMovement : MonoBehaviour
                 Vector2 nowVector = new Vector2(befordBallMovement.x + 0.5f, -befordBallMovement.y - 0.5f).normalized * speed;
                 rb2d.velocity = nowVector;
             }
+            isHitSide = false;
         }
-        else
-            isHitTop = false;
 
         if (isHitSide)
         {
@@ -87,9 +86,8 @@ public class BallMovement : MonoBehaviour
                     rb2d.velocity = nowVector;
                 }
             }
-        }
-        else
             isHitSide = false;
+        }
 
         //if (rb2d.velocity.y == 0f && rb2d.velocity.x > 9f)
         //{
