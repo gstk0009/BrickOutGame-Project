@@ -65,11 +65,10 @@ public class LevelDataManager : MonoBehaviour
                 idx += 1;
             }
         }
-        GameManager.Instance.GameClear.Add(maxBrick);
+        GameManager.Instance.GameClear = maxBrick;
         if (GameManager.Instance.nowStageNum == 3)
         {
             Level3();
-            GameManager.Instance.GameClear.Add(maxBrick);
         }
         if (GameManager.Instance.nowStageNum == 4)
         {
@@ -79,7 +78,6 @@ public class LevelDataManager : MonoBehaviour
 
     private void Level3()
     {
-        maxBrick = 0;
         for (int i = 1;i < 5;i++)
         {
             for (int j= 1; j < 5; j++)
@@ -88,7 +86,6 @@ public class LevelDataManager : MonoBehaviour
                 int[] idxs = { 1, 3, 5, 7 };
                 int type = idxs[Random.Range(0, 4)];
                 var brickInfo = brickManager.BrickTypes(type);
-
                 if (brick != null)
                 {
                     brick.SetHP(brickInfo.HP);
@@ -96,7 +93,6 @@ public class LevelDataManager : MonoBehaviour
                     brick.SetSpriteRenderer(brickInfo.SpriteIdx);
 
                     brick.GetBreakBrickManager(brickManager);
-                    maxBrick += 1;
                 }
             }
         }

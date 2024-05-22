@@ -7,6 +7,7 @@ using static UnityEditor.Progress;
 public class ItemBallApply : MonoBehaviour
 {
     public ItemApplyManager applyManager;
+    private EndingManager endingManager;
     private Item item;
     private BallMovement ballMovement;
     [SerializeField] private BrickManager brickManager;
@@ -19,6 +20,7 @@ public class ItemBallApply : MonoBehaviour
     private void Awake()
     {
         ballMovement = GetComponent<BallMovement>();
+        endingManager = GetComponent<EndingManager>();
         applyManager = applyManager.GetComponent<ItemApplyManager>();
         brickManager = brickManager.GetComponent<BrickManager>();
     }
@@ -30,23 +32,23 @@ public class ItemBallApply : MonoBehaviour
             item = collision.GetComponent<Item>();
             itemId = item.Id;
             itemCreatedIndex = item.CreateIndex;
-        }
 
-        if (itemId >= 1 && itemId <= 1000)
-        {
-            if ((itemId == 1 || itemId == 2) && !isUseItemSize)
+            if (itemId >= 1 && itemId <= 1000)
             {
-                isUseItemSize = true;
-                applyManager.ApplyBallItemSize();
+                if ((itemId == 1 || itemId == 2) && !isUseItemSize)
+                {
+                    isUseItemSize = true;
+                    applyManager.ApplyBallItemSize();
+                }
+                else if ((itemId == 3 || itemId == 4) && !isUseItemSpeed)
+                {
+                    isUseItemSpeed = true;
+                    // 현재 ball Speed를 받아와서, 아이템 Speed를 곱해준 뒤, 그걸 다시 ballMovment에 적용
+                    ballMovement.GetBallSpeed(applyManager.ApplyBallItemSpeed(ballMovement.SetBallSpeed()));
+                }
+                brickManager.GetIsCreatedItem(itemCreatedIndex, false);
+                Destroy(collision.gameObject);
             }
-            else if ((itemId == 3 || itemId == 4) && !isUseItemSpeed)
-            {
-                isUseItemSpeed = true;
-                // 현재 ball Speed를 받아와서, 아이템 Speed를 곱해준 뒤, 그걸 다시 ballMovment에 적용
-                ballMovement.GetBallSpeed(applyManager.ApplyBallItemSpeed(ballMovement.SetBallSpeed()));
-            }
-            brickManager.GetIsCreatedItem(itemCreatedIndex, false);
-            Destroy(item.gameObject);
         }
     }
 

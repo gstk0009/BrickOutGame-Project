@@ -72,7 +72,7 @@ public class ItemCreate : MonoBehaviour
         {
             createItemIndex = random.Next(0, breakBrickNum);
 
-            if (!brickManager.SetIsCreatedBrick(createItemIndex))
+            if (!brickManager.SetIsCreatedBrick(createItemIndex) && !brickManager.SetIsCreatedItem(createItemIndex))
             {
                 break;
             }
