@@ -38,7 +38,7 @@ public class ScoreBoardUI : MonoBehaviour
 
     private void Start()
     {
-        lvNum = GameManager.Instance.stageNum;
+        lvNum = GameManager.Instance.nowStageNum;
         scoreboard[lvTxt].text = lvNum.ToString();
         scoreboard[bestScoreTxt].text = bestScore.ToString();
         gameOverCalled = false;

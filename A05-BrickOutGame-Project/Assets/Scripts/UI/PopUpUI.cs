@@ -16,6 +16,11 @@ public class PopUpUI : MonoBehaviour
         obj.SetActive(false);
     }
 
+    public void NextStage()
+    {
+        GameManager.Instance.nowStageNum++;
+    }
+
     public void PlayOnclickAudio()
     {
         AudioManager.Instance.BtnClickAudio();

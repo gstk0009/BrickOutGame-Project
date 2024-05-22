@@ -30,7 +30,7 @@ public class ItemCreate : MonoBehaviour
 
     private void Start()
     {
-        itemCreateTime = (scoreBoard.SetLevelPlayTime(GameManager.Instance.stageNum)/6);
+        itemCreateTime = (scoreBoard.SetLevelPlayTime(GameManager.Instance.nowStageNum)/6);
     }
 
     private void Update()

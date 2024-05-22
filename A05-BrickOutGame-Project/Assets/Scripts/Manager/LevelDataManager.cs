@@ -24,7 +24,7 @@ public class LevelDataManager : MonoBehaviour
 
     private void LoadData()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, $"level{GameManager.Instance.stageNum}.json");
+        string filePath = Path.Combine(Application.streamingAssetsPath, $"level{GameManager.Instance.nowStageNum}.json");
         if (File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);
@@ -66,12 +66,12 @@ public class LevelDataManager : MonoBehaviour
             }
         }
         GameManager.Instance.GameClear.Add(maxBrick);
-        if (GameManager.Instance.stageNum == 3)
+        if (GameManager.Instance.nowStageNum == 3)
         {
             Level3();
             GameManager.Instance.GameClear.Add(maxBrick);
         }
-        if (GameManager.Instance.stageNum == 4)
+        if (GameManager.Instance.nowStageNum == 4)
         {
             Level4();
         }
