@@ -6,9 +6,11 @@ using UnityEngine;
 public class EndingManager : MonoBehaviour
 {
     private Rigidbody2D rb2d;
+    private BallMovement ballMove;
     private int life = 3;
     private float speed;
 
+    
     [SerializeField] private GameObject paddle;
     [SerializeField] private GameObject BossGameClearCanvas;
     [SerializeField] private GameObject GameClearCanvas;
@@ -18,17 +20,23 @@ public class EndingManager : MonoBehaviour
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        ballMove = GetComponent<BallMovement>();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer != 8)
+        if (collision.gameObject.layer == 11)
+        {
             BallDie();
+        }
     }
 
     public void BallDie()
     {
-        speed = rb2d.velocity.magnitude;
+        speed = ballMove.SetInitSpeed();
+        ballMove.GetInitSpeed(speed);
+        transform.localScale = new Vector2(ballMove.SetInitSizex(), ballMove.SetInitSizey());
+
         life -= 1;
         Invoke("ResetBallPaddle", 2f);
         LifeUI[life].SetActive(false);

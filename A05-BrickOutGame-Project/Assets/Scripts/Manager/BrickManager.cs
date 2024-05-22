@@ -29,8 +29,8 @@ public class BrickManager : MonoBehaviour
     {
         nowStageNum = GameManager.Instance.nowStageNum;
         if (nowStageNum == 4) return;
-        MaxBrick = GameManager.Instance.GameClear[nowStageNum - 1];
-        // Test 용
+        MaxBrick = GameManager.Instance.GameClear;
+        //// Test 용
         //MaxBrick = GameManager.Instance.GameClear[0];
         breakBrickNum = 0;
     }
@@ -61,45 +61,41 @@ public class BrickManager : MonoBehaviour
         }
     }
 
-    public void AddList(GameObject brick)
+    public void BreakBrickList(GameObject brick)
     {
         breakBrickNum += 1;
-        breakBrick.Add(brick);
 
-        brickResponStage3();
+        breakBrick.Add(brick);
 
         if (MaxBrick == breakBrick.Count)
         {
             endingManager.StageClear();
         }
+        //brickResponStage3();
     }
 
-    private void brickResponStage3()
-    {
-        if (nowStageNum == 3 && (breakBrickNum % 5 == 0))
-        {
-            while (true)
-            {
-                int createIndex = rand.Next(0, breakBrick.Count);
+    //private void brickResponStage3()
+    //{
+    //    if (nowStageNum == 3 && (breakBrickNum % 4 == 0))
+    //    {
+    //        while (true)
+    //        {
+    //            int createIndex = rand.Next(0, breakBrick.Count);
 
-                if (!isCreatedItem[createIndex])
-                {
-                    SetActive(createIndex);
-                    MaxBrick += 1;
-                    break;
-                }
-            }
-        }
-    }
+    //            if (!isCreatedItem[createIndex] && !isCreatedBrick[createIndex])
+    //            {
+    //                SetActive(createIndex);
+    //                MaxBrick += 1;
+    //                return;
+    //            }
+    //        }
+    //    }
+    //}
 
-    public void AddCreatedItemlList(bool isCreated)
+    public void AddisCreatedList(bool isitemCreated, bool isbrickCreated)
     {
-        isCreatedItem.Add(isCreated);
-    }
-
-    public void AddCreatedBricklList(bool isCreated)
-    {
-        isCreatedBrick.Add(isCreated);
+        isCreatedItem.Add(isitemCreated);
+        isCreatedBrick.Add(isbrickCreated);
     }
 
     public void GetIsCreatedItem(int index, bool isCreated)
@@ -118,6 +114,11 @@ public class BrickManager : MonoBehaviour
         brick.ResponHp();
         isCreatedBrick[index] = true;
         brick.gameObject.SetActive(true);
+    }
+
+    public void Activefalse(int index)
+    {
+
     }
 
     public bool SetIsCreatedItem(int index)

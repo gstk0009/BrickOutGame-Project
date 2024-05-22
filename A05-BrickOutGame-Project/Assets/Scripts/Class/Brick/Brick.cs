@@ -64,9 +64,8 @@ public class Brick :MonoBehaviour
 
     protected virtual void BrickBreak()
     {
-        brickManager.AddCreatedItemlList(false);
-        brickManager.AddCreatedBricklList(false);
-        brickManager.AddList(gameObject);
+        brickManager.AddisCreatedList(false, false);
+        brickManager.BreakBrickList(gameObject);
         brickManager.GetBrickScore(Score);
 
         gameObject.SetActive(false);

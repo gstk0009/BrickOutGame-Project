@@ -4,6 +4,7 @@ using UnityEngine;
 public class ItemBallApply : MonoBehaviour
 {
     public ItemApplyManager applyManager;
+    private EndingManager endingManager;
     private Item item;
     private BallMovement ballMovement;
     [SerializeField] private BrickManager brickManager;
@@ -16,6 +17,7 @@ public class ItemBallApply : MonoBehaviour
     private void Awake()
     {
         ballMovement = GetComponent<BallMovement>();
+        endingManager = GetComponent<EndingManager>();
         applyManager = applyManager.GetComponent<ItemApplyManager>();
         brickManager = brickManager.GetComponent<BrickManager>();
     }
@@ -27,22 +29,23 @@ public class ItemBallApply : MonoBehaviour
             item = collision.GetComponent<Item>();
             itemId = item.Id;
             itemCreatedIndex = item.CreateIndex;
-        }
 
-        if (itemId >= 1 && itemId <= 1000)
-        {
-            if ((itemId == 1 || itemId == 2) && !isUseItemSize)
+            if (itemId >= 1 && itemId <= 1000)
             {
-                isUseItemSize = true;
-                applyManager.ApplyBallItemSize();
+                if ((itemId == 1 || itemId == 2) && !isUseItemSize)
+                {
+                    isUseItemSize = true;
+                    applyManager.ApplyBallItemSize();
+                }
+                else if ((itemId == 3 || itemId == 4) && !isUseItemSpeed)
+                {
+                    isUseItemSpeed = true;
+                    // ���� ball Speed�� �޾ƿͼ�, ������ Speed�� ������ ��, �װ� �ٽ� ballMovment�� ����
+                    ballMovement.GetBallSpeed(applyManager.ApplyBallItemSpeed(ballMovement.SetBallSpeed()));
+                }
+                brickManager.GetIsCreatedItem(itemCreatedIndex, false);
+                Destroy(collision.gameObject);
             }
-            else if ((itemId == 3 || itemId == 4) && !isUseItemSpeed)
-            {
-                isUseItemSpeed = true;
-                ballMovement.GetBallSpeed(applyManager.ApplyBallItemSpeed(ballMovement.SetBallSpeed()));
-            }
-            brickManager.GetIsCreatedItem(itemCreatedIndex, false);
-            Destroy(item.gameObject);
         }
     }
 
