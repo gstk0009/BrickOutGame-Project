@@ -72,18 +72,18 @@ Break Brick!!!
 ### 7. 기술 스택
 
 > + **프레임워크 & 언어**
-   > + NET 8.0
-   > + C#
+>    + NET 8.0
+>    + C#
 
 > + **게임 엔진**
-   > + Unity ver.3.17f
+>    + Unity ver.3.17f
 
 > + **개발 환경**
-   > + Visual Studio
-   > + VS Code
+>    + Visual Studio
+>    + VS Code
 
- > + **버전 관리**
-   > + GitHub
+> + **버전 관리**
+>    + GitHub
 
 
 
