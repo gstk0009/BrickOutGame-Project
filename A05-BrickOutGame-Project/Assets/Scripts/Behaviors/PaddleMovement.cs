@@ -37,21 +37,12 @@ public class PaddleMovement : MonoBehaviour
         movementRigidbody.velocity = direction;
     }
 
-    public float SetPaddleSpeed()
-    {
-        return speed;
-    }
-
-    public void GetPaddleSpeed(float applySpeed)
-    {
-        speed = applySpeed;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 9)
-        {
-            movementRigidbody.velocity = Vector3.zero;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.layer == 9)
+    //    {
+    //        movementRigidbody.velocity = Vector3.zero;
+    //    }
+    //}
 }
 
