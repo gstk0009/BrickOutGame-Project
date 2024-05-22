@@ -34,8 +34,8 @@ public class PaddleMovement : MonoBehaviour
         //direction *= speed;
         //movementRigidbody.velocity = direction;
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
-        if (position.x <= -2.6f)
-            position.x = -2.6f;
+        if (position.x <= -2.5f)
+            position.x = -2.5f;
         if (position.x >= 2.7f)
             position.x = 2.7f;
         transform.position = position + direction * speed * Time.deltaTime;
