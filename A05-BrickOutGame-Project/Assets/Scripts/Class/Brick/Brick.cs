@@ -8,6 +8,8 @@ public class Brick :MonoBehaviour
 
     protected BrickManager brickManager;
     protected BrickUI brickUI;
+    private int maxHp = 0;
+
 
     protected virtual void Awake()
     {
@@ -40,6 +42,13 @@ public class Brick :MonoBehaviour
     public void SetHP(int hp)
     {
         HP = hp;
+        maxHp = hp;
+        brickUI.UpdateBrickHPTxt(HP);
+    }
+
+    public void ResponHp()
+    {
+        HP = maxHp;
         brickUI.UpdateBrickHPTxt(HP);
     }
 
@@ -55,6 +64,8 @@ public class Brick :MonoBehaviour
 
     protected virtual void BrickBreak()
     {
+        brickManager.AddCreatedItemlList(false);
+        brickManager.AddCreatedBricklList(false);
         brickManager.AddList(gameObject);
         brickManager.GetBrickScore(Score);
 

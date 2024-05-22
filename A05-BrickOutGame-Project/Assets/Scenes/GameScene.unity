@@ -309,7 +309,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applyManager: {fileID: 996018121}
+  brickManager: {fileID: 782542809}
 --- !u!114 &143553373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +394,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Mouse
   m_DefaultActionMap: Mouse
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -409,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc90ab3f6d954af46bb4fcfb55b2171c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paddle: {fileID: 1908777934}
   BossGameClearCanvas: {fileID: 1863014138}
   GameClearCanvas: {fileID: 2034425044}
   GameOverCanvas: {fileID: 1144941744}
@@ -3241,6 +3243,7 @@ MonoBehaviour:
   Id: 0
   Speed: 0
   Size: 0
+  CreateIndex: 0
 --- !u!4 &996018126
 Transform:
   m_ObjectHideFlags: 0
@@ -5104,8 +5107,8 @@ Transform:
   m_GameObject: {fileID: 1497805286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.37, y: -19.4102, z: 10.236345}
-  m_LocalScale: {x: 7.7435, y: 0.52300566, z: 1}
+  m_LocalPosition: {x: -9.5627, y: -20.6522, z: 10.236345}
+  m_LocalScale: {x: 14.104201, y: 2.2067785, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 513174269}
@@ -5139,10 +5142,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0043830276, y: 0.004055321}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5153,7 +5156,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.271737, y: 1.3000902}
   m_EdgeRadius: 0.05
 --- !u!212 &1497805289
 SpriteRenderer:
@@ -6966,10 +6969,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1908777948}
   - component: {fileID: 1908777949}
+  - component: {fileID: 1908777951}
   - component: {fileID: 1908777950}
-  - component: {fileID: 1908777945}
-  - component: {fileID: 1908777944}
-  - component: {fileID: 1908777943}
+  - component: {fileID: 1908777953}
+  - component: {fileID: 1908777952}
   m_Layer: 6
   m_Name: Paddle
   m_TagString: Untagged
@@ -6977,61 +6980,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1908777943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908777934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc287cd042607f4aadcf88e613506e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
---- !u!114 &1908777944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908777934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f417d40adf2da4eba2fbcc858c1133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1908777945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908777934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: a01b18f75182a3146b376c38b9575a74, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: KeyBoard
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!4 &1908777948
 Transform:
   m_ObjectHideFlags: 0
@@ -7083,7 +7031,37 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000006794479, y: -3.996214}
   m_Size: {x: 1.9642944, y: 0.6523829}
   m_Direction: 1
---- !u!50 &1908777950
+--- !u!114 &1908777950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908777934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a01b18f75182a3146b376c38b9575a74, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: KeyBoard
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!50 &1908777951
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -7110,6 +7088,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &1908777952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908777934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f417d40adf2da4eba2fbcc858c1133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1908777953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908777934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc287cd042607f4aadcf88e613506e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &1915364897
 GameObject:
   m_ObjectHideFlags: 0
@@ -9095,7 +9098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2954617623793098662
 RectTransform:
   m_ObjectHideFlags: 0

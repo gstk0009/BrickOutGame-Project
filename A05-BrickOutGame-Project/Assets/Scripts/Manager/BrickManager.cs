@@ -1,27 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class BrickManager : MonoBehaviour
 {
     private List<GameObject> breakBrick;
+    private List<bool> isCreatedItem;
+    private List<bool> isCreatedBrick;
     private int breakBrickNum;
     private int MaxBrick;
+    private int nowStageNum;
     [SerializeField] private ScoreBoardUI scoreBoard;
     [SerializeField] private EndingManager endingManager;
+    System.Random rand;
 
     private void Awake()
     {
         breakBrick = new List<GameObject>();
+        isCreatedItem = new List<bool>();
+        isCreatedBrick = new List<bool>();
         scoreBoard = scoreBoard.GetComponent<ScoreBoardUI>();
         endingManager = endingManager.GetComponent<EndingManager>();
+        rand = new System.Random();
     }
 
     private void Start()
     {
         if (GameManager.Instance.nowStageNum == 4) return;
-
+        nowStageNum = GameManager.Instance.stageNum;
+        if (nowStageNum == 4) return;
+        //MaxBrick = GameManager.Instance.GameClear[nowStageNum - 1];
         MaxBrick = GameManager.Instance.GameClear[0];
+        breakBrickNum = 0;
     }
 
     public (int HP, int Score, int SpriteIdx, bool IsActive) BrickTypes(int type)
@@ -52,23 +63,75 @@ public class BrickManager : MonoBehaviour
 
     public void AddList(GameObject brick)
     {
-        breakBrick.Add(brick);
         breakBrickNum += 1;
+        breakBrick.Add(brick);
 
-        if (MaxBrick == breakBrickNum)
+        // Stage 3�� �� Brick�� 5�� �ı��Ǹ� 1���� �߰��� ���� ����
+        brickResponStage3();
+
+        // �ı��� Brick ������ ����ϴ� Brick ������ �´��� Ȯ��
+        if (MaxBrick == breakBrick.Count)
         {
             endingManager.StageClear();
         }
     }
-    public void RemoveList(int index)
+
+    private void brickResponStage3()
     {
-        breakBrick.RemoveAt(index);
+        if (nowStageNum == 3 && (breakBrickNum % 5 == 0))
+        {
+            while (true)
+            {
+                int createIndex = rand.Next(0, breakBrickNum);
+
+                if (breakBrick[createIndex] && !isCreatedItem[createIndex] && !SetIsCreatedItem(createIndex))
+                {
+                    SetActive(createIndex);
+                    MaxBrick += 1;
+                    break;
+                }
+            }
+        }
+    }
+
+    public void AddCreatedItemlList(bool isCreated)
+    {
+        isCreatedItem.Add(isCreated);
+    }
+
+    public void AddCreatedBricklList(bool isCreated)
+    {
+        isCreatedBrick.Add(isCreated);
+    }
+
+    public void GetIsCreatedItem(int index, bool isCreated)
+    {
+        isCreatedItem[index] = isCreated;
+    }
+
+    public void GetIsCreatedBrick(int index, bool isCreated)
+    {
+        isCreatedBrick[index] = isCreated;
     }
 
     public void SetActive(int index)
     {
-        breakBrick[index].gameObject.SetActive(true);
+        Brick brick = breakBrick[index].GetComponent<Brick>();
+        brick.ResponHp();
+        isCreatedBrick[index] = true;
+        brick.gameObject.SetActive(true);
     }
+
+    public bool SetIsCreatedItem(int index)
+    {
+        return isCreatedItem[index];
+    }
+
+    public bool SetIsCreatedBrick(int index)
+    {
+        return isCreatedBrick[index];
+    }
+
 
     public Vector2 SetPosition(int index)
     {

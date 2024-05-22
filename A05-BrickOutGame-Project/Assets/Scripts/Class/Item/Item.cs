@@ -9,6 +9,7 @@ public class Item : MonoBehaviour
     public int Id;
     public float Speed;
     public float Size;
+    public int CreateIndex;
 
     protected ItemInventory inventory;
 
@@ -32,11 +33,12 @@ public class Item : MonoBehaviour
     }
 
     // 아이템 생성
-    public void CreateItem(string name, int id, float speed, float size)
+    public void CreateItem(string name, int id, float speed, float size, int createdIndex)
     {
         Name = name;
         Id = id;
         Speed = speed;
         Size = size;
+        CreateIndex = createdIndex;
     }
 }

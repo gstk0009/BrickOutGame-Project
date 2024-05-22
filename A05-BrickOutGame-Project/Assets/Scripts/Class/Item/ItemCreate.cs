@@ -17,6 +17,7 @@ public class ItemCreate : MonoBehaviour
 
     private int itemIndex;
     private int breakBrickNum;
+    private int createItemIndex;
     private float gameStartTime = 0f;
     private float itemCreateTime;
 
@@ -67,7 +68,15 @@ public class ItemCreate : MonoBehaviour
         GameObject item = Instantiate(ItemObjects[itemIndex]);
 
         // 파괴된 벽돌 위치 중 랜덤으로 생성
-        int createItemIndex = random.Next(0, breakBrickNum);
+        while (true)
+        {
+            createItemIndex = random.Next(0, breakBrickNum);
+
+            if (!brickManager.SetIsCreatedBrick(createItemIndex))
+            {
+                break;
+            }
+        }
 
         // 랜덤된 위치에 좌표값 가져오기
         Vector2 createItemPosition = brickManager.SetPosition(createItemIndex);
@@ -78,10 +87,11 @@ public class ItemCreate : MonoBehaviour
         // 아이템 수치적용
         item.GetComponent<Item>().CreateItem(
         inventory.SetItemStatsName(itemIndex), inventory.SetItemStatsId(itemIndex), inventory.SetItemStatsSpeed(itemIndex),
-        inventory.SetItemStatsSize(itemIndex));
+        inventory.SetItemStatsSize(itemIndex), createItemIndex);
 
-        // 생성 후 List에서 랜덤 선택된 Object 제거
+        // 아이템 생성 반영
+        brickManager.GetIsCreatedItem(createItemIndex, true);
+
         // 아이템이 사용되면 아이템은 Destroy로 파괴시킨다.
-        brickManager.RemoveList(createItemIndex);
     }
 }

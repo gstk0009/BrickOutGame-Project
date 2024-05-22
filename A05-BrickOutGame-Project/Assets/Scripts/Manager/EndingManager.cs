@@ -9,6 +9,7 @@ public class EndingManager : MonoBehaviour
     private int life = 3;
     private float speed;
 
+    [SerializeField] private GameObject paddle;
     [SerializeField] private GameObject BossGameClearCanvas;
     [SerializeField] private GameObject GameClearCanvas;
     [SerializeField] private GameObject GameOverCanvas;
@@ -22,23 +23,27 @@ public class EndingManager : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.layer != 8)
-        {
-            speed = rb2d.velocity.magnitude;
-            life -= 1;
-            Invoke("ResetBall", 2f);
-            LifeUI[life].SetActive(false);
-            rb2d.velocity = Vector2.down * speed;
+            BallDie();
+    }
 
-            if(life == 0)
-            {
-                GameOver();
-            }
+    public void BallDie()
+    {
+        speed = rb2d.velocity.magnitude;
+        life -= 1;
+        Invoke("ResetBallPaddle", 2f);
+        LifeUI[life].SetActive(false);
+        rb2d.velocity = Vector2.down * speed;
+
+        if (life == 0)
+        {
+            GameOver();
         }
     }
 
-    private void ResetBall()
+    private void ResetBallPaddle()
     {
         this.transform.position = Vector2.zero;
+        paddle.transform.position = Vector2.zero;
     }
 
     public void GameClear()
