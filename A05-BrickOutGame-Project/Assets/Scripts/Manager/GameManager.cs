@@ -29,6 +29,6 @@ public class GameManager : MonoBehaviour
         BrickBreakNum = 0;
         GameClear = 0;
         nowStageNum = 1;
-        maxStageNum = 4;
+        maxStageNum = 1;
     }
 }
