@@ -12,6 +12,8 @@ public class BallMovement : MonoBehaviour
     private float initSizex;
     private float initSizey;
     private Rigidbody2D rb2d;
+    private bool isHitSide = false;
+    private bool isHitTop = false;
 
 
     private void Awake()
@@ -40,16 +42,59 @@ public class BallMovement : MonoBehaviour
         if (ballVelocity.magnitude != speed)
             rb2d.velocity = ballVelocity.normalized * speed;
 
-        if (rb2d.velocity.y == 0f && rb2d.velocity.x > 9f)
+        if (isHitTop)
         {
-            Vector2 nowVector = new Vector2(-befordBallMovement.x + 0.5f, befordBallMovement.y + 0.5f).normalized * speed;
-            rb2d.velocity = nowVector;
+            if (rb2d.velocity.y == 0f && rb2d.velocity.x > 9f)
+            {
+                Vector2 nowVector = new Vector2(befordBallMovement.x - 0.5f, -befordBallMovement.y - 0.5f).normalized * speed;
+                rb2d.velocity = nowVector;
+            }
+            else if (rb2d.velocity.y == 0f && rb2d.velocity.x < -9f)
+            {
+                Vector2 nowVector = new Vector2(befordBallMovement.x + 0.5f, -befordBallMovement.y - 0.5f).normalized * speed;
+                rb2d.velocity = nowVector;
+            }
         }
-        if (rb2d.velocity.y == 0f && rb2d.velocity.x < -9f)
+        if ( isHitSide)
         {
-            Vector2 nowVector = new Vector2(-befordBallMovement.x + 0.5f, -befordBallMovement.y - 0.5f).normalized * speed;
-            rb2d.velocity = nowVector;
+            if (rb2d.velocity.y == 0f && rb2d.velocity.x > 9f)
+            {
+                if (befordBallMovement.y > 0f)
+                {
+                    Vector2 nowVector = new Vector2(-befordBallMovement.x + 0.5f, befordBallMovement.y + 0.5f).normalized * speed;
+                    rb2d.velocity = nowVector;
+                }
+                else if (befordBallMovement.y < 0f)
+                {
+                    Vector2 nowVector = new Vector2(-befordBallMovement.x + 0.5f, befordBallMovement.y - 0.5f).normalized * speed;
+                    rb2d.velocity = nowVector;
+                }
+            }
+            else if (rb2d.velocity.y == 0f && rb2d.velocity.x < -9f)
+            {
+                if (befordBallMovement.y > 0f)
+                {
+                    Vector2 nowVector = new Vector2(-befordBallMovement.x - 0.5f, befordBallMovement.y + 0.5f).normalized * speed;
+                    rb2d.velocity = nowVector;
+                }
+                else if (befordBallMovement.y < 0f)
+                {
+                    Vector2 nowVector = new Vector2(-befordBallMovement.x - 0.5f, befordBallMovement.y - 0.5f).normalized * speed;
+                    rb2d.velocity = nowVector;
+                }
+            }
         }
+
+        //if (rb2d.velocity.y == 0f && rb2d.velocity.x > 9f)
+        //{
+        //    Vector2 nowVector = new Vector2(befordBallMovement.x - 0.5f, -befordBallMovement.y - 0.5f).normalized * speed;
+        //    rb2d.velocity = nowVector;
+        //}
+        //if (rb2d.velocity.y == 0f && rb2d.velocity.x < -9f)
+        //{
+        //    Vector2 nowVector = new Vector2(-befordBallMovement.x + 0.5f, -befordBallMovement.y - 0.5f).normalized * speed;
+        //    rb2d.velocity = nowVector;
+        //}
 
         befordBallMovement = rb2d.velocity;
     }
@@ -65,10 +110,20 @@ public class BallMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioManager.Instance.BallCollisionAudio();
+        // Top
+        if (collision.gameObject.layer == 5)
+        {
+            isHitTop = true;
+        }
         if (collision.gameObject.layer == 6)
         {
             rb2d.velocity = Vector2.zero;
             rb2d.velocity = ApplyMovement(worldPos) * speed;
+        }
+        // Left
+        if (collision.gameObject.layer == 12)
+        {
+            isHitSide = true;
         }
     }
 

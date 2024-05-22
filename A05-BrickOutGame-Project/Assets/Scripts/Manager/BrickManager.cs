@@ -63,34 +63,33 @@ public class BrickManager : MonoBehaviour
 
     public void BreakBrickList(GameObject brick)
     {
-        breakBrickNum += 1;
-
+        breakBrickNum = GameManager.Instance.BrickBreakNum;
         breakBrick.Add(brick);
 
-        if (MaxBrick == breakBrick.Count)
+        if (MaxBrick == breakBrickNum)
         {
             endingManager.StageClear();
         }
-        //brickResponStage3();
+        brickResponStage3();
     }
 
-    //private void brickResponStage3()
-    //{
-    //    if (nowStageNum == 3 && (breakBrickNum % 4 == 0))
-    //    {
-    //        while (true)
-    //        {
-    //            int createIndex = rand.Next(0, breakBrick.Count);
+    private void brickResponStage3()
+    {
+        if (nowStageNum == 3 && (breakBrickNum % 4 == 0))
+        {
+            while (true)
+            {
+                int createIndex = rand.Next(0, breakBrick.Count);
 
-    //            if (!isCreatedItem[createIndex] && !isCreatedBrick[createIndex])
-    //            {
-    //                SetActive(createIndex);
-    //                MaxBrick += 1;
-    //                return;
-    //            }
-    //        }
-    //    }
-    //}
+                if (!isCreatedItem[createIndex] && !isCreatedBrick[createIndex])
+                {
+                    SetActive(createIndex);
+                    MaxBrick += 1;
+                    return;
+                }
+            }
+        }
+    }
 
     public void AddisCreatedList(bool isitemCreated, bool isbrickCreated)
     {

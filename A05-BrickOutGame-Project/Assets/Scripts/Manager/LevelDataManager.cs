@@ -36,6 +36,7 @@ public class LevelDataManager : MonoBehaviour
     {
         int idx = 0;
         maxBrick = 0;
+        GameManager.Instance.BrickBreakNum = 0;
 
         for (int i = 0; i < 6; i++)
         {

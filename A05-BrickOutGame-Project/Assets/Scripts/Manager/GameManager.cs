@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     
     public int GameClear;
+    public int BrickBreakNum;
     public int nowStageNum;
     public int maxStageNum;
 
@@ -25,8 +26,9 @@ public class GameManager : MonoBehaviour
     }
     private void Init()
     {
+        BrickBreakNum = 0;
         GameClear = 0;
         nowStageNum = 1;
-        maxStageNum = 1;
+        maxStageNum = 4;
     }
 }
