@@ -46,15 +46,15 @@ public class AudioManager : MonoBehaviour
     public void ClearAudio()
     {
         audioSource.ignoreListenerPause = true;
-        audioSource.clip = GameClearAudio;
-        audioSource.Play();
+        audioSource.Stop();
+        audioSource.PlayOneShot(GameClearAudio);
     }
 
     public void OverAudio()
     {
         audioSource.ignoreListenerPause = true;
-        audioSource.clip = GameOverAudio;
-        audioSource.Play();
+        audioSource.Stop();
+        audioSource.PlayOneShot(GameOverAudio);
     }
 
     public void BallCollisionAudio()

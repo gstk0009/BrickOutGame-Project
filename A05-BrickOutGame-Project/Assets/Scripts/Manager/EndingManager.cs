@@ -50,6 +50,7 @@ public class EndingManager : MonoBehaviour
 
     public void StageClear()
     {
+        GameManager.Instance.stageNum++;
         GameClearCanvas.SetActive(true);
         AudioManager.Instance.ClearAudio();
         Time.timeScale = 0f;

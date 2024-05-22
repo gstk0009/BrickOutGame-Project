@@ -23,7 +23,7 @@ public class ScoreBoardUI : MonoBehaviour
     private int min;
     private float sec;
 
-    private bool gameOverCalled = false;
+    private bool gameOverCalled;
 
     private void Awake()
     {
@@ -41,6 +41,7 @@ public class ScoreBoardUI : MonoBehaviour
         lvNum = GameManager.Instance.stageNum;
         scoreboard[lvTxt].text = lvNum.ToString();
         scoreboard[bestScoreTxt].text = bestScore.ToString();
+        gameOverCalled = false;
     }
 
     private void Update()
