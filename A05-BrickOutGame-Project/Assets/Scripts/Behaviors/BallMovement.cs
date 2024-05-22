@@ -59,7 +59,10 @@ public class BallMovement : MonoBehaviour
                 rb2d.velocity = nowVector;
             }
         }
-        if ( isHitSide)
+        else
+            isHitTop = false;
+
+        if (isHitSide)
         {
             if (rb2d.velocity.y == 0f && rb2d.velocity.x > 9f)
             {
@@ -88,6 +91,8 @@ public class BallMovement : MonoBehaviour
                 }
             }
         }
+        else
+            isHitSide = false;
 
         //if (rb2d.velocity.y == 0f && rb2d.velocity.x > 9f)
         //{
