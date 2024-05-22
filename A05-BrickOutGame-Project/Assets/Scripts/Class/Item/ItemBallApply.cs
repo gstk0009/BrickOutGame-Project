@@ -9,8 +9,10 @@ public class ItemBallApply : MonoBehaviour
     public ItemApplyManager applyManager;
     private Item item;
     private BallMovement ballMovement;
+    [SerializeField] private BrickManager brickManager;
 
     private int itemId = 0;
+    private int itemCreatedIndex = 0;
     private bool isUseItemSpeed = false;
     private bool isUseItemSize = false;
 
@@ -18,6 +20,7 @@ public class ItemBallApply : MonoBehaviour
     {
         ballMovement = GetComponent<BallMovement>();
         applyManager = applyManager.GetComponent<ItemApplyManager>();
+        brickManager = brickManager.GetComponent<BrickManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +29,7 @@ public class ItemBallApply : MonoBehaviour
         {
             item = collision.GetComponent<Item>();
             itemId = item.Id;
+            itemCreatedIndex = item.CreateIndex;
         }
 
         if (itemId >= 1 && itemId <= 1000)
@@ -34,15 +38,15 @@ public class ItemBallApply : MonoBehaviour
             {
                 isUseItemSize = true;
                 applyManager.ApplyBallItemSize();
-                Destroy(collision.gameObject);
             }
             else if ((itemId == 3 || itemId == 4) && !isUseItemSpeed)
             {
                 isUseItemSpeed = true;
                 // 현재 ball Speed를 받아와서, 아이템 Speed를 곱해준 뒤, 그걸 다시 ballMovment에 적용
                 ballMovement.GetBallSpeed(applyManager.ApplyBallItemSpeed(ballMovement.SetBallSpeed()));
-                Destroy(collision.gameObject);
             }
+            brickManager.GetIsCreatedItem(itemCreatedIndex, false);
+            Destroy(item.gameObject);
         }
     }
 

@@ -27,7 +27,7 @@ public class BossAttack : MonoBehaviour
         {
             StartCoroutine(WaitTime(2f, ShieldSkillCanvas));
             List<int> idxs = new List<int>();
-            for (int i=0; i < breakBrickIdx; i++)
+            for (int i = 0; i < breakBrickIdx; i++)
             {
                 idxs.Add(i);
             }
@@ -37,9 +37,14 @@ public class BossAttack : MonoBehaviour
                 int randomIndex = Random.Range(0, idxs.Count);
                 int createBrickIdx = idxs[randomIndex];
 
-                // 선택된 인덱스를 리스트에서 제거
-                idxs.RemoveAt(randomIndex);
-                brickManager.SetActive(createBrickIdx);
+                if (!brickManager.SetIsCreatedItem(createBrickIdx))
+                {
+                    // 선택된 인덱스를 리스트에서 제거
+                    idxs.RemoveAt(randomIndex);
+                    brickManager.SetActive(createBrickIdx);
+                }
+                else
+                    i -= 1;
             }
         } 
     }

@@ -47,13 +47,6 @@ public class BallMovement : MonoBehaviour
             rb2d.velocity = nowVector;
         }
 
-        if (rb2d.velocity.x == 0f && (rb2d.velocity.y > 9f || rb2d.velocity.y < -9f))
-        {
-            Debug.Log("x값 0 왜 나옴?" + befordBallMovement);
-            Vector2 nowVector = new Vector2(befordBallMovement.x + 0.5f, -befordBallMovement.y + 0.5f).normalized * speed;
-            rb2d.velocity = nowVector;
-        }
-
         befordBallMovement = rb2d.velocity;
     }
 
