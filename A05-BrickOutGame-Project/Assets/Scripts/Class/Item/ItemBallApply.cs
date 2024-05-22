@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
+
 
 public class ItemBallApply : MonoBehaviour
 {
@@ -42,7 +39,6 @@ public class ItemBallApply : MonoBehaviour
             else if ((itemId == 3 || itemId == 4) && !isUseItemSpeed)
             {
                 isUseItemSpeed = true;
-                // 현재 ball Speed를 받아와서, 아이템 Speed를 곱해준 뒤, 그걸 다시 ballMovment에 적용
                 ballMovement.GetBallSpeed(applyManager.ApplyBallItemSpeed(ballMovement.SetBallSpeed()));
             }
             brickManager.GetIsCreatedItem(itemCreatedIndex, false);

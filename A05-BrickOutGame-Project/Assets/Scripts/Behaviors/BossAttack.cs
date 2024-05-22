@@ -22,7 +22,6 @@ public class BossAttack : MonoBehaviour
     public void ShieldSkill()
     {
         int breakBrickIdx = brickManager.SetIndex();
-        // 부서진 벽돌 블럭 개수가 0이상일 때만 실행
         if (breakBrickIdx !=0)
         {
             StartCoroutine(WaitTime(2f, ShieldSkillCanvas));
@@ -31,7 +30,6 @@ public class BossAttack : MonoBehaviour
             {
                 idxs.Add(i);
             }
-            // 현재 부서진 벽돌 중 절반 부활시키기
             for (int i = 0; i < breakBrickIdx / 2 ; i++)
             {
                 int randomIndex = Random.Range(0, idxs.Count);
@@ -39,7 +37,6 @@ public class BossAttack : MonoBehaviour
 
                 if (!brickManager.SetIsCreatedItem(createBrickIdx))
                 {
-                    // 선택된 인덱스를 리스트에서 제거
                     idxs.RemoveAt(randomIndex);
                     brickManager.SetActive(createBrickIdx);
                 }

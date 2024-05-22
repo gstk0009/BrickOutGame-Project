@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
         inventory = GetComponent<ItemInventory>();
     }
 
-    // 인벤토리 Item Setting
+
     protected void SetItem(string name, int id, float speed, float size)
     {
         Name = name;
@@ -32,7 +32,7 @@ public class Item : MonoBehaviour
         inventory.AddItemsSize(Size);
     }
 
-    // 아이템 생성
+
     public void CreateItem(string name, int id, float speed, float size, int createdIndex)
     {
         Name = name;

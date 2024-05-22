@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
 public class BallMovement : MonoBehaviour
 {
@@ -42,7 +38,6 @@ public class BallMovement : MonoBehaviour
         // 구석(모서리 쪽에 가면 빠져나오지 못함
         if (rb2d.velocity.y == 0f && (rb2d.velocity.x > 9f || rb2d.velocity.x < -9f))
         {
-            Debug.Log("y값 0 왜 나옴?" + befordBallMovement);
             Vector2 nowVector = new Vector2(-befordBallMovement.x + 0.5f, befordBallMovement.y + 0.5f).normalized * speed;
             rb2d.velocity = nowVector;
         }

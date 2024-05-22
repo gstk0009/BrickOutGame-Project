@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class ItemCreate : MonoBehaviour
 {
@@ -58,12 +54,6 @@ public class ItemCreate : MonoBehaviour
         //ItemInventory에 있는 Item 중 랜덤으로 생성
         itemIndex = random.Next(0, inventory.ApplyItems());
 
-        //// Test Ball Size
-        // itemIndex = random.Next(0, 2);
-
-        //// Test Ball Speed
-        //itemIndex = random.Next(2, 4);
-
         // GameObject에 저장해뒀던 아이템 생성
         GameObject item = Instantiate(ItemObjects[itemIndex]);
 
@@ -89,9 +79,6 @@ public class ItemCreate : MonoBehaviour
         inventory.SetItemStatsName(itemIndex), inventory.SetItemStatsId(itemIndex), inventory.SetItemStatsSpeed(itemIndex),
         inventory.SetItemStatsSize(itemIndex), createItemIndex);
 
-        // 아이템 생성 반영
         brickManager.GetIsCreatedItem(createItemIndex, true);
-
-        // 아이템이 사용되면 아이템은 Destroy로 파괴시킨다.
     }
 }

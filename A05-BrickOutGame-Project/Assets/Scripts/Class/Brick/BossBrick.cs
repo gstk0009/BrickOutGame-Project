@@ -27,15 +27,12 @@ public class BossBrick : Brick
         SetScore(100);
     }
 
-    // 보스 HP에 따라 보스 Skill 실행
     private void CheckBossHP()
     {
-        // HP 70, 30 일 때  -  Blind Skill
         if (HP == 70 || HP == 30)
         {
             bossAttack.BlindSkill();
         }
-        // HP 50일 때 - Shield Skill
         if  (HP == 50)
         {
             bossAttack.ShieldSkill();
