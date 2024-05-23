@@ -7,6 +7,7 @@ public class BallMovement : MonoBehaviour
     private Vector2 worldPos = Vector2.zero;
     private Vector2 befordBallMovement;
 
+    [SerializeField] private LayerMask paddleLayerMask;
     [SerializeField] private float speed;
     private float initSpeed;
     private float initSizex;
@@ -89,17 +90,6 @@ public class BallMovement : MonoBehaviour
             isHitSide = false;
         }
 
-        //if (rb2d.velocity.y == 0f && rb2d.velocity.x > 9f)
-        //{
-        //    Vector2 nowVector = new Vector2(befordBallMovement.x - 0.5f, -befordBallMovement.y - 0.5f).normalized * speed;
-        //    rb2d.velocity = nowVector;
-        //}
-        //if (rb2d.velocity.y == 0f && rb2d.velocity.x < -9f)
-        //{
-        //    Vector2 nowVector = new Vector2(-befordBallMovement.x + 0.5f, -befordBallMovement.y - 0.5f).normalized * speed;
-        //    rb2d.velocity = nowVector;
-        //}
-
         befordBallMovement = rb2d.velocity;
     }
 
@@ -114,15 +104,27 @@ public class BallMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioManager.Instance.BallCollisionAudio();
+        if (collision.gameObject.layer == 6)
+        {
+            RaycastHit2D hitRight = Physics2D.Raycast(transform.position, transform.right, 1f, paddleLayerMask);
+            RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, -transform.right, 1f, paddleLayerMask);
+            // Paddle 옆면과 충돌했으면
+            if (hitRight.collider != null || hitLeft.collider != null)
+            {
+                // 레이캐스트가 Paddle 레이어에 충돌한 경우
+                Debug.Log("옆면");
+            }
+            else
+            {
+                // 레이캐스트가 Paddle 레이어에 충돌하지 않은 경우
+                rb2d.velocity = ApplyMovement(worldPos) * speed;
+                Debug.Log("윗면");
+            }
+        }
         // Top
         if (collision.gameObject.layer == 5)
         {
             isHitTop = true;
-        }
-        if (collision.gameObject.layer == 6)
-        {
-            if (transform.localPosition.y >= -3.5f)
-                rb2d.velocity = ApplyMovement(worldPos) * speed;
         }
         // Left
         if (collision.gameObject.layer == 12)

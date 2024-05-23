@@ -30,8 +30,6 @@ public class BrickManager : MonoBehaviour
         nowStageNum = GameManager.Instance.nowStageNum;
         if (nowStageNum == 4) return;
         MaxBrick = GameManager.Instance.GameClear;
-        //// Test 용
-        //MaxBrick = GameManager.Instance.GameClear[0];
         breakBrickNum = 0;
     }
 

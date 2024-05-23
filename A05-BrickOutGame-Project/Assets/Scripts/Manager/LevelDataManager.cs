@@ -42,10 +42,8 @@ public class LevelDataManager : MonoBehaviour
         {
             for(int j = 0; j < 6; j++)
             {
-                // brickTypeList���� ���� ���� �ҷ�����
                 int brickType = brickTypeList.brickTypes[idx].Type;
                 var brickInfo = brickManager.BrickTypes(brickType);
-                // brickInfo ���� ���� ������ �� �־��ֱ�
                 if (!brickManager.BrickTypes(brickType).IsActive)
                 {
                     poolManager.DisableObj(poolManager.pool[i, j]); 

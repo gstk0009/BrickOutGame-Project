@@ -40,7 +40,6 @@ public class ItemBallApply : MonoBehaviour
                 else if ((itemId == 3 || itemId == 4) && !isUseItemSpeed)
                 {
                     isUseItemSpeed = true;
-                    // ���� ball Speed�� �޾ƿͼ�, ������ Speed�� ������ ��, �װ� �ٽ� ballMovment�� ����
                     ballMovement.GetBallSpeed(applyManager.ApplyBallItemSpeed(ballMovement.SetBallSpeed()));
                 }
                 brickManager.GetIsCreatedItem(itemCreatedIndex, false);
