@@ -4,7 +4,6 @@ using UnityEngine;
 public class ItemBallApply : MonoBehaviour
 {
     public ItemApplyManager applyManager;
-    private EndingManager endingManager;
     private Item item;
     private BallMovement ballMovement;
     [SerializeField] private BrickManager brickManager;
@@ -17,7 +16,6 @@ public class ItemBallApply : MonoBehaviour
     private void Awake()
     {
         ballMovement = GetComponent<BallMovement>();
-        endingManager = GetComponent<EndingManager>();
         applyManager = applyManager.GetComponent<ItemApplyManager>();
         brickManager = brickManager.GetComponent<BrickManager>();
     }

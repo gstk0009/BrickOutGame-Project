@@ -3,18 +3,18 @@ using UnityEngine.Timeline;
 
 public class PaddleMovement : MonoBehaviour
 {
-    private GameController controller;
+    private InputController inputController;
     private Vector2 movementDirection = Vector2.zero;
     [SerializeField]private float speed = 10f;
 
     private void Awake()
     {
-        controller = GetComponent<GameController>();
+        inputController = GetComponent<InputController>();
     }
 
     private void Start()
     {
-        controller.OnMoveEvent += Move;
+        inputController.OnMoveEvent += Move;
     }
 
     private void Move(Vector2 direction)

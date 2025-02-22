@@ -4,7 +4,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    
+
+    public GameController gameController;
+
     public int GameClear;
     public int BrickBreakNum;
     public int nowStageNum;

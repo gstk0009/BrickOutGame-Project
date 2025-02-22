@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using UnityEngine;
 
 public class BrickManager : MonoBehaviour
@@ -12,7 +10,6 @@ public class BrickManager : MonoBehaviour
     private int MaxBrick;
     private int nowStageNum;
     [SerializeField] private ScoreBoardUI scoreBoard;
-    [SerializeField] private EndingManager endingManager;
     System.Random rand;
 
     private void Awake()
@@ -21,7 +18,6 @@ public class BrickManager : MonoBehaviour
         isCreatedItem = new List<bool>();
         isCreatedBrick = new List<bool>();
         scoreBoard = scoreBoard.GetComponent<ScoreBoardUI>();
-        endingManager = endingManager.GetComponent<EndingManager>();
         rand = new System.Random();
     }
 
@@ -66,7 +62,7 @@ public class BrickManager : MonoBehaviour
 
         if (MaxBrick == breakBrickNum)
         {
-            endingManager.StageClear();
+            GameManager.Instance.gameController.StageClear();
         }
         brickResponStage3();
     }

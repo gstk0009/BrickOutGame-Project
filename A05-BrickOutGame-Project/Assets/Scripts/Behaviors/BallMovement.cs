@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    private GameController controller;
+    private Camera mainCamera;
     private Vector2 BallMovementDirection = Vector2.zero;
-    private Vector2 worldPos = Vector2.zero;
     private Vector2 befordBallMovement;
 
     [SerializeField] private LayerMask paddleLayerMask;
@@ -19,7 +18,7 @@ public class BallMovement : MonoBehaviour
 
     private void Awake()
     {
-        controller = GetComponent<GameController>();
+        mainCamera = Camera.main;
         rb2d = GetComponent<Rigidbody2D>();
         initSpeed = speed;
         initSizex = transform.localScale.x;
@@ -29,12 +28,11 @@ public class BallMovement : MonoBehaviour
     private void Start()
     {
         rb2d.velocity = Vector2.down * speed;
-        controller.OnAimEvent += Move;
     }
 
-    private void Move(Vector2 direction)
+    private Vector2 MousePosition()
     {
-        worldPos = direction;
+        return mainCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void FixedUpdate()
@@ -43,6 +41,7 @@ public class BallMovement : MonoBehaviour
         if (ballVelocity.magnitude != speed)
             rb2d.velocity = ballVelocity.normalized * speed;
 
+        // TODO : Ball Bounce Logic
         // RigidBody Material로 인해 y 값이 일정 이하가 되면 0이 되는데 이때 보정
         if (isHitTop)
         {
@@ -96,6 +95,7 @@ public class BallMovement : MonoBehaviour
     private Vector2 ApplyMovement(Vector2 worldPos)
     {
         BallMovementDirection = (worldPos - (Vector2)transform.localPosition).normalized;
+        // 각도 한계 설정
         if (BallMovementDirection.y <= 0.1f)
             BallMovementDirection = new Vector2(BallMovementDirection.x - 0.1f, 0.1f).normalized;
         return BallMovementDirection;
@@ -117,7 +117,7 @@ public class BallMovement : MonoBehaviour
             else
             {
                 // 레이캐스트가 Paddle 레이어에 충돌하지 않은 경우
-                rb2d.velocity = ApplyMovement(worldPos) * speed;
+                rb2d.velocity = ApplyMovement(MousePosition()) * speed;
                 Debug.Log("윗면");
             }
         }

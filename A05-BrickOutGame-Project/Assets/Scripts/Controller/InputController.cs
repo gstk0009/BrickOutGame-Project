@@ -1,26 +1,19 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputController : GameController
+public class InputController : MonoBehaviour
 {
-    private Camera cameras;
+    public event Action<Vector2> OnMoveEvent;   //액션에 사용될 이벤트 생성
 
-    public void Awake()
+    public void CallMoveEvent(Vector2 direction)      //이벤트를 invoke 시키는 함수
     {
-        cameras = Camera.main;
+        OnMoveEvent?.Invoke(direction);
     }
 
     public void OnMove(InputValue value)
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
         CallMoveEvent(moveInput);
-    }
-
-    public void OnAim(InputValue value)
-    {
-        Vector2 newAim = value.Get<Vector2>();
-        Vector2 worldPos = cameras.ScreenToWorldPoint(newAim);
-
-        CallAimEvent(worldPos);
     }
 }
