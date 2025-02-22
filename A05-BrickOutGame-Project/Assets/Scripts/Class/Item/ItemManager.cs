@@ -33,7 +33,7 @@ public class ItemManager : MonoBehaviour
 
         // 파괴된 벽돌 위치 중 랜덤으로 생성
         do { createItemIndex = UnityEngine.Random.Range(0, breakBrickNum); }
-        while (GameManager.Instance.brickManager.GetIsCanCreate(createItemIndex));
+        while (GameManager.Instance.brickManager.GetIsCanNotCreate(createItemIndex));
 
         // 랜덤된 위치에 좌표값 가져오기
         Vector2 createItemPosition = GameManager.Instance.brickManager.GetPosition(createItemIndex);

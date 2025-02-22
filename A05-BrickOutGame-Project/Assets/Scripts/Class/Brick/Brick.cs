@@ -21,9 +21,9 @@ public class Brick :MonoBehaviour
     private void GetAttack(int damage)
     {
         HP -= damage;
-        if (HP <= 0 )
+        if (HP == 0 )
         {
-            HP = 0;
+            HP = -1;
             GameManager.Instance.BrickBreakNum += 1;
             BrickBreak();
         }

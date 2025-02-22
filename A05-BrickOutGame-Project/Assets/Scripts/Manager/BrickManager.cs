@@ -70,17 +70,15 @@ public class BrickManager : MonoBehaviour
     {
         if (nowStageNum == 3 && (breakBrickNum % 4 == 0))
         {
-            while (true)
+            int createIndex;
+            do
             {
-                int createIndex = rand.Next(0, breakBrick.Count);
-
-                if (GetIsCanCreate(createIndex))
-                {
-                    SetActive(createIndex);
-                    MaxBrick += 1;
-                    return;
-                }
+                createIndex = rand.Next(0, breakBrick.Count);
             }
+            while (GetIsCanNotCreate(createIndex));
+
+            SetActive(createIndex);
+            MaxBrick += 1;
         }
     }
 
@@ -103,9 +101,9 @@ public class BrickManager : MonoBehaviour
         brick.gameObject.SetActive(true);
     }
 
-    public bool GetIsCanCreate(int index)
+    public bool GetIsCanNotCreate(int index)
     {
-        return (isCreatedItem[index] && isCreatedBrick[index]);
+        return (isCreatedItem[index] || isCreatedBrick[index]);
     }
 
     public Vector2 GetPosition(int index)

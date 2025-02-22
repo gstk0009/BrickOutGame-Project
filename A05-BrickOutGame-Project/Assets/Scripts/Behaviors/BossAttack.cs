@@ -35,7 +35,7 @@ public class BossAttack : MonoBehaviour
                 int randomIndex = Random.Range(0, idxs.Count);
                 int createBrickIdx = idxs[randomIndex];
 
-                if (!brickManager.GetIsCanCreate(createBrickIdx))
+                if (brickManager.GetIsCanNotCreate(createBrickIdx))
                 {
                     idxs.RemoveAt(randomIndex);
                     brickManager.SetActive(createBrickIdx);
