@@ -21,7 +21,7 @@ public class BossAttack : MonoBehaviour
 
     public void ShieldSkill()
     {
-        int breakBrickIdx = brickManager.SetIndex();
+        int breakBrickIdx = brickManager.GetIndex();
         if (breakBrickIdx !=0)
         {
             StartCoroutine(WaitTime(2f, ShieldSkillCanvas));
@@ -35,7 +35,7 @@ public class BossAttack : MonoBehaviour
                 int randomIndex = Random.Range(0, idxs.Count);
                 int createBrickIdx = idxs[randomIndex];
 
-                if (!brickManager.SetIsCreatedItem(createBrickIdx))
+                if (!brickManager.GetIsCanCreate(createBrickIdx))
                 {
                     idxs.RemoveAt(randomIndex);
                     brickManager.SetActive(createBrickIdx);

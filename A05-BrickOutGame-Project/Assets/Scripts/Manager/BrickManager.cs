@@ -23,6 +23,7 @@ public class BrickManager : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.brickManager = this;
         nowStageNum = GameManager.Instance.nowStageNum;
         if (nowStageNum == 4) return;
         MaxBrick = GameManager.Instance.GameClear;
@@ -91,12 +92,12 @@ public class BrickManager : MonoBehaviour
         isCreatedBrick.Add(isbrickCreated);
     }
 
-    public void GetIsCreatedItem(int index, bool isCreated)
+    public void SetIsCreatedItem(int index, bool isCreated)
     {
         isCreatedItem[index] = isCreated;
     }
 
-    public void GetIsCreatedBrick(int index, bool isCreated)
+    public void SetIsCreatedBrick(int index, bool isCreated)
     {
         isCreatedBrick[index] = isCreated;
     }
@@ -109,28 +110,17 @@ public class BrickManager : MonoBehaviour
         brick.gameObject.SetActive(true);
     }
 
-    public void Activefalse(int index)
+    public bool GetIsCanCreate(int index)
     {
-
+        return (isCreatedItem[index] && isCreatedBrick[index]);
     }
 
-    public bool SetIsCreatedItem(int index)
+    public Vector2 GetPosition(int index)
     {
-        return isCreatedItem[index];
+        return breakBrick[index].transform.position;
     }
 
-    public bool SetIsCreatedBrick(int index)
-    {
-        return isCreatedBrick[index];
-    }
-
-
-    public Vector2 SetPosition(int index)
-    {
-        return breakBrick[index].GetComponent<Transform>().position;
-    }
-
-    public int SetIndex()
+    public int GetIndex()
     {
         return breakBrick.Count; 
     }

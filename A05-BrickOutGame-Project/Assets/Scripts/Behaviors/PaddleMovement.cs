@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Timeline;
 
 public class PaddleMovement : MonoBehaviour
@@ -15,16 +16,22 @@ public class PaddleMovement : MonoBehaviour
     private void Start()
     {
         inputController.OnMoveEvent += Move;
+        GameManager.Instance.paddleMovement = this;
+    }
+    
+    private void FixedUpdate()
+    {
+        ApplyMovement(movementDirection);
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = Vector2.zero;
     }
 
     private void Move(Vector2 direction)
     {
         movementDirection = direction;
-    }
-
-    private void FixedUpdate()
-    {
-        ApplyMovement(movementDirection);
     }
 
     private void ApplyMovement(Vector2 direction)

@@ -2,47 +2,26 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private Rigidbody2D rb2d;
-    private BallMovement ballMove;
     private int life = 3;
-    private float speed;
 
-    
-    [SerializeField] private GameObject paddle;
     [SerializeField] private GameObject BossGameClearCanvas;
     [SerializeField] private GameObject GameClearCanvas;
     [SerializeField] private GameObject GameOverCanvas;
     [SerializeField] private GameObject[] LifeUI;
-
-    private void Awake()
-    {
-        rb2d = GetComponent<Rigidbody2D>();
-        ballMove = GetComponent<BallMovement>();
-    }
 
     private void Start()
     {
         GameManager.Instance.gameController = this;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == 11)
-        {
-            BallDie();
-        }
-    }
-
     public void BallDie()
     {
-        speed = ballMove.SetInitSpeed();
-        ballMove.GetInitSpeed(speed);
-        transform.localScale = new Vector2(ballMove.SetInitSizex(), ballMove.SetInitSizey());
+        GameManager.Instance.ballMovement.BallInfoReset();
 
         life -= 1;
+
         Invoke("ResetBallPaddle", 2f);
         LifeUI[life].SetActive(false);
-        rb2d.velocity = Vector2.down * speed;
 
         if (life == 0)
         {
@@ -50,10 +29,10 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // BallDie() -> Invoke·Î ¿¬°á
     private void ResetBallPaddle()
     {
-        this.transform.position = Vector2.zero;
-        paddle.transform.position = Vector2.zero;
+        GameManager.Instance.ResetPosition();
     }
 
     public void GameClear()

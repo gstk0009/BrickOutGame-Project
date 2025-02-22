@@ -1,56 +1,56 @@
 using TMPro;
 using UnityEngine;
 
+public enum textIndex
+{
+    LV = 0,
+    NowScore,
+    PlayTime,
+    BestScore
+}
+
 public class ScoreBoardUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text[] scoreboard;
     public GameObject endingObj;
 
-    private int lvTxt = 0;
-    private int nowScoreTxt = 1;
-    private int playTimeTxt = 2;
-    private int bestScoreTxt = 3;
-
     private int nowScore = 0;
     private int bestScore = 0;
 
-    private float[] lvTime = { 60f, 120f, 180f, 240f };
     private int lvNum;
     private int min;
+    private float lvTime;
     private float sec;
 
     private bool gameOverCalled;
 
     private void Awake()
     {
-        scoreboard[lvTxt] = scoreboard[lvTxt].GetComponent<TMP_Text>();
-        scoreboard[nowScoreTxt] = scoreboard[nowScoreTxt].GetComponent<TMP_Text>();
-        scoreboard[playTimeTxt] = scoreboard[playTimeTxt].GetComponent<TMP_Text>();
-        scoreboard[bestScoreTxt] = scoreboard[bestScoreTxt].GetComponent<TMP_Text>();
         bestScore = PlayerPrefs.GetInt("BestScore");
     }
 
     private void Start()
     {
         lvNum = GameManager.Instance.nowStageNum;
-        scoreboard[lvTxt].text = lvNum.ToString();
-        scoreboard[bestScoreTxt].text = bestScore.ToString();
+        lvTime = GameManager.Instance.GetLvTime();
+        scoreboard[(int)textIndex.LV].text = lvNum.ToString();
+        scoreboard[(int)textIndex.BestScore].text = bestScore.ToString();
         gameOverCalled = false;
     }
 
     private void Update()
     {
-        lvTime[lvNum-1] -= Time.deltaTime;
+        lvTime -= Time.deltaTime;
 
-        if (lvTime[lvNum-1] > 0f)
+        if (lvTime > 0f)
         {
-            int totalSeconds = Mathf.RoundToInt(lvTime[lvNum - 1]);
+            int totalSeconds = Mathf.RoundToInt(lvTime);
             min = totalSeconds / 60;
             sec = totalSeconds % 60;
 
-            scoreboard[playTimeTxt].text = min.ToString("00") + " : " + sec.ToString("00");
+            scoreboard[(int)textIndex.PlayTime].text = min.ToString("00") + " : " + sec.ToString("00");
         }
-        else if (lvTime[lvNum-1] <=0 && !gameOverCalled)
+        else if (lvTime <= 0 && !gameOverCalled)
         {
             GameManager.Instance.gameController.GameOver();
             gameOverCalled = true;
@@ -65,18 +65,13 @@ public class ScoreBoardUI : MonoBehaviour
 
     private void SettingScoreBoard()
     {
-        scoreboard[nowScoreTxt].text = nowScore.ToString();
+        scoreboard[(int)textIndex.NowScore].text = nowScore.ToString();
 
         if (nowScore > bestScore)
         {
             bestScore = nowScore;
             PlayerPrefs.SetInt("BestScore", bestScore);
-            scoreboard[bestScoreTxt].text = bestScore.ToString();
+            scoreboard[(int)textIndex.BestScore].text = bestScore.ToString();
         }
-    }
-
-    public float SetLevelPlayTime(int index)
-    {
-        return lvTime[index - 1];
     }
 }

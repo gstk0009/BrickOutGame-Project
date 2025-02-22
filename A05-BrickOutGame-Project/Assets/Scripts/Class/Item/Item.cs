@@ -1,41 +1,31 @@
+using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
-    public string Name;
-    public int Id;
-    public float Speed;
-    public float Size;
-    public int CreateIndex;
+    [SerializeField] protected Sprite[] itemSprite;
+    protected Image image;
+    protected float applyItemTime = 5f;
 
-    protected ItemInventory inventory;
+    protected string name;
+    protected float speed;
+    protected float size;
+    protected int createIndex;
 
-    protected virtual void Awake()
+    private void OnDisable()
     {
-        inventory = GetComponent<ItemInventory>();
+        image = GetComponent<Image>();
+        createIndex = 0;
     }
 
+    public abstract void SetItmeInfo();
+    public abstract void UseItem();
 
-    protected void SetItem(string name, int id, float speed, float size)
+    public virtual void CreateItem(float speed, float size, int createdIndex)
     {
-        Name = name;
-        Id = id;
-        Speed = speed;
-        Size = size;
-
-        inventory.AddItemName(Name);
-        inventory.AddItemsId(Id);
-        inventory.AddItemsSpeed(Speed);
-        inventory.AddItemsSize(Size);
-    }
-
-
-    public void CreateItem(string name, int id, float speed, float size, int createdIndex)
-    {
-        Name = name;
-        Id = id;
-        Speed = speed;
-        Size = size;
-        CreateIndex = createdIndex;
+        this.speed = speed;
+        this.size = size;
+        createIndex = createdIndex;
     }
 }
