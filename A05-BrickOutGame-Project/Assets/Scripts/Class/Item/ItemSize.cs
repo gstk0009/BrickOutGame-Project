@@ -1,47 +1,43 @@
 using Cysharp.Threading.Tasks;
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemSize : Item
 {
-    private readonly string[] itemName = { "BallSizeUp", "BallSizeDown" };
+    [SerializeField] private Sprite[] sprite;
+    private readonly string[] itemName = { "Size Up", "Size Down" };
     private readonly float[] ballSize = { 1.5f, 0.8f };
     private float ballInitSizeX;
     private float ballInitSizeY;
 
-    public override void SetItmeInfo()
+    public override void SetItmeInfo(int createIndex)
     {
+        this.createIndex = createIndex;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        text = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+
         int index = UnityEngine.Random.Range(0, itemName.Length);
 
-        name = itemName[index];
+        spriteRenderer.sprite = sprite[index];
         size = ballSize[index];
-        image.sprite = itemSprite[index];
-    }
-
-    public override void UseItem()
-    {
-        UseItemSize().Forget();
+        text.text = itemName[index];
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 9)
         {
-            Transform size = collision.gameObject.transform;
+            ballInitSizeX = collision.gameObject.transform.localScale.x;
+            ballInitSizeY = collision.gameObject.transform.localScale.y;
 
-            ballInitSizeX = size.localScale.x;
-            ballInitSizeY = size.localScale.y;
+            GameManager.Instance.ballMovement.SetBallSize(ballInitSizeX * size, ballInitSizeY * size);
+            GameManager.Instance.brickManager.SetIsCreatedItem(createIndex, false);
 
-            size.localScale = new Vector2(ballInitSizeX * this.size, ballInitSizeY * this.size);
+            GameManager.Instance.itemManager.UseItemSize(applyItemTime, ballInitSizeX, ballInitSizeY).Forget();
 
-            UseItem();
+            Destroy(gameObject);
         }
-    }
-
-    private async UniTask UseItemSize()
-    {
-        await UniTask.Delay(TimeSpan.FromSeconds(applyItemTime));
-
-        GameManager.Instance.ballMovement.SetBallSize(ballInitSizeX, ballInitSizeY);
     }
 }

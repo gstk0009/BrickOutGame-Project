@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public BallMovement ballMovement;
     public PaddleMovement paddleMovement;
     public BrickManager brickManager;
+    public ItemManager itemManager;
 
     public int GameClear;
     public int BrickBreakNum;

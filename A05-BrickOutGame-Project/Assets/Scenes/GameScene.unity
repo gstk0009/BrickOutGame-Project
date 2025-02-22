@@ -2068,7 +2068,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533009515}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3161,7 +3161,7 @@ GameObject:
   - component: {fileID: 996018126}
   - component: {fileID: 996018122}
   m_Layer: 0
-  m_Name: ItemCreate
+  m_Name: ItemManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9465,9 +9465,9 @@ SceneRoots:
   - {fileID: 1908777948}
   - {fileID: 513174269}
   - {fileID: 442695418}
-  - {fileID: 996018126}
   - {fileID: 2061755573}
   - {fileID: 533756133}
-  - {fileID: 310072009}
+  - {fileID: 996018126}
   - {fileID: 533009517}
+  - {fileID: 310072009}
   - {fileID: 572029388}

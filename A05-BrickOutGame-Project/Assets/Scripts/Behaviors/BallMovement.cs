@@ -61,26 +61,17 @@ public class BallMovement : MonoBehaviour
         rb2d.velocity = Vector2.down * speed;
     }
 
-    public void ResetPosition()
-    {
-        transform.position = Vector2.zero;
-    }
+    public void ResetPosition() { transform.position = Vector2.zero; }
 
-    public float GetBallSpeed()
-    {
-        return speed;
-    }
+    public float GetBallSpeed() { return speed; }
+
+    public void SetBallSize(float x, float y) { gameObject.transform.localScale = new Vector2(x, y); }
 
     public void SetBallSpeed(float applySpeed)
     {
         Vector2 nwVelocity = rb2d.velocity.normalized;
         speed = applySpeed;
         rb2d.velocity = nwVelocity * speed;
-    }
-
-    public void SetBallSize(float x, float y)
-    {
-        gameObject.transform.localScale = new Vector2 (x, y);
     }
 
     private Vector2 MousePosition()

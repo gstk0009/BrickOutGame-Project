@@ -17,7 +17,6 @@ public class BrickManager : MonoBehaviour
         breakBrick = new List<GameObject>();
         isCreatedItem = new List<bool>();
         isCreatedBrick = new List<bool>();
-        scoreBoard = scoreBoard.GetComponent<ScoreBoardUI>();
         rand = new System.Random();
     }
 
@@ -52,7 +51,6 @@ public class BrickManager : MonoBehaviour
                 return (9,40,3,false);
             default:
                 return (0, 0,0, false);
-
         }
     }
 
@@ -76,7 +74,7 @@ public class BrickManager : MonoBehaviour
             {
                 int createIndex = rand.Next(0, breakBrick.Count);
 
-                if (!isCreatedItem[createIndex] && !isCreatedBrick[createIndex])
+                if (GetIsCanCreate(createIndex))
                 {
                     SetActive(createIndex);
                     MaxBrick += 1;
@@ -95,11 +93,6 @@ public class BrickManager : MonoBehaviour
     public void SetIsCreatedItem(int index, bool isCreated)
     {
         isCreatedItem[index] = isCreated;
-    }
-
-    public void SetIsCreatedBrick(int index, bool isCreated)
-    {
-        isCreatedBrick[index] = isCreated;
     }
 
     public void SetActive(int index)
@@ -128,10 +121,5 @@ public class BrickManager : MonoBehaviour
     public void GetBrickScore(int score)
     {
         scoreBoard.GetBrickScore(score);
-    }
-    
-    public ScoreBoardUI SetScoreBoardComponent()
-    {
-        return scoreBoard;
     }
 }
