@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BallMovement : MonoBehaviour
@@ -10,12 +11,14 @@ public class BallMovement : MonoBehaviour
     private float initSpeed;
     private float initSizex;
     private float initSizey;
-    private Rigidbody2D rb2d;
+    private Rigidbody2D ballRigidBody2D;
+    private Vector2 beforeBallVelocity;
+    private Vector2 newDirection;
 
     private void Awake()
     {
         mainCamera = Camera.main;
-        rb2d = GetComponent<Rigidbody2D>();
+        ballRigidBody2D = GetComponent<Rigidbody2D>();
         initSpeed = speed;
         initSizex = transform.localScale.x;
         initSizey = transform.localScale.y;
@@ -24,17 +27,18 @@ public class BallMovement : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.ballMovement = this;
-        rb2d.velocity = Vector2.down * speed;
+        ballRigidBody2D.velocity = Vector2.down * speed;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        // TODO : Ball Bounce Logic
+        beforeBallVelocity = ballRigidBody2D.velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioManager.Instance.BallCollisionAudio();
+
         if (collision.gameObject.layer == 6)
         {
             RaycastHit2D hitRight = Physics2D.Raycast(transform.position, transform.right, 1f, paddleLayerMask);
@@ -48,17 +52,40 @@ public class BallMovement : MonoBehaviour
             else
             {
                 // 레이캐스트가 Paddle 레이어에 충돌하지 않은 경우
-                rb2d.velocity = ApplyMovement(MousePosition()) * speed;
+                ballRigidBody2D.velocity = ApplyMovement(MousePosition()) * speed;
                 Debug.Log("윗면");
             }
+
+            return;
         }
+
+        Debug.Log($"-----------BallRigidBody2D ---- {ballRigidBody2D.velocity.normalized}-----------------");
+        Debug.Log($"-----------BeforeBallVelocity ---- {beforeBallVelocity.normalized}-----------------");
+        Debug.Log($"-----------CollisionContact ---- {collision.contacts[0].normal}-----------------");
+        if (beforeBallVelocity.x == ballRigidBody2D.velocity.x * -1f && beforeBallVelocity.y == ballRigidBody2D.velocity.y * -1f)
+        {
+            newDirection = Vector2.Reflect(ballRigidBody2D.velocity.normalized, collision.contacts[0].normal);
+        }
+
+        if (ballRigidBody2D.velocity.normalized == Vector2.zero)
+        {
+            ballRigidBody2D.velocity = newDirection * speed;
+        }
+
+        newDirection = Vector2.Reflect(beforeBallVelocity.normalized, collision.contacts[0].normal);
+
+        Debug.Log($"-----------NewDirection ---- {newDirection}-----------------");
+
+        ballRigidBody2D.velocity = newDirection * speed;
+
+        Debug.Log($"-----------Change ---- {ballRigidBody2D.velocity}-----------------");
     }
 
     public void BallInfoReset()
     {
         speed = initSpeed;
         transform.localScale = new Vector2(initSizex, initSizey);
-        rb2d.velocity = Vector2.down * speed;
+        ballRigidBody2D.velocity = Vector2.down * speed;
     }
 
     public void ResetPosition() { transform.position = Vector2.zero; }
@@ -69,9 +96,9 @@ public class BallMovement : MonoBehaviour
 
     public void SetBallSpeed(float applySpeed)
     {
-        Vector2 nwVelocity = rb2d.velocity.normalized;
+        Vector2 nwVelocity = ballRigidBody2D.velocity.normalized;
         speed = applySpeed;
-        rb2d.velocity = nwVelocity * speed;
+        ballRigidBody2D.velocity = nwVelocity * speed;
     }
 
     private Vector2 MousePosition()

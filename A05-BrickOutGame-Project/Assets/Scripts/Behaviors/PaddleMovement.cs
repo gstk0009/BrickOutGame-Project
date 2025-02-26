@@ -6,6 +6,7 @@ public class PaddleMovement : MonoBehaviour
 {
     private InputController inputController;
     private Vector2 movementDirection = Vector2.zero;
+    private Vector2 InitPosition = new Vector2(0, -4f);
     [SerializeField]private float speed = 10f;
 
     private void Awake()
@@ -26,7 +27,7 @@ public class PaddleMovement : MonoBehaviour
 
     public void ResetPosition()
     {
-        transform.position = Vector2.zero;
+        transform.position = InitPosition;
     }
 
     private void Move(Vector2 direction)
