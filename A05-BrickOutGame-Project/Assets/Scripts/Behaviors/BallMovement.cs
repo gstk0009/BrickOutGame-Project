@@ -30,7 +30,7 @@ public class BallMovement : MonoBehaviour
         ballRigidBody2D.velocity = Vector2.down * speed;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         beforeBallVelocity = ballRigidBody2D.velocity;
     }
@@ -55,30 +55,8 @@ public class BallMovement : MonoBehaviour
                 ballRigidBody2D.velocity = ApplyMovement(MousePosition()) * speed;
                 Debug.Log("À­¸é");
             }
-
             return;
         }
-
-        Debug.Log($"-----------BallRigidBody2D ---- {ballRigidBody2D.velocity.normalized}-----------------");
-        Debug.Log($"-----------BeforeBallVelocity ---- {beforeBallVelocity.normalized}-----------------");
-        Debug.Log($"-----------CollisionContact ---- {collision.contacts[0].normal}-----------------");
-        if (beforeBallVelocity.x == ballRigidBody2D.velocity.x * -1f && beforeBallVelocity.y == ballRigidBody2D.velocity.y * -1f)
-        {
-            newDirection = Vector2.Reflect(ballRigidBody2D.velocity.normalized, collision.contacts[0].normal);
-        }
-
-        if (ballRigidBody2D.velocity.normalized == Vector2.zero)
-        {
-            ballRigidBody2D.velocity = newDirection * speed;
-        }
-
-        newDirection = Vector2.Reflect(beforeBallVelocity.normalized, collision.contacts[0].normal);
-
-        Debug.Log($"-----------NewDirection ---- {newDirection}-----------------");
-
-        ballRigidBody2D.velocity = newDirection * speed;
-
-        Debug.Log($"-----------Change ---- {ballRigidBody2D.velocity}-----------------");
     }
 
     public void BallInfoReset()

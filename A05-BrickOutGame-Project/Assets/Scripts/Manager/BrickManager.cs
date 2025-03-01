@@ -59,11 +59,12 @@ public class BrickManager : MonoBehaviour
         breakBrickNum = GameManager.Instance.BrickBreakNum;
         breakBrick.Add(brick);
 
+        brickResponStage3();
+
         if (MaxBrick == breakBrickNum)
         {
             GameManager.Instance.gameController.StageClear();
         }
-        brickResponStage3();
     }
 
     private void brickResponStage3()
