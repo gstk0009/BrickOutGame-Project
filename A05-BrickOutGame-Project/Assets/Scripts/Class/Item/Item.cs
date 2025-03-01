@@ -1,7 +1,5 @@
-using System.ComponentModel;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class Item : MonoBehaviour
 {

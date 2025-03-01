@@ -13,9 +13,6 @@ public class ItemManager : MonoBehaviour
     private int nowCreateItemAmount = 0;
     private float itemCreateTime;
 
-    private bool isUseItemSize = false;
-    private bool isUseItemSpeed = false;
-
     private void Start()
     {
         GameManager.Instance.itemManager = this;
@@ -48,38 +45,14 @@ public class ItemManager : MonoBehaviour
 
     public async UniTask UseItemSize(float applyTime, float ballInitSizeX, float ballInitSizeY)
     {
-        if (!isUseItemSize)
-        {
-            isUseItemSize = true;
-            await UniTask.Delay(TimeSpan.FromSeconds(applyTime));
-            GameManager.Instance.ballMovement.SetBallSize(ballInitSizeX, ballInitSizeY);
-        }
-        else
-        {
-            await UniTask.WaitUntil(() => isUseItemSize == false);
-            await UniTask.Delay(TimeSpan.FromSeconds(applyTime));
-            GameManager.Instance.ballMovement.SetBallSize(ballInitSizeX, ballInitSizeY);
-        }
-
-        isUseItemSize = false;
+        await UniTask.Delay(TimeSpan.FromSeconds(applyTime));
+        GameManager.Instance.ballMovement.SetBallSize(ballInitSizeX, ballInitSizeY);
     }
 
     public async UniTask UseItemSpeed(float applyTime, float ballInitSpeed)
     {
-        if (!isUseItemSpeed)
-        {
-            isUseItemSpeed = true;
-            await UniTask.Delay(TimeSpan.FromSeconds(applyTime));
-            GameManager.Instance.ballMovement.SetBallSpeed(ballInitSpeed);
-        }
-        else
-        {
-            await UniTask.WaitUntil(() => isUseItemSpeed == false);
-            await UniTask.Delay(TimeSpan.FromSeconds(applyTime));
-            GameManager.Instance.ballMovement.SetBallSpeed(ballInitSpeed);
-        }
-
-        isUseItemSpeed = false;
+        await UniTask.Delay(TimeSpan.FromSeconds(applyTime));
+        GameManager.Instance.ballMovement.SetBallSpeed(ballInitSpeed);
     }
 
     private async UniTask createItemCycle()
@@ -89,10 +62,7 @@ public class ItemManager : MonoBehaviour
             await UniTask.Delay(TimeSpan.FromSeconds(itemCreateTime), cancellationToken : this.GetCancellationTokenOnDestroy());
 
             breakBrickNum = GameManager.Instance.brickManager.GetIndex();
-            if (breakBrickNum != 0)
-            {
-                create();
-            }
+            if (breakBrickNum != 0) { create(); }
         }
     }
 }

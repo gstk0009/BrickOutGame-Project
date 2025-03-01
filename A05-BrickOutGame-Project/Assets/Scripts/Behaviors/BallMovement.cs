@@ -12,8 +12,6 @@ public class BallMovement : MonoBehaviour
     private float initSizex;
     private float initSizey;
     private Rigidbody2D ballRigidBody2D;
-    private Vector2 beforeBallVelocity;
-    private Vector2 newDirection;
 
     private void Awake()
     {
@@ -28,11 +26,6 @@ public class BallMovement : MonoBehaviour
     {
         GameManager.Instance.ballMovement = this;
         ballRigidBody2D.velocity = Vector2.down * speed;
-    }
-
-    private void FixedUpdate()
-    {
-        beforeBallVelocity = ballRigidBody2D.velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
